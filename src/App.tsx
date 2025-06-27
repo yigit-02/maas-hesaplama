@@ -43,7 +43,13 @@ const translations = {
     noteText: 'Bu hesaplayıcı Türkiye\'deki güncel vergi dilimlerini kullanır. SGK primi %14, işsizlik sigortası %1, damga vergisi %0,759 oranlarında uygulanır.',
     errorInvalidSalary: 'Lütfen geçerli bir brüt maaş tutarı girin',
     errorNegativeInflation: 'Enflasyon oranı negatif olamaz',
-    custom: 'Özel'
+    custom: 'Özel',
+    viewMode: 'Görünüm Modu',
+    simpleView: 'Basit Görünüm',
+    detailedView: 'Detaylı Görünüm',
+    currentTaxBracket: 'Mevcut Vergi Dilimi',
+    netSalarySimple: 'Net Maaş',
+    inflationEffect: 'Enflasyon Etkisi'
   },
   en: {
     title: 'Gross-Net Salary Calculator',
@@ -86,19 +92,48 @@ const translations = {
     noteText: 'This calculator uses current Turkish tax brackets. SSK premium 14%, unemployment insurance 1%, stamp tax 0.759%.',
     errorInvalidSalary: 'Please enter a valid gross salary amount',
     errorNegativeInflation: 'Inflation rate cannot be negative',
-    custom: 'Custom'
+    custom: 'Custom',
+    viewMode: 'View Mode',
+    simpleView: 'Simple View',
+    detailedView: 'Detailed View',
+    currentTaxBracket: 'Current Tax Bracket',
+    netSalarySimple: 'Net Salary',
+    inflationEffect: 'Inflation Effect'
   }
 };
 
-// Inflation scenarios with country data
+// Inflation scenarios with country data (based on Trading Economics 2024)
 const getInflationScenarios = (t: any) => [
   { label: '🇿🇼 Zimbabwe', value: 339.7 },
+  { label: '🇱🇧 Lebanon', value: 221.3 },
   { label: '🇹🇷 Turkey', value: 75.5 },
+  { label: '🇦🇷 Argentina', value: 65.2 },
   { label: '🇮🇷 Iran', value: 48.5 },
-  { label: '🇦🇷 Argentina', value: 43.5 },
+  { label: '🇷🇺 Russia', value: 36.4 },
+  { label: '🇪🇬 Egypt', value: 33.9 },
+  { label: '🇪🇹 Ethiopia', value: 28.9 },
   { label: '🇻🇪 Venezuela', value: 23.6 },
+  { label: '🇵🇰 Pakistan', value: 22.4 },
+  { label: '🇬🇭 Ghana', value: 21.5 },
+  { label: '🇳🇬 Nigeria', value: 18.6 },
+  { label: '🇺🇦 Ukraine', value: 14.8 },
+  { label: '🇿🇦 South Africa', value: 11.1 },
+  { label: '🇮🇳 India', value: 8.7 },
+  { label: '🇧🇷 Brazil', value: 7.8 },
+  { label: '🇲🇽 Mexico', value: 6.9 },
+  { label: '🇮🇩 Indonesia', value: 5.4 },
+  { label: '🇰🇷 South Korea', value: 4.2 },
+  { label: '🇨🇳 China', value: 3.8 },
+  { label: '🇬🇧 United Kingdom', value: 3.4 },
+  { label: '🇨🇦 Canada', value: 2.9 },
   { label: '🇺🇸 USA', value: 2.4 },
+  { label: '🇦🇺 Australia', value: 2.1 },
   { label: '🇩🇪 Germany', value: 2.1 },
+  { label: '🇫🇷 France', value: 1.9 },
+  { label: '🇯🇵 Japan', value: 1.8 },
+  { label: '🇸🇪 Sweden', value: 1.5 },
+  { label: '🇳🇴 Norway', value: 1.3 },
+  { label: '🇨🇭 Switzerland', value: 0.7 },
   { label: t.custom, value: 0 }
 ];
 
@@ -145,6 +180,7 @@ function App() {
   const [results, setResults] = useState<CalculationResult[]>([]);
   const [showResults, setShowResults] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
+  const [viewMode, setViewMode] = useState<'simple' | 'detailed'>('simple');
 
   const t = translations[language];
   const inflationScenarios = getInflationScenarios(t);
@@ -183,6 +219,16 @@ function App() {
     }
 
     return totalTax;
+  };
+
+  // Get current tax bracket for cumulative income
+  const getCurrentTaxBracket = (cumulativeIncome: number): string => {
+    for (const bracket of incomeTaxBrackets) {
+      if (cumulativeIncome <= bracket.max) {
+        return `%${(bracket.rate * 100).toFixed(0)}`;
+      }
+    }
+    return `%${(incomeTaxBrackets[incomeTaxBrackets.length - 1].rate * 100).toFixed(0)}`;
   };
 
   // Handle language change
@@ -399,6 +445,45 @@ function App() {
           </div>
         </div>
 
+        {/* View Mode Selection */}
+        <div style={{ marginBottom: '1.5rem' }}>
+          <label className="form-label" style={{ marginBottom: '0.5rem', display: 'block' }}>
+            {t.viewMode}
+          </label>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <button
+              onClick={() => setViewMode('simple')}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: viewMode === 'simple' ? '#06b6d4' : '#374151',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0.25rem',
+                cursor: 'pointer',
+                fontSize: '0.875rem',
+                fontWeight: viewMode === 'simple' ? '600' : '400'
+              }}
+            >
+              {t.simpleView}
+            </button>
+            <button
+              onClick={() => setViewMode('detailed')}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: viewMode === 'detailed' ? '#06b6d4' : '#374151',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0.25rem',
+                cursor: 'pointer',
+                fontSize: '0.875rem',
+                fontWeight: viewMode === 'detailed' ? '600' : '400'
+              }}
+            >
+              {t.detailedView}
+            </button>
+          </div>
+        </div>
+
         {/* Calculate Button */}
         <div className="button-container">
           <button
@@ -426,56 +511,93 @@ function App() {
           
           {/* Results Table */}
           <div className="table-container">
-            <table className="results-table">
-              <thead className="table-header">
-                <tr>
-                  <th>{t.month}</th>
-                  <th className="text-right">{t.brut}</th>
-                  <th className="text-right">{t.sskIsci}</th>
-                  <th className="text-right">{t.issizlikIsci}</th>
-                  <th className="text-right red">{t.aylikGelirVergisi}</th>
-                  <th className="text-right">{t.damgaVergisi}</th>
-                  <th className="text-right">{t.kumulatifVergiMatrahi}</th>
-                  <th className="text-right">{t.net}</th>
-                  <th className="text-right">{t.asgariGecimIndirimi}</th>
-                  <th className="text-right">{t.asgariUcretGelirVergisiIstisnasi}</th>
-                  <th className="text-right">{t.asgariUcretDamgaVergisiIstisnasi}</th>
-                  <th className="text-right">{t.netOdenecekTutar}</th>
-                  <th className="text-right">{t.sskIsveren}</th>
-                  <th className="text-right">{t.issizlikIsveren}</th>
-                  <th className="text-right">{t.toplamMaliyet}</th>
-                  <th className="text-right orange">{t.purchasingPowerLoss}</th>
-                  <th className="text-right yellow">{t.realSalary}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {results.map((result) => (
-                  <tr key={result.month} className="table-row">
-                    <td className="table-cell">{result.month}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.grossSalary)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.sgkEmployee)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.unemploymentEmployee)}</td>
-                    <td className="table-cell text-right red">{formatCurrency(result.monthlyIncomeTax)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.stampTax)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.cumulativeTaxBase)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.netSalary)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.minimumLivingAllowance)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.incomeExemption)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.stampExemption)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.netPayableAmount)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.sgkEmployer)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.unemploymentEmployer)}</td>
-                    <td className="table-cell text-right">{formatCurrency(result.totalCost)}</td>
-                    <td className="table-cell text-right orange">
-                      {formatCurrency(result.purchasingPowerLoss)}
-                    </td>
-                    <td className="table-cell text-right yellow">
-                      {formatCurrency(result.realSalary)}
-                    </td>
+            {viewMode === 'simple' ? (
+              // Simple View Table
+              <table className="results-table simple">
+                <thead className="table-header">
+                  <tr>
+                    <th>{t.month}</th>
+                    <th className="text-right">{t.brut}</th>
+                    <th className="text-right">{t.netSalarySimple}</th>
+                    <th className="text-right red">{t.currentTaxBracket}</th>
+                    <th className="text-right orange">{t.purchasingPowerLoss}</th>
+                    <th className="text-right yellow">{t.realSalary}</th>
+                    <th className="text-right">{t.inflationEffect}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {results.map((result) => (
+                    <tr key={result.month} className="table-row">
+                      <td className="table-cell">{result.month}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.grossSalary)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.netPayableAmount)}</td>
+                      <td className="table-cell text-right red">{getCurrentTaxBracket(result.cumulativeTaxBase)}</td>
+                      <td className="table-cell text-right orange">
+                        {formatCurrency(result.purchasingPowerLoss)}
+                      </td>
+                      <td className="table-cell text-right yellow">
+                        {formatCurrency(result.realSalary)}
+                      </td>
+                      <td className="table-cell text-right">
+                        {(result.inflationMultiplier * 100 - 100).toFixed(1)}%
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              // Detailed View Table
+              <table className="results-table detailed">
+                <thead className="table-header">
+                  <tr>
+                    <th>{t.month}</th>
+                    <th className="text-right">{t.brut}</th>
+                    <th className="text-right">{t.sskIsci}</th>
+                    <th className="text-right">{t.issizlikIsci}</th>
+                    <th className="text-right red">{t.aylikGelirVergisi}</th>
+                    <th className="text-right">{t.damgaVergisi}</th>
+                    <th className="text-right">{t.kumulatifVergiMatrahi}</th>
+                    <th className="text-right">{t.net}</th>
+                    <th className="text-right">{t.asgariGecimIndirimi}</th>
+                    <th className="text-right">{t.asgariUcretGelirVergisiIstisnasi}</th>
+                    <th className="text-right">{t.asgariUcretDamgaVergisiIstisnasi}</th>
+                    <th className="text-right">{t.netOdenecekTutar}</th>
+                    <th className="text-right">{t.sskIsveren}</th>
+                    <th className="text-right">{t.issizlikIsveren}</th>
+                    <th className="text-right">{t.toplamMaliyet}</th>
+                    <th className="text-right orange">{t.purchasingPowerLoss}</th>
+                    <th className="text-right yellow">{t.realSalary}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {results.map((result) => (
+                    <tr key={result.month} className="table-row">
+                      <td className="table-cell">{result.month}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.grossSalary)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.sgkEmployee)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.unemploymentEmployee)}</td>
+                      <td className="table-cell text-right red">{formatCurrency(result.monthlyIncomeTax)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.stampTax)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.cumulativeTaxBase)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.netSalary)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.minimumLivingAllowance)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.incomeExemption)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.stampExemption)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.netPayableAmount)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.sgkEmployer)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.unemploymentEmployer)}</td>
+                      <td className="table-cell text-right">{formatCurrency(result.totalCost)}</td>
+                      <td className="table-cell text-right orange">
+                        {formatCurrency(result.purchasingPowerLoss)}
+                      </td>
+                      <td className="table-cell text-right yellow">
+                        {formatCurrency(result.realSalary)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
 
           {/* Calculation Details */}
