@@ -142,10 +142,18 @@ body {
 
 .results-table {
   width: 100%;
-  min-width: 1800px;
   font-size: 0.75rem;
   border-collapse: collapse;
   white-space: nowrap;
+}
+
+.results-table.detailed {
+  min-width: 1800px;
+}
+
+.results-table.simple {
+  min-width: 800px;
+  font-size: 0.875rem;
 }
 
 .table-header {
