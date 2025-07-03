@@ -83,7 +83,16 @@ const translations = {
     tuikEnagLabel: 'TÜIK ENAG',
     itoLabel: 'İTO',
     monthlyProjection: 'Aylık Projeksiyon',
-    yearlyInflationRates: 'Yıllık Enflasyon Oranları'
+    yearlyInflationRates: 'Yıllık Enflasyon Oranları',
+    analysisTitle: 'Maaş Analizi',
+    initialSalary: 'Başlangıç Gerçek Maaşınız',
+    finalSalary: '12 Ay Sonunda Gerçek Maaşınız',
+    inflationImpact: 'Enflasyon Etkisi',
+    purchasingPowerLossTotal: 'Toplam Satın Alma Gücü Kaybı',
+    hungerThresholdWarning: '{{month}}. aydan itibaren açlık sınırının altında kalıyor.',
+    povertyThresholdWarning: '{{month}}. aydan itibaren yoksulluk sınırının altında kalıyor.',
+    aboveThresholds: 'Maaşınız 12 ay boyunca açlık ve yoksulluk sınırlarının üzerinde kalıyor.',
+    monthlyLoss: 'Aylık ortalama kayıp'
   },
   en: {
     title: 'Gross-Net Salary Calculator',
@@ -143,7 +152,16 @@ const translations = {
     tuikEnagLabel: 'TUIK ENAG',
     itoLabel: 'ITO',
     monthlyProjection: 'Monthly Projection',
-    yearlyInflationRates: 'Yearly Inflation Rates'
+    yearlyInflationRates: 'Yearly Inflation Rates',
+    analysisTitle: 'Salary Analysis',
+    initialSalary: 'Your Initial Real Salary',
+    finalSalary: 'Your Real Salary After 12 Months',
+    inflationImpact: 'Inflation Impact',
+    purchasingPowerLossTotal: 'Total Purchasing Power Loss',
+    hungerThresholdWarning: 'Falls below hunger threshold starting from month {{month}}.',
+    povertyThresholdWarning: 'Falls below poverty threshold starting from month {{month}}.',
+    aboveThresholds: 'Your salary stays above hunger and poverty thresholds for all 12 months.',
+    monthlyLoss: 'Monthly average loss'
   }
 };
 
@@ -182,13 +200,39 @@ const getInflationScenarios = (t: any) => [
   { label: t.custom, value: 0 }
 ];
 
-// Turkish income tax brackets for 2024 (based on your document)
+// Turkish income tax brackets for 2024 (updated to match Excel)
 const incomeTaxBrackets = [
   { min: 0, max: 110000, rate: 0.15 },
   { min: 110000, max: 230000, rate: 0.20 },
   { min: 230000, max: 580000, rate: 0.27 },
   { min: 580000, max: Infinity, rate: 0.35 }
 ];
+
+// Monthly exemption limits (2024 values - updated)
+const monthlyExemptions = {
+  january: { income: 3315.70, stamp: 197.38 },
+  february: { income: 3315.70, stamp: 197.38 },
+  march: { income: 3315.70, stamp: 197.38 },
+  april: { income: 3315.70, stamp: 197.38 },
+  may: { income: 3315.70, stamp: 197.38 },
+  june: { income: 3315.70, stamp: 197.38 },
+  july: { income: 3315.70, stamp: 197.38 },
+  august: { income: 4257.57, stamp: 197.38 }, // Updated in August
+  september: { income: 4420.94, stamp: 197.38 }, // Updated in September
+  october: { income: 4420.94, stamp: 197.38 },
+  november: { income: 4420.94, stamp: 197.38 },
+  december: { income: 4420.94, stamp: 197.38 }
+};
+
+const getMonthlyExemption = (month: number) => {
+  const exemptions = [
+    monthlyExemptions.january, monthlyExemptions.february, monthlyExemptions.march,
+    monthlyExemptions.april, monthlyExemptions.may, monthlyExemptions.june,
+    monthlyExemptions.july, monthlyExemptions.august, monthlyExemptions.september,
+    monthlyExemptions.october, monthlyExemptions.november, monthlyExemptions.december
+  ];
+  return exemptions[month - 1];
+};
 
 // Tax exemptions (2024 values)
 const taxExemptions = {
@@ -291,9 +335,42 @@ function App() {
     return new Intl.NumberFormat('tr-TR', {
       style: 'currency',
       currency: 'TRY',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(amount);
+  };
+
+  // Format currency with decimals for detailed view
+  const formatCurrencyDetailed = (amount: number): string => {
+    return new Intl.NumberFormat('tr-TR', {
+      style: 'currency',
+      currency: 'TRY',
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
     }).format(amount);
+  };
+
+  // Generate salary analysis
+  const generateSalaryAnalysis = () => {
+    if (!hasCalculated || results.length === 0) return null;
+    
+    const initialRealSalary = results[0].realSalary;
+    const finalRealSalary = results[11].realSalary;
+    const totalLoss = results.reduce((sum, r) => sum + r.purchasingPowerLoss, 0);
+    const monthlyAverageLoss = totalLoss / 12;
+    
+    // Find when salary drops below thresholds
+    const hungerThresholdMonth = results.findIndex(r => r.realSalary < povertyThresholds.hungerThreshold);
+    const povertyThresholdMonth = results.findIndex(r => r.realSalary < povertyThresholds.povertyThreshold);
+    
+    return {
+      initialRealSalary,
+      finalRealSalary,
+      totalLoss,
+      monthlyAverageLoss,
+      hungerThresholdMonth: hungerThresholdMonth === -1 ? null : hungerThresholdMonth + 1,
+      povertyThresholdMonth: povertyThresholdMonth === -1 ? null : povertyThresholdMonth + 1
+    };
   };
 
   // Calculate progressive income tax based on cumulative income
@@ -397,9 +474,10 @@ function App() {
       const sgkEmployer = numericGrossSalary * 0.155; // 15.5% SSK Employer
       const unemploymentEmployer = numericGrossSalary * 0.02; // 2% unemployment insurance Employer
       
-      // Calculate exemptions
-      const incomeExemption = Math.min(monthlyIncomeTax, taxExemptions.incomeExemption);
-      const stampExemption = Math.min(stampTax, taxExemptions.stampExemption);
+      // Calculate exemptions based on month
+      const monthlyExemption = getMonthlyExemption(month);
+      const incomeExemption = Math.min(monthlyIncomeTax, monthlyExemption.income);
+      const stampExemption = Math.min(stampTax, monthlyExemption.stamp);
       
       // Calculate net amounts after exemptions
       const netIncomeTax = Math.max(0, monthlyIncomeTax - incomeExemption);
@@ -750,33 +828,49 @@ function App() {
                   {
                     label: t.netSalaryLabel,
                     data: results.map(r => r.netPayableAmount),
-                    borderColor: 'rgb(75, 192, 192)',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    tension: 0.1,
+                    borderColor: '#22c55e',
+                    backgroundColor: 'rgba(34, 197, 94, 0.15)',
+                    tension: 0.3,
+                    borderWidth: 4,
+                    pointRadius: 7,
+                    pointHoverRadius: 10,
+                    pointBackgroundColor: '#22c55e',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2,
                     hidden: !hasCalculated
                   },
                   {
                     label: t.realSalaryLabel,
                     data: results.map(r => r.realSalary),
-                    borderColor: 'rgb(255, 99, 132)',
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    tension: 0.1,
+                    borderColor: '#dc2626',
+                    backgroundColor: 'rgba(220, 38, 38, 0.15)',
+                    tension: 0.3,
+                    borderWidth: 4,
+                    pointRadius: 7,
+                    pointHoverRadius: 10,
+                    pointBackgroundColor: '#dc2626',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2,
                     hidden: !hasCalculated
                   },
                   {
                     label: t.hungerThreshold,
                     data: new Array(12).fill(povertyThresholds.hungerThreshold),
-                    borderColor: 'rgb(255, 205, 86)',
-                    backgroundColor: 'rgba(255, 205, 86, 0.2)',
-                    borderDash: [5, 5],
+                    borderColor: '#f59e0b',
+                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                    borderDash: [8, 4],
+                    borderWidth: 2,
+                    pointRadius: 0,
                     tension: 0
                   },
                   {
                     label: t.povertyThreshold,
                     data: new Array(12).fill(povertyThresholds.povertyThreshold),
-                    borderColor: 'rgb(255, 159, 64)',
-                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                    borderDash: [10, 5],
+                    borderColor: '#f97316',
+                    backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                    borderDash: [12, 6],
+                    borderWidth: 2,
+                    pointRadius: 0,
                     tension: 0
                   }
                 ]
@@ -786,12 +880,35 @@ function App() {
                 plugins: {
                   legend: {
                     position: 'top' as const,
+                    labels: {
+                      usePointStyle: true,
+                      padding: 20,
+                      font: {
+                        size: 14,
+                        weight: 'bold'
+                      },
+                      color: '#cbd5e1',
+                      boxWidth: 15,
+                      boxHeight: 3
+                    }
                   },
                   title: {
                     display: true,
-                    text: t.monthlyProjection
+                    text: t.monthlyProjection,
+                    font: {
+                      size: 18,
+                      weight: 'bold'
+                    },
+                    padding: 20,
+                    color: '#06b6d4'
                   },
                   tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleColor: 'white',
+                    bodyColor: 'white',
+                    borderColor: 'rgba(255, 255, 255, 0.1)',
+                    borderWidth: 1,
+                    cornerRadius: 8,
                     callbacks: {
                       label: function(context) {
                         return `${context.dataset.label}: ${formatCurrency(context.parsed.y)}`;
@@ -800,9 +917,29 @@ function App() {
                   }
                 },
                 scales: {
+                  x: {
+                    grid: {
+                      color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                      color: '#cbd5e1',
+                      font: {
+                        size: 11,
+                        weight: 'bold'
+                      }
+                    }
+                  },
                   y: {
                     beginAtZero: true,
+                    grid: {
+                      color: 'rgba(255, 255, 255, 0.1)'
+                    },
                     ticks: {
+                      color: '#cbd5e1',
+                      font: {
+                        size: 11,
+                        weight: 'bold'
+                      },
                       callback: function(value) {
                         return formatCurrency(Number(value));
                       }
@@ -812,6 +949,65 @@ function App() {
               }}
             />
           </div>
+
+          {/* Salary Analysis */}
+          {hasCalculated && (
+            <div className="analysis-container">
+              <h3 className="analysis-title">
+                {t.analysisTitle}
+              </h3>
+              {(() => {
+                const analysis = generateSalaryAnalysis();
+                if (!analysis) return null;
+                
+                return (
+                  <div className="analysis-content">
+                    <div className="analysis-grid">
+                      <div className="analysis-item">
+                        <span className="analysis-label">{t.initialSalary}:</span>
+                        <span className="analysis-value positive">{formatCurrency(analysis.initialRealSalary)}</span>
+                      </div>
+                      <div className="analysis-item">
+                        <span className="analysis-label">{t.finalSalary}:</span>
+                        <span className="analysis-value negative">{formatCurrency(analysis.finalRealSalary)}</span>
+                      </div>
+                      <div className="analysis-item">
+                        <span className="analysis-label">{t.purchasingPowerLossTotal}:</span>
+                        <span className="analysis-value negative">{formatCurrency(analysis.totalLoss)}</span>
+                      </div>
+                      <div className="analysis-item">
+                        <span className="analysis-label">{t.monthlyLoss}:</span>
+                        <span className="analysis-value negative">{formatCurrency(analysis.monthlyAverageLoss)}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="analysis-warnings">
+                      {analysis.hungerThresholdMonth ? (
+                        <div className="warning-item hunger">
+                          <span className="warning-icon">📉</span>
+                          <span>{t.hungerThresholdWarning.replace('{{month}}', analysis.hungerThresholdMonth.toString())}</span>
+                        </div>
+                      ) : null}
+                      
+                      {analysis.povertyThresholdMonth ? (
+                        <div className="warning-item poverty">
+                          <span className="warning-icon">📉</span>
+                          <span>{t.povertyThresholdWarning.replace('{{month}}', analysis.povertyThresholdMonth.toString())}</span>
+                        </div>
+                      ) : null}
+                      
+                      {!analysis.hungerThresholdMonth && !analysis.povertyThresholdMonth ? (
+                        <div className="warning-item success">
+                          <span className="warning-icon">✅</span>
+                          <span>{t.aboveThresholds}</span>
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
 
           {/* Turkey Inflation Rates Chart */}
           {selectedInflation === 75.5 && hasCalculated && (

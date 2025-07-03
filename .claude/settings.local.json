@@ -5,7 +5,8 @@
       "Bash(npx tailwindcss init:*)",
       "Bash(./node_modules/.bin/tailwindcss:*)",
       "Bash(npm start)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }
