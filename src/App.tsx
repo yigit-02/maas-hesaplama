@@ -1,4 +1,27 @@
 import React, { useState } from 'react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+} from 'chart.js';
+import { Line, Bar } from 'react-chartjs-2';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement
+);
 
 // Language definitions
 const translations = {
@@ -49,7 +72,18 @@ const translations = {
     detailedView: 'Detaylı Görünüm',
     currentTaxBracket: 'Mevcut Vergi Dilimi',
     netSalarySimple: 'Net Maaş',
-    inflationEffect: 'Enflasyon Etkisi'
+    inflationEffect: 'Enflasyon Etkisi',
+    chartsTitle: 'Grafikler',
+    salaryComparisonChart: 'Net Maaş vs Gerçek Net Maaş Karşılaştırması',
+    inflationRatesChart: 'Türkiye Enflasyon Oranları (TÜIK ENAG vs İTO)',
+    netSalaryLabel: 'Net Maaş',
+    realSalaryLabel: 'Gerçek Net Maaş',
+    hungerThreshold: 'Açlık Sınırı',
+    povertyThreshold: 'Yoksulluk Sınırı',
+    tuikEnagLabel: 'TÜIK ENAG',
+    itoLabel: 'İTO',
+    monthlyProjection: 'Aylık Projeksiyon',
+    yearlyInflationRates: 'Yıllık Enflasyon Oranları'
   },
   en: {
     title: 'Gross-Net Salary Calculator',
@@ -98,7 +132,18 @@ const translations = {
     detailedView: 'Detailed View',
     currentTaxBracket: 'Current Tax Bracket',
     netSalarySimple: 'Net Salary',
-    inflationEffect: 'Inflation Effect'
+    inflationEffect: 'Inflation Effect',
+    chartsTitle: 'Charts',
+    salaryComparisonChart: 'Net Salary vs Real Net Salary Comparison',
+    inflationRatesChart: 'Turkey Inflation Rates (TUIK ENAG vs ITO)',
+    netSalaryLabel: 'Net Salary',
+    realSalaryLabel: 'Real Net Salary',
+    hungerThreshold: 'Hunger Threshold',
+    povertyThreshold: 'Poverty Threshold',
+    tuikEnagLabel: 'TUIK ENAG',
+    itoLabel: 'ITO',
+    monthlyProjection: 'Monthly Projection',
+    yearlyInflationRates: 'Yearly Inflation Rates'
   }
 };
 
@@ -151,6 +196,19 @@ const taxExemptions = {
   stampExemption: 197.38    // Monthly stamp tax exemption
 };
 
+// Poverty and hunger thresholds (2024 values - TÜRK-İŞ data)
+const povertyThresholds = {
+  hungerThreshold: 19662, // Monthly hunger threshold for 4-person family
+  povertyThreshold: 64055 // Monthly poverty threshold for 4-person family
+};
+
+// Turkey inflation data (TÜIK ENAG and İTO yearly rates)
+const turkeyInflationData = {
+  years: ['2019', '2020', '2021', '2022', '2023', '2024'],
+  tuikEnag: [15.2, 14.6, 36.1, 72.3, 61.9, 75.5],
+  ito: [18.5, 16.2, 42.3, 83.4, 68.1, 82.3]
+};
+
 interface CalculationResult {
   month: number;
   grossSalary: number;
@@ -178,12 +236,49 @@ function App() {
   const [selectedInflation, setSelectedInflation] = useState<number>(75.5);
   const [customInflation, setCustomInflation] = useState<string>('');
   const [results, setResults] = useState<CalculationResult[]>([]);
-  const [showResults, setShowResults] = useState<boolean>(false);
+  const [showResults, setShowResults] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
   const [viewMode, setViewMode] = useState<'simple' | 'detailed'>('simple');
+  const [showCharts, setShowCharts] = useState<boolean>(true);
+  const [hasCalculated, setHasCalculated] = useState<boolean>(false);
 
   const t = translations[language];
   const inflationScenarios = getInflationScenarios(t);
+
+  // Generate empty results for initial display
+  const generateEmptyResults = (): CalculationResult[] => {
+    const emptyResults: CalculationResult[] = [];
+    for (let month = 1; month <= 12; month++) {
+      emptyResults.push({
+        month,
+        grossSalary: 0,
+        sgkEmployee: 0,
+        unemploymentEmployee: 0,
+        monthlyIncomeTax: 0,
+        stampTax: 0,
+        cumulativeTaxBase: 0,
+        netSalary: 0,
+        minimumLivingAllowance: 0,
+        incomeExemption: 0,
+        stampExemption: 0,
+        netPayableAmount: 0,
+        sgkEmployer: 0,
+        unemploymentEmployer: 0,
+        totalCost: 0,
+        purchasingPowerLoss: 0,
+        realSalary: 0,
+        inflationMultiplier: 1
+      });
+    }
+    return emptyResults;
+  };
+
+  // Initialize with empty results
+  React.useEffect(() => {
+    if (results.length === 0) {
+      setResults(generateEmptyResults());
+    }
+  }, []);
 
   // Format number with thousand separators
   const formatNumber = (value: string): string => {
@@ -346,6 +441,8 @@ function App() {
 
     setResults(calculationResults);
     setShowResults(true);
+    setShowCharts(true);
+    setHasCalculated(true);
     setError('');
   };
 
@@ -631,6 +728,149 @@ function App() {
               </p>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Charts Section */}
+      {showCharts && results.length > 0 && (
+        <div className="charts-section">
+          <h2 className="charts-title">
+            {t.chartsTitle}
+          </h2>
+          
+          {/* Salary Comparison Chart */}
+          <div className="chart-container">
+            <h3 className="chart-subtitle">
+              {t.salaryComparisonChart}
+            </h3>
+            <Line
+              data={{
+                labels: results.map(r => `${t.month} ${r.month}`),
+                datasets: [
+                  {
+                    label: t.netSalaryLabel,
+                    data: results.map(r => r.netPayableAmount),
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    tension: 0.1,
+                    hidden: !hasCalculated
+                  },
+                  {
+                    label: t.realSalaryLabel,
+                    data: results.map(r => r.realSalary),
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    tension: 0.1,
+                    hidden: !hasCalculated
+                  },
+                  {
+                    label: t.hungerThreshold,
+                    data: new Array(12).fill(povertyThresholds.hungerThreshold),
+                    borderColor: 'rgb(255, 205, 86)',
+                    backgroundColor: 'rgba(255, 205, 86, 0.2)',
+                    borderDash: [5, 5],
+                    tension: 0
+                  },
+                  {
+                    label: t.povertyThreshold,
+                    data: new Array(12).fill(povertyThresholds.povertyThreshold),
+                    borderColor: 'rgb(255, 159, 64)',
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                    borderDash: [10, 5],
+                    tension: 0
+                  }
+                ]
+              }}
+              options={{
+                responsive: true,
+                plugins: {
+                  legend: {
+                    position: 'top' as const,
+                  },
+                  title: {
+                    display: true,
+                    text: t.monthlyProjection
+                  },
+                  tooltip: {
+                    callbacks: {
+                      label: function(context) {
+                        return `${context.dataset.label}: ${formatCurrency(context.parsed.y)}`;
+                      }
+                    }
+                  }
+                },
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    ticks: {
+                      callback: function(value) {
+                        return formatCurrency(Number(value));
+                      }
+                    }
+                  }
+                }
+              }}
+            />
+          </div>
+
+          {/* Turkey Inflation Rates Chart */}
+          {selectedInflation === 75.5 && hasCalculated && (
+            <div className="chart-container">
+              <h3 className="chart-subtitle">
+                {t.inflationRatesChart}
+              </h3>
+              <Bar
+                data={{
+                  labels: turkeyInflationData.years,
+                  datasets: [
+                    {
+                      label: t.tuikEnagLabel,
+                      data: turkeyInflationData.tuikEnag,
+                      backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                      borderColor: 'rgba(54, 162, 235, 1)',
+                      borderWidth: 1
+                    },
+                    {
+                      label: t.itoLabel,
+                      data: turkeyInflationData.ito,
+                      backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                      borderColor: 'rgba(255, 99, 132, 1)',
+                      borderWidth: 1
+                    }
+                  ]
+                }}
+                options={{
+                  responsive: true,
+                  plugins: {
+                    legend: {
+                      position: 'top' as const,
+                    },
+                    title: {
+                      display: true,
+                      text: t.yearlyInflationRates
+                    },
+                    tooltip: {
+                      callbacks: {
+                        label: function(context) {
+                          return `${context.dataset.label}: %${context.parsed.y}`;
+                        }
+                      }
+                    }
+                  },
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                      ticks: {
+                        callback: function(value) {
+                          return `%${value}`;
+                        }
+                      }
+                    }
+                  }
+                }}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -260,3 +260,49 @@ body {
   font-size: 0.75rem;
   color: #cbd5e1;
 }
+
+/* Charts Section */
+.charts-section {
+  background-color: #1e293b;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.charts-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #06b6d4;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.chart-container {
+  background-color: #374151;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-subtitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chart-container canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 1rem;
+  }
+  
+  .chart-subtitle {
+    font-size: 1rem;
+  }
+}
