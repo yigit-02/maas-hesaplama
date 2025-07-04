@@ -1052,16 +1052,7 @@ function App() {
                   },
                   plugins: {
                     datalabels: {
-                      display: true,
-                      anchor: 'end',
-                      align: 'top',
-                      color: '#000000',
-                      font: {
-                        size: 11,
-                        weight: 'bold'
-                      },
-                      formatter: (value: number) => `%${value}`,
-                      clip: false
+                      display: false
                     },
                     legend: {
                       position: 'top' as const,
@@ -1124,15 +1115,26 @@ function App() {
                         color: 'rgba(0, 0, 0, 0.1)'
                       },
                       ticks: {
-                        color: '#374151',
+                        color: '#000000',
                         font: {
-                          size: 12,
+                          size: 14,
                           weight: 'bold'
                         },
-                        stepSize: 25,
+                        stepSize: 10,
+                        padding: 8,
                         callback: function(value) {
                           return `%${value}`;
                         }
+                      },
+                      title: {
+                        display: true,
+                        text: 'Enflasyon Oranı (%)',
+                        color: '#000000',
+                        font: {
+                          size: 16,
+                          weight: 'bold'
+                        },
+                        padding: 15
                       }
                     }
                   }
