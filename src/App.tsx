@@ -587,16 +587,30 @@ function App() {
     const TURKEY_GDP_PER_CAPITA_USD = 13000; // 2024 estimate
     const WORKING_HOURS_PER_YEAR = 1750; // Standard working hours
     const WORKING_HOURS_PER_MONTH = 225; // 1750 / 12 * 1.5 adjustment
+    const USD_TO_TL_RATE = 30; // Approximate exchange rate
     
-    const hourlyGdpContribution = TURKEY_GDP_PER_CAPITA_USD / WORKING_HOURS_PER_YEAR;
+    // Turkey's average hourly GDP contribution (reference)
+    const turkeyAvgHourlyGdpUSD = TURKEY_GDP_PER_CAPITA_USD / WORKING_HOURS_PER_YEAR;
+    const turkeyAvgHourlyGdpTL = turkeyAvgHourlyGdpUSD * USD_TO_TL_RATE;
+    
+    // User's hourly salary
     const monthlySalary = numericGrossSalary;
     const hourlySalary = monthlySalary / WORKING_HOURS_PER_MONTH;
     
+    // User's estimated hourly GDP contribution (proportional to their salary vs average salary)
+    const turkeyAvgMonthlySalary = 45000; // Approximate average monthly gross salary in Turkey
+    const salaryMultiplier = monthlySalary / turkeyAvgMonthlySalary;
+    const userHourlyGdpContributionTL = turkeyAvgHourlyGdpTL * salaryMultiplier;
+    const userHourlyGdpContributionUSD = userHourlyGdpContributionTL / USD_TO_TL_RATE;
+    
     return {
-      hourlyGdpContribution,
+      hourlyGdpContribution: userHourlyGdpContributionUSD, // User's actual contribution
+      hourlyGdpContributionTL: userHourlyGdpContributionTL,
       hourlySalary,
-      monthlyGdpContribution: hourlyGdpContribution * WORKING_HOURS_PER_MONTH,
-      gdpRatio: hourlySalary / hourlyGdpContribution
+      turkeyAvgHourlyGdp: turkeyAvgHourlyGdpUSD, // Turkey average for comparison
+      monthlyGdpContribution: userHourlyGdpContributionTL * WORKING_HOURS_PER_MONTH,
+      gdpRatio: userHourlyGdpContributionUSD / turkeyAvgHourlyGdpUSD,
+      salaryToGdpRatio: hourlySalary / userHourlyGdpContributionTL
     };
   };
 
@@ -958,6 +972,9 @@ function App() {
                         <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#059669' }}>
                           ${gdpData.hourlyGdpContribution.toFixed(2)}
                         </div>
+                        <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>
+                          ({formatCurrency(gdpData.hourlyGdpContributionTL)})
+                        </div>
                       </div>
                       <div style={{ 
                         backgroundColor: '#f8fafc', 
@@ -971,6 +988,9 @@ function App() {
                         <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#0369a1' }}>
                           {formatCurrency(gdpData.hourlySalary)}
                         </div>
+                        <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>
+                          Aylık: {formatCurrency(gdpData.hourlySalary * 225)}
+                        </div>
                       </div>
                       <div style={{ 
                         backgroundColor: '#f8fafc', 
@@ -979,14 +999,17 @@ function App() {
                         border: '1px solid #e2e8f0'
                       }}>
                         <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>
-                          GDP/Maaş Oranı
+                          Türkiye Ortalaması ile Kıyas
                         </div>
                         <div style={{ 
                           fontSize: '1.5rem', 
                           fontWeight: 'bold', 
                           color: gdpData.gdpRatio > 1 ? '#059669' : '#dc2626'
                         }}>
-                          {gdpData.gdpRatio.toFixed(2)}x
+                          {gdpData.gdpRatio > 1 ? '+' : ''}{((gdpData.gdpRatio - 1) * 100).toFixed(1)}%
+                        </div>
+                        <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>
+                          Ortalama: ${gdpData.turkeyAvgHourlyGdp.toFixed(2)}
                         </div>
                       </div>
                     </div>
@@ -998,12 +1021,36 @@ function App() {
                       marginTop: '1rem'
                     }}>
                       <h4 style={{ margin: '0 0 1rem 0', color: '#06b6d4' }}>Analiz</h4>
-                      <p style={{ margin: '0', lineHeight: '1.6' }}>
-                        {gdpData.gdpRatio > 1 
-                          ? `Tebrikler! Saatlik maaşınız Türkiye'nin kişi başı GDP katkısından ${gdpData.gdpRatio.toFixed(2)} kat fazla. Bu, ekonomiye ortalamanın üzerinde katkı sağladığınızı gösterir.`
-                          : `Saatlik maaşınız Türkiye'nin kişi başı GDP katkısının ${gdpData.gdpRatio.toFixed(2)} katı. Bu, maaşınızın ekonomik katkınızla orantılı olup olmadığını değerlendirmeniz için bir referans.`
-                        }
-                      </p>
+                      <div style={{ display: 'grid', gap: '1rem' }}>
+                        <p style={{ margin: '0', lineHeight: '1.6' }}>
+                          <strong>💼 GDP Katkısı:</strong> Maaşınıza göre tahmini saatlik GDP katkınız{' '}
+                          <span style={{ color: '#10b981', fontWeight: 'bold' }}>
+                            ${gdpData.hourlyGdpContribution.toFixed(2)}
+                          </span>{' '}
+                          ({formatCurrency(gdpData.hourlyGdpContributionTL)})
+                        </p>
+                        <p style={{ margin: '0', lineHeight: '1.6' }}>
+                          <strong>📊 Ortalama ile Kıyas:</strong> Türkiye ortalamasından{' '}
+                          <span style={{ 
+                            color: gdpData.gdpRatio > 1 ? '#10b981' : '#ef4444',
+                            fontWeight: 'bold'
+                          }}>
+                            %{Math.abs((gdpData.gdpRatio - 1) * 100).toFixed(1)} {gdpData.gdpRatio > 1 ? 'fazla' : 'az'}
+                          </span>{' '}
+                          ekonomik katkı sağlıyorsunuz.
+                        </p>
+                        <p style={{ margin: '0', lineHeight: '1.6' }}>
+                          <strong>🎯 Değerlendirme:</strong>{' '}
+                          {gdpData.gdpRatio > 1.5 
+                            ? 'Ekonomiye çok yüksek katkı sağlıyorsunuz!'
+                            : gdpData.gdpRatio > 1.1 
+                            ? 'Ortalamanın üzerinde ekonomik katkı sağlıyorsunuz.'
+                            : gdpData.gdpRatio > 0.9
+                            ? 'Ortalamaya yakın ekonomik katkı sağlıyorsunuz.'
+                            : 'Ortalamadan düşük ekonomik katkı sağlıyorsunuz.'
+                          }
+                        </p>
+                      </div>
                     </div>
                   </div>
                 );
