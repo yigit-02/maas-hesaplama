@@ -8,7 +8,8 @@
       "Bash(npm uninstall:*)",
       "Bash(git add:*)",
       "Bash(python test:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": []
   }

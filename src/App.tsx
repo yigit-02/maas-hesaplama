@@ -520,7 +520,13 @@ function App() {
   return (
     <div className="container">
       {/* Language Toggle */}
-      <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '0.5rem' }}>
+      <div style={{ 
+        position: 'absolute', 
+        top: '1rem', 
+        right: '1rem', 
+        display: 'flex', 
+        gap: '0.5rem'
+      }} className="language-toggle">
         <button
           onClick={() => handleLanguageChange('tr')}
           style={{
@@ -1162,7 +1168,7 @@ function App() {
                   justifyContent: 'space-around',
                   flexWrap: 'wrap',
                   gap: '15px'
-                }}>
+                }} className="years-container">
                   {turkeyInflationData.years.map((year, index) => (
                     <div key={index} style={{
                       backgroundColor: '#374151',
@@ -1172,7 +1178,7 @@ function App() {
                       fontWeight: 'bold',
                       fontSize: '16px',
                       border: '2px solid #4b5563'
-                    }}>
+                    }} className="year-item">
                       {year}
                     </div>
                   ))}
@@ -1201,8 +1207,8 @@ function App() {
                   justifyContent: 'space-around',
                   flexWrap: 'wrap',
                   gap: '20px'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                }} className="color-legend-container">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="legend-item">
                     <div style={{
                       width: '20px',
                       height: '20px',
@@ -1215,7 +1221,7 @@ function App() {
                     </span>
                   </div>
                   
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="legend-item">
                     <div style={{
                       width: '20px',
                       height: '20px',
@@ -1228,7 +1234,7 @@ function App() {
                     </span>
                   </div>
                   
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="legend-item">
                     <div style={{
                       width: '20px',
                       height: '20px',
