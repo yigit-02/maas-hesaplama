@@ -41,3 +41,4 @@ npm run build
 2. **Select inflation scenario**: Choose from predefined countries or enter custom rate
 3. **Calculate**: View detailed 12-month projection
 4. **Language toggle**: Switch between Turkish (🇹🇷) and English (🇺🇸)
+# Update Fri Jul  4 19:02:07 +03 2025
