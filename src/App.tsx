@@ -10,6 +10,7 @@ import {
   Legend,
   BarElement,
 } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Line, Bar } from 'react-chartjs-2';
 
 ChartJS.register(
@@ -20,7 +21,8 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  BarElement
+  BarElement,
+  ChartDataLabels
 );
 
 // Language definitions
@@ -75,13 +77,14 @@ const translations = {
     inflationEffect: 'Enflasyon Etkisi',
     chartsTitle: 'Grafikler',
     salaryComparisonChart: 'Net Maaş vs Gerçek Net Maaş Karşılaştırması',
-    inflationRatesChart: 'Türkiye Enflasyon Oranları (TÜIK ENAG vs İTO)',
+    inflationRatesChart: 'Yıllık Enflasyon Oranları Karşılaştırması (2020 - 2025)',
     netSalaryLabel: 'Net Maaş',
     realSalaryLabel: 'Gerçek Net Maaş',
     hungerThreshold: 'Açlık Sınırı',
     povertyThreshold: 'Yoksulluk Sınırı',
-    tuikEnagLabel: 'TÜIK ENAG',
-    itoLabel: 'İTO',
+    tuikLabel: 'TÜİK (TÜFE)',
+    enagLabel: 'ENAG',
+    itoLabel: 'İTO (İstanbul Ücretliler Geçinme İndeksi)',
     monthlyProjection: 'Aylık Projeksiyon',
     yearlyInflationRates: 'Yıllık Enflasyon Oranları',
     analysisTitle: 'Maaş Analizi',
@@ -144,13 +147,14 @@ const translations = {
     inflationEffect: 'Inflation Effect',
     chartsTitle: 'Charts',
     salaryComparisonChart: 'Net Salary vs Real Net Salary Comparison',
-    inflationRatesChart: 'Turkey Inflation Rates (TUIK ENAG vs ITO)',
+    inflationRatesChart: 'Yearly Inflation Rates Comparison (2020 - 2025)',
     netSalaryLabel: 'Net Salary',
     realSalaryLabel: 'Real Net Salary',
     hungerThreshold: 'Hunger Threshold',
     povertyThreshold: 'Poverty Threshold',
-    tuikEnagLabel: 'TUIK ENAG',
-    itoLabel: 'ITO',
+    tuikLabel: 'TUIK (TUFE)',
+    enagLabel: 'ENAG',
+    itoLabel: 'ITO (Istanbul Wage Earners Living Index)',
     monthlyProjection: 'Monthly Projection',
     yearlyInflationRates: 'Yearly Inflation Rates',
     analysisTitle: 'Salary Analysis',
@@ -234,11 +238,7 @@ const getMonthlyExemption = (month: number) => {
   return exemptions[month - 1];
 };
 
-// Tax exemptions (2024 values)
-const taxExemptions = {
-  incomeExemption: 3315.70, // Monthly income tax exemption
-  stampExemption: 197.38    // Monthly stamp tax exemption
-};
+// Tax exemptions (2024 values) - removed unused variable
 
 // Poverty and hunger thresholds (2024 values - TÜRK-İŞ data)
 const povertyThresholds = {
@@ -246,11 +246,12 @@ const povertyThresholds = {
   povertyThreshold: 64055 // Monthly poverty threshold for 4-person family
 };
 
-// Turkey inflation data (TÜIK ENAG and İTO yearly rates)
+// Turkey inflation data (TÜIK TÜFE, ENAG, İTO yearly rates - 2020-2025)
 const turkeyInflationData = {
-  years: ['2019', '2020', '2021', '2022', '2023', '2024'],
-  tuikEnag: [15.2, 14.6, 36.1, 72.3, 61.9, 75.5],
-  ito: [18.5, 16.2, 42.3, 83.4, 68.1, 82.3]
+  years: ['2020', '2021', '2022', '2023', '2024', '2025*'],
+  tuik: [14.60, 36.08, 64.27, 64.77, 68.50, 35.05],
+  enag: [36.72, 82.81, 137.55, 127.21, 118.53, 68.68],
+  ito: [15.09, 34.18, 92.97, 74.88, 78.54, 41.12]
 };
 
 interface CalculationResult {
@@ -322,7 +323,7 @@ function App() {
     if (results.length === 0) {
       setResults(generateEmptyResults());
     }
-  }, []);
+  }, [results.length]);
 
   // Format number with thousand separators
   const formatNumber = (value: string): string => {
@@ -340,15 +341,7 @@ function App() {
     }).format(amount);
   };
 
-  // Format currency with decimals for detailed view
-  const formatCurrencyDetailed = (amount: number): string => {
-    return new Intl.NumberFormat('tr-TR', {
-      style: 'currency',
-      currency: 'TRY',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(amount);
-  };
+  // Format currency with decimals for detailed view - removed unused function
 
   // Generate salary analysis
   const generateSalaryAnalysis = () => {
@@ -878,6 +871,9 @@ function App() {
               options={{
                 responsive: true,
                 plugins: {
+                  datalabels: {
+                    display: false
+                  },
                   legend: {
                     position: 'top' as const,
                     labels: {
@@ -1010,7 +1006,7 @@ function App() {
           )}
 
           {/* Turkey Inflation Rates Chart */}
-          {selectedInflation === 75.5 && hasCalculated && (
+          {(
             <div className="chart-container">
               <h3 className="chart-subtitle">
                 {t.inflationRatesChart}
@@ -1020,32 +1016,85 @@ function App() {
                   labels: turkeyInflationData.years,
                   datasets: [
                     {
-                      label: t.tuikEnagLabel,
-                      data: turkeyInflationData.tuikEnag,
+                      label: t.tuikLabel,
+                      data: turkeyInflationData.tuik,
                       backgroundColor: 'rgba(54, 162, 235, 0.8)',
                       borderColor: 'rgba(54, 162, 235, 1)',
-                      borderWidth: 1
+                      borderWidth: 2,
+                      barPercentage: 0.7,
+                      categoryPercentage: 0.8
+                    },
+                    {
+                      label: t.enagLabel,
+                      data: turkeyInflationData.enag,
+                      backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                      borderColor: 'rgba(255, 99, 132, 1)',
+                      borderWidth: 2,
+                      barPercentage: 0.7,
+                      categoryPercentage: 0.8
                     },
                     {
                       label: t.itoLabel,
                       data: turkeyInflationData.ito,
-                      backgroundColor: 'rgba(255, 99, 132, 0.8)',
-                      borderColor: 'rgba(255, 99, 132, 1)',
-                      borderWidth: 1
+                      backgroundColor: 'rgba(255, 206, 86, 0.8)',
+                      borderColor: 'rgba(255, 206, 86, 1)',
+                      borderWidth: 2,
+                      barPercentage: 0.7,
+                      categoryPercentage: 0.8
                     }
                   ]
                 }}
                 options={{
                   responsive: true,
+                  interaction: {
+                    mode: 'index' as const,
+                    intersect: false,
+                  },
                   plugins: {
+                    datalabels: {
+                      display: true,
+                      anchor: 'end',
+                      align: 'top',
+                      color: '#000000',
+                      font: {
+                        size: 11,
+                        weight: 'bold'
+                      },
+                      formatter: (value: number) => `%${value}`,
+                      clip: false
+                    },
                     legend: {
                       position: 'top' as const,
+                      display: true,
+                      labels: {
+                        usePointStyle: false,
+                        padding: 25,
+                        font: {
+                          size: 18,
+                          weight: 'bold'
+                        },
+                        color: '#000000',
+                        boxWidth: 30,
+                        boxHeight: 20
+                      }
                     },
                     title: {
                       display: true,
-                      text: t.yearlyInflationRates
+                      text: t.yearlyInflationRates,
+                      font: {
+                        size: 16,
+                        weight: 'bold'
+                      },
+                      padding: 20,
+                      color: '#06b6d4'
                     },
                     tooltip: {
+                      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                      titleColor: 'white',
+                      bodyColor: 'white',
+                      borderColor: 'rgba(255, 255, 255, 0.1)',
+                      borderWidth: 1,
+                      cornerRadius: 8,
                       callbacks: {
                         label: function(context) {
                           return `${context.dataset.label}: %${context.parsed.y}`;
@@ -1054,9 +1103,33 @@ function App() {
                     }
                   },
                   scales: {
+                    x: {
+                      grid: {
+                        display: true,
+                        color: 'rgba(0, 0, 0, 0.1)'
+                      },
+                      ticks: {
+                        color: '#374151',
+                        font: {
+                          size: 12,
+                          weight: 'bold'
+                        }
+                      }
+                    },
                     y: {
                       beginAtZero: true,
+                      max: 150,
+                      grid: {
+                        display: true,
+                        color: 'rgba(0, 0, 0, 0.1)'
+                      },
                       ticks: {
+                        color: '#374151',
+                        font: {
+                          size: 12,
+                          weight: 'bold'
+                        },
+                        stepSize: 25,
                         callback: function(value) {
                           return `%${value}`;
                         }
@@ -1065,6 +1138,108 @@ function App() {
                   }
                 }}
               />
+              
+              {/* Years Display */}
+              <div style={{
+                marginTop: '15px',
+                padding: '12px',
+                backgroundColor: '#1f2937',
+                borderRadius: '8px',
+                textAlign: 'center'
+              }}>
+                <h4 style={{ 
+                  color: '#ffffff', 
+                  margin: '0 0 10px 0', 
+                  fontSize: '16px',
+                  fontWeight: 'bold'
+                }}>
+                  Analiz Edilen Yıllar
+                </h4>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                  flexWrap: 'wrap',
+                  gap: '15px'
+                }}>
+                  {turkeyInflationData.years.map((year, index) => (
+                    <div key={index} style={{
+                      backgroundColor: '#374151',
+                      color: '#ffffff',
+                      padding: '8px 16px',
+                      borderRadius: '6px',
+                      fontWeight: 'bold',
+                      fontSize: '16px',
+                      border: '2px solid #4b5563'
+                    }}>
+                      {year}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Color Legend */}
+              <div style={{
+                marginTop: '15px',
+                padding: '15px',
+                backgroundColor: '#f8fafc',
+                borderRadius: '8px',
+                border: '1px solid #e2e8f0'
+              }}>
+                <h4 style={{ 
+                  color: '#1f2937', 
+                  margin: '0 0 15px 0', 
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                  textAlign: 'center'
+                }}>
+                  Renk Açıklaması
+                </h4>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                  flexWrap: 'wrap',
+                  gap: '20px'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{
+                      width: '20px',
+                      height: '20px',
+                      backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                      border: '2px solid rgba(54, 162, 235, 1)',
+                      borderRadius: '4px'
+                    }}></div>
+                    <span style={{ fontWeight: 'bold', fontSize: '16px', color: '#1f2937' }}>
+                      {t.tuikLabel}
+                    </span>
+                  </div>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{
+                      width: '20px',
+                      height: '20px',
+                      backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                      border: '2px solid rgba(255, 99, 132, 1)',
+                      borderRadius: '4px'
+                    }}></div>
+                    <span style={{ fontWeight: 'bold', fontSize: '16px', color: '#1f2937' }}>
+                      {t.enagLabel}
+                    </span>
+                  </div>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{
+                      width: '20px',
+                      height: '20px',
+                      backgroundColor: 'rgba(255, 206, 86, 0.8)',
+                      border: '2px solid rgba(255, 206, 86, 1)',
+                      borderRadius: '4px'
+                    }}></div>
+                    <span style={{ fontWeight: 'bold', fontSize: '16px', color: '#1f2937' }}>
+                      {t.itoLabel}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
