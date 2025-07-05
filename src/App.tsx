@@ -118,7 +118,27 @@ const translations = {
     hourlyPurchasingPower: 'Saatlik Alım Gücünüz',
     // International Comparison Module
     internationalComparisonTitle: 'Uluslararası Karşılaştırma',
-    internationalComparisonSubtitle: 'Maaşınızın dünya standartlarındaki karşılığı'
+    internationalComparisonSubtitle: 'Maaşınızın dünya standartlarındaki karşılığı',
+    // Additional translations
+    monthlyTotalTax: 'Aylık Toplam Vergi',
+    hourlyNetEarnings: 'Saatlik Net Kazancınız',
+    turkeyNetSalary: 'Türkiye\'deki Net Maaşınız',
+    analysisYears: 'Analiz Edilen Yıllar',
+    colorLegend: 'Renk Açıklaması',
+    netSalaryMode: 'Net maaş olarak alıyorum',
+    netSalaryTooltip: 'Şirketinizden net maaş alıyorsanız bu seçeneği işaretleyin',
+    salaryIncrease: 'Zam (%)',
+    salaryIncreaseTooltip: 'Bu ayda aldığınız zam oranını girin',
+    salaryIncreaseInput: 'Aylık Zam Oranları',
+    salaryIncreaseDescription: 'Hangi ayda kaç yüzde zam aldığınızı belirtebilirsiniz',
+    simpleRaiseInput: 'Zam Bilgisi',
+    simpleRaiseTemplate: '__. ayda __%% kadar zam aldım',
+    monthPlaceholder: 'Ay',
+    percentPlaceholder: '%',
+    showDetailedRaises: 'Detaylı ay ay zam girişi',
+    hideDetailedRaises: 'Basit zam girişi',
+    raiseInfoNote: 'Eğer zam aldıysanız ekleyebilirsiniz',
+    netSalaryNote: 'Şirketinizden kesintisiz maaş alıyorsanız işaretleyin'
   },
   en: {
     title: 'Gross-Net Salary Calculator',
@@ -211,44 +231,130 @@ const translations = {
     hourlyPurchasingPower: 'Your Hourly Purchasing Power',
     // International Comparison Module
     internationalComparisonTitle: 'International Comparison',
-    internationalComparisonSubtitle: 'Your salary equivalent in global standards'
+    internationalComparisonSubtitle: 'Your salary equivalent in global standards',
+    // Additional translations
+    monthlyTotalTax: 'Monthly Total Tax',
+    hourlyNetEarnings: 'Your Hourly Net Earnings',
+    turkeyNetSalary: 'Your Net Salary in Turkey',
+    analysisYears: 'Years Analyzed',
+    colorLegend: 'Color Legend',
+    netSalaryMode: 'I receive net salary',
+    netSalaryTooltip: 'Check this if you receive net salary from your company',
+    salaryIncrease: 'Raise (%)',
+    salaryIncreaseTooltip: 'Enter the raise percentage for this month',
+    salaryIncreaseInput: 'Monthly Salary Raises',
+    salaryIncreaseDescription: 'You can specify what percentage raise you received in which month',
+    simpleRaiseInput: 'Salary Raise Information',
+    simpleRaiseTemplate: 'I got __% raise in month __',
+    monthPlaceholder: 'Month',
+    percentPlaceholder: '%',
+    showDetailedRaises: 'Detailed monthly raise input',
+    hideDetailedRaises: 'Simple raise input',
+    raiseInfoNote: 'Add if you received any salary raise',
+    netSalaryNote: 'Check if you receive salary without deductions'
   }
 };
 
 // Inflation scenarios with country data (based on Trading Economics 2024)
-const getInflationScenarios = (t: any) => [
-  { label: '🇿🇼 Zimbabwe', value: 339.7 },
-  { label: '🇱🇧 Lebanon', value: 221.3 },
-  { label: '🇹🇷 Turkey', value: 75.5 },
-  { label: '🇦🇷 Argentina', value: 65.2 },
-  { label: '🇮🇷 Iran', value: 48.5 },
-  { label: '🇷🇺 Russia', value: 36.4 },
-  { label: '🇪🇬 Egypt', value: 33.9 },
-  { label: '🇪🇹 Ethiopia', value: 28.9 },
-  { label: '🇻🇪 Venezuela', value: 23.6 },
-  { label: '🇵🇰 Pakistan', value: 22.4 },
-  { label: '🇬🇭 Ghana', value: 21.5 },
-  { label: '🇳🇬 Nigeria', value: 18.6 },
-  { label: '🇺🇦 Ukraine', value: 14.8 },
-  { label: '🇿🇦 South Africa', value: 11.1 },
-  { label: '🇮🇳 India', value: 8.7 },
-  { label: '🇧🇷 Brazil', value: 7.8 },
-  { label: '🇲🇽 Mexico', value: 6.9 },
-  { label: '🇮🇩 Indonesia', value: 5.4 },
-  { label: '🇰🇷 South Korea', value: 4.2 },
-  { label: '🇨🇳 China', value: 3.8 },
-  { label: '🇬🇧 United Kingdom', value: 3.4 },
-  { label: '🇨🇦 Canada', value: 2.9 },
-  { label: '🇺🇸 USA', value: 2.4 },
-  { label: '🇦🇺 Australia', value: 2.1 },
-  { label: '🇩🇪 Germany', value: 2.1 },
-  { label: '🇫🇷 France', value: 1.9 },
-  { label: '🇯🇵 Japan', value: 1.8 },
-  { label: '🇸🇪 Sweden', value: 1.5 },
-  { label: '🇳🇴 Norway', value: 1.3 },
-  { label: '🇨🇭 Switzerland', value: 0.7 },
-  { label: t.custom, value: 0 }
-];
+const getInflationScenarios = (t: any, language: 'tr' | 'en') => {
+  const countries = language === 'tr' ? {
+    'Zimbabwe': 'Zimbabve',
+    'Lebanon': 'Lübnan',
+    'Turkey': 'Türkiye',
+    'Argentina': 'Arjantin',
+    'Iran': 'İran',
+    'Russia': 'Rusya',
+    'Egypt': 'Mısır',
+    'Ethiopia': 'Etiyopya',
+    'Venezuela': 'Venezuela',
+    'Pakistan': 'Pakistan',
+    'Ghana': 'Gana',
+    'Nigeria': 'Nijerya',
+    'Ukraine': 'Ukrayna',
+    'South Africa': 'Güney Afrika',
+    'India': 'Hindistan',
+    'Brazil': 'Brezilya',
+    'Mexico': 'Meksika',
+    'Indonesia': 'Endonezya',
+    'South Korea': 'Güney Kore',
+    'China': 'Çin',
+    'United Kingdom': 'İngiltere',
+    'Canada': 'Kanada',
+    'USA': 'ABD',
+    'Australia': 'Avustralya',
+    'Germany': 'Almanya',
+    'France': 'Fransa',
+    'Japan': 'Japonya',
+    'Sweden': 'İsveç',
+    'Norway': 'Norveç',
+    'Switzerland': 'İsviçre'
+  } : {
+    'Zimbabwe': 'Zimbabwe',
+    'Lebanon': 'Lebanon',
+    'Turkey': 'Turkey',
+    'Argentina': 'Argentina',
+    'Iran': 'Iran',
+    'Russia': 'Russia',
+    'Egypt': 'Egypt',
+    'Ethiopia': 'Ethiopia',
+    'Venezuela': 'Venezuela',
+    'Pakistan': 'Pakistan',
+    'Ghana': 'Ghana',
+    'Nigeria': 'Nigeria',
+    'Ukraine': 'Ukraine',
+    'South Africa': 'South Africa',
+    'India': 'India',
+    'Brazil': 'Brazil',
+    'Mexico': 'Mexico',
+    'Indonesia': 'Indonesia',
+    'South Korea': 'South Korea',
+    'China': 'China',
+    'United Kingdom': 'United Kingdom',
+    'Canada': 'Canada',
+    'USA': 'USA',
+    'Australia': 'Australia',
+    'Germany': 'Germany',
+    'France': 'France',
+    'Japan': 'Japan',
+    'Sweden': 'Sweden',
+    'Norway': 'Norway',
+    'Switzerland': 'Switzerland'
+  };
+
+  return [
+    { label: `🇿🇼 ${countries['Zimbabwe']}`, value: 339.7 },
+    { label: `🇱🇧 ${countries['Lebanon']}`, value: 221.3 },
+    { label: `🇹🇷 ${countries['Turkey']}`, value: 75.5 },
+    { label: `🇦🇷 ${countries['Argentina']}`, value: 65.2 },
+    { label: `🇮🇷 ${countries['Iran']}`, value: 48.5 },
+    { label: `🇷🇺 ${countries['Russia']}`, value: 36.4 },
+    { label: `🇪🇬 ${countries['Egypt']}`, value: 33.9 },
+    { label: `🇪🇹 ${countries['Ethiopia']}`, value: 28.9 },
+    { label: `🇻🇪 ${countries['Venezuela']}`, value: 23.6 },
+    { label: `🇵🇰 ${countries['Pakistan']}`, value: 22.4 },
+    { label: `🇬🇭 ${countries['Ghana']}`, value: 21.5 },
+    { label: `🇳🇬 ${countries['Nigeria']}`, value: 18.6 },
+    { label: `🇺🇦 ${countries['Ukraine']}`, value: 14.8 },
+    { label: `🇿🇦 ${countries['South Africa']}`, value: 11.1 },
+    { label: `🇮🇳 ${countries['India']}`, value: 8.7 },
+    { label: `🇧🇷 ${countries['Brazil']}`, value: 7.8 },
+    { label: `🇲🇽 ${countries['Mexico']}`, value: 6.9 },
+    { label: `🇮🇩 ${countries['Indonesia']}`, value: 5.4 },
+    { label: `🇰🇷 ${countries['South Korea']}`, value: 4.2 },
+    { label: `🇨🇳 ${countries['China']}`, value: 3.8 },
+    { label: `🇬🇧 ${countries['United Kingdom']}`, value: 3.4 },
+    { label: `🇨🇦 ${countries['Canada']}`, value: 2.9 },
+    { label: `🇺🇸 ${countries['USA']}`, value: 2.4 },
+    { label: `🇦🇺 ${countries['Australia']}`, value: 2.1 },
+    { label: `🇩🇪 ${countries['Germany']}`, value: 2.1 },
+    { label: `🇫🇷 ${countries['France']}`, value: 1.9 },
+    { label: `🇯🇵 ${countries['Japan']}`, value: 1.8 },
+    { label: `🇸🇪 ${countries['Sweden']}`, value: 1.5 },
+    { label: `🇳🇴 ${countries['Norway']}`, value: 1.3 },
+    { label: `🇨🇭 ${countries['Switzerland']}`, value: 0.7 },
+    { label: t.custom, value: 0 }
+  ];
+};
 
 // Turkish income tax brackets for 2024 (updated to match Excel)
 const incomeTaxBrackets = [
@@ -427,7 +533,7 @@ interface CalculationResult {
 
 function App() {
   const [language, setLanguage] = useState<'tr' | 'en'>('tr');
-  const [grossSalary, setGrossSalary] = useState<string>('');
+  const [grossSalary, setGrossSalary] = useState<string>('45.000');
   const [selectedInflation, setSelectedInflation] = useState<number>(75.5);
   const [customInflation, setCustomInflation] = useState<string>('');
   const [results, setResults] = useState<CalculationResult[]>([]);
@@ -437,9 +543,49 @@ function App() {
   const [showCharts, setShowCharts] = useState<boolean>(true);
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<'salary' | 'gdp' | 'taxes' | 'purchasing' | 'international'>('salary');
+  const [monthlySalaries, setMonthlySalaries] = useState<string[]>(Array(12).fill(''));
+  const [isNetSalary, setIsNetSalary] = useState<boolean>(false);
+  const [salaryIncreases, setSalaryIncreases] = useState<string[]>(Array(12).fill(''));
+  const [showDetailedRaises, setShowDetailedRaises] = useState<boolean>(false);
+  const [simpleRaiseMonth, setSimpleRaiseMonth] = useState<string>('');
+  const [simpleRaisePercent, setSimpleRaisePercent] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [showComprehensiveReport, setShowComprehensiveReport] = useState<boolean>(false);
+  const [comprehensiveReport, setComprehensiveReport] = useState<any>(null);
+  const [weeklyWorkingHours, setWeeklyWorkingHours] = useState<string>('45'); // Default 45 hours per week
 
   const t = translations[language];
-  const inflationScenarios = getInflationScenarios(t);
+  const allInflationScenarios = getInflationScenarios(t, language);
+  
+  // Extract country name from scenario label (removing flag emojis)
+  const getCountryName = (label: string) => {
+    return label.replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '').trim();
+  };
+
+  // Filter scenarios based on search term
+  const filteredInflationScenarios = React.useMemo(() => {
+    if (!searchTerm) return allInflationScenarios;
+    
+    return allInflationScenarios.filter(scenario => {
+      const countryName = getCountryName(scenario.label);
+      return countryName.toLowerCase().startsWith(searchTerm.toLowerCase());
+    });
+  }, [allInflationScenarios, searchTerm]);
+  
+  // Mobile detection hook
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Generate empty results for initial display
   const generateEmptyResults = (): CalculationResult[] => {
@@ -475,6 +621,13 @@ function App() {
       setResults(generateEmptyResults());
     }
   }, [results.length]);
+
+  // Update monthly salaries when gross salary changes
+  React.useEffect(() => {
+    if (grossSalary) {
+      setMonthlySalaries(Array(12).fill(grossSalary));
+    }
+  }, [grossSalary]);
 
   // Format number with thousand separators
   const formatNumber = (value: string): string => {
@@ -560,12 +713,82 @@ function App() {
     setError('');
   };
 
+  // Handle monthly salary changes
+  const handleMonthlySalaryChange = (monthIndex: number, value: string) => {
+    const formatted = formatNumber(value);
+    const newSalaries = [...monthlySalaries];
+    
+    // Update current month
+    newSalaries[monthIndex] = formatted;
+    
+    // Update all subsequent months with the same value
+    for (let i = monthIndex + 1; i < 12; i++) {
+      newSalaries[i] = formatted;
+    }
+    
+    setMonthlySalaries(newSalaries);
+    setError('');
+  };
+
+  // Handle salary increase changes
+  const handleSalaryIncreaseChange = (monthIndex: number, value: string) => {
+    const newIncreases = [...salaryIncreases];
+    newIncreases[monthIndex] = value;
+    setSalaryIncreases(newIncreases);
+    
+    // If there's an increase, apply it to the salary and subsequent months
+    if (value && parseFloat(value) > 0) {
+      const currentSalary = parseFloat((monthlySalaries[monthIndex] || grossSalary).replace(/\./g, '')) || 0;
+      const increasePercent = parseFloat(value) / 100;
+      const newSalary = Math.round(currentSalary * (1 + increasePercent));
+      const formattedNewSalary = formatNumber(newSalary.toString());
+      
+      const newSalaries = [...monthlySalaries];
+      newSalaries[monthIndex] = formattedNewSalary;
+      
+      // Update all subsequent months with the increased value
+      for (let i = monthIndex + 1; i < 12; i++) {
+        newSalaries[i] = formattedNewSalary;
+      }
+      
+      setMonthlySalaries(newSalaries);
+    }
+    
+    setError('');
+  };
+
+  // Handle simple raise input
+  const handleSimpleRaiseApply = () => {
+    if (simpleRaiseMonth && simpleRaisePercent) {
+      const monthIndex = parseInt(simpleRaiseMonth) - 1;
+      const percent = simpleRaisePercent;
+      
+      if (monthIndex >= 0 && monthIndex < 12) {
+        // Clear all previous increases
+        setSalaryIncreases(Array(12).fill(''));
+        
+        // Apply the single increase
+        const newIncreases = Array(12).fill('');
+        newIncreases[monthIndex] = percent;
+        setSalaryIncreases(newIncreases);
+        
+        // Apply to salary
+        handleSalaryIncreaseChange(monthIndex, percent);
+        
+        setError('');
+      }
+    }
+  };
+
   // Handle custom inflation change
   const handleCustomInflationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setCustomInflation(value);
     if (value) {
       setSelectedInflation(parseFloat(value) || 0);
+    } else {
+      // Reset to Turkey's default inflation rate when custom input is cleared
+      setSelectedInflation(75.5);
     }
   };
 
@@ -575,6 +798,44 @@ function App() {
     setSelectedInflation(selectedValue);
     if (selectedValue !== 0) {
       setCustomInflation('');
+    }
+  };
+
+  // Handle keyboard search in dropdown
+  const handleDropdownKeyDown = (e: React.KeyboardEvent<HTMLSelectElement>) => {
+    const key = e.key.toLowerCase();
+    
+    // Only handle letter keys
+    if (key.length === 1 && /[a-z]/.test(key)) {
+      // Clear previous timeout
+      if (searchTimeout) {
+        clearTimeout(searchTimeout);
+      }
+      
+      // Update search term
+      const newSearchTerm = searchTerm + key;
+      setSearchTerm(newSearchTerm);
+      
+      // Find matching option
+      const matchingScenario = allInflationScenarios.find(scenario => {
+        const countryName = getCountryName(scenario.label);
+        return countryName.toLowerCase().startsWith(newSearchTerm.toLowerCase());
+      });
+      
+      if (matchingScenario) {
+        setSelectedInflation(matchingScenario.value);
+        if (matchingScenario.value !== 0) {
+          setCustomInflation('');
+        }
+      }
+      
+      // Clear search term after delay
+      const timeout = setTimeout(() => {
+        setSearchTerm('');
+      }, 1000);
+      setSearchTimeout(timeout);
+      
+      e.preventDefault();
     }
   };
 
@@ -643,7 +904,9 @@ function App() {
     const numericGrossSalary = parseFloat(grossSalary.replace(/\./g, ''));
     if (!numericGrossSalary || numericGrossSalary <= 0) return null;
     
-    const WORKING_HOURS_PER_MONTH = 225;
+    // Calculate working hours per month based on user input
+    const weeklyHours = parseFloat(weeklyWorkingHours) || 45;
+    const WORKING_HOURS_PER_MONTH = (weeklyHours * 52) / 12; // weeks per year / months per year
     
     // Calculate net salary (simplified)
     const sgkEmployee = numericGrossSalary * 0.14;
@@ -654,24 +917,73 @@ function App() {
     const netSalary = numericGrossSalary - sgkEmployee - unemploymentEmployee - totalIncomeTax - stampTax;
     const hourlyNet = netSalary / WORKING_HOURS_PER_MONTH;
     
-    // Sample prices (2024 Turkey)
+    // Real market prices (2024 Turkey)
     const prices = {
-      bigMac: 85, // TL
-      coffee: 25, // TL
-      bread: 8, // TL
-      cinema: 60, // TL
-      taxi: 28, // TL per km
-      gasoline: 35 // TL per liter
+      // Temel Gıda
+      bread: 12, // Somun Ekmek (Beyaz, 250 gr)
+      eggs: 95, // Yumurta (15'li, L Boy)
+      milk: 55, // Süt (1 Litre, Tam Yağlı)
+      
+      // Günlük İhtiyaçlar
+      coffee: 120, // Sade Kahve (Zincir Kafe, filtre)
+      gasoline: 48, // Benzin (1 Litre, Ortalama)
+      water: 15, // Su (0.5 Litre Şişe)
+      transport: 17.70, // Toplu Taşıma (Tek Biniş, İstanbul)
+      chips: 65, // Cips (Büyük Boy Paket)
+      chocolate: 50, // Tablet Çikolata (80 gr, Markalı)
+      toothpaste: 90, // Diş Macunu (Büyük Boy, Markalı)
+      soap: 60, // Sıvı Sabun (500 ml, Ekonomik)
+      
+      // Kültür & Eğlence
+      book: 150, // Kitap (Ortalama Roman Fiyatı)
+      cinema: 250, // Sinema Bileti (Tam, Hafta İçi)
+      
+      // Lüks & Büyük Harcama
+      luxuryCar: 3800000, // Lüks Otomobil (Örn: Mercedes C Serisi, Sıfır, Başlangıç)
+      apartment: 10000000, // Kadıköy'de 3+1 Daire (Satılık, Ortalama)
+      summerHouse: 12000000, // Yazlık (Ortalama, Müstakil Ev)
+      smartphone: 60000, // Son Model Akıllı Telefon (Amiral Gemi)
+      vacation: 80000, // Yurt Dışı Tatili (2 Kişilik, 5 Gün, Ortalama)
+      
+      // Diğer
+      shoes: 2000, // Spor Ayakkabı (Markalı, Ortalama)
+      hairDryer: 1500 // Saç Kurutma Makinesi (Kaliteli)
     };
     
     return {
       hourlyNet,
-      bigMac: hourlyNet / prices.bigMac,
-      coffee: hourlyNet / prices.coffee,
+      // Temel Gıda
       bread: hourlyNet / prices.bread,
+      eggs: hourlyNet / prices.eggs,
+      milk: hourlyNet / prices.milk,
+      
+      // Günlük İhtiyaçlar
+      coffee: hourlyNet / prices.coffee,
+      gasoline: hourlyNet / prices.gasoline,
+      water: hourlyNet / prices.water,
+      transport: hourlyNet / prices.transport,
+      chips: hourlyNet / prices.chips,
+      chocolate: hourlyNet / prices.chocolate,
+      toothpaste: hourlyNet / prices.toothpaste,
+      soap: hourlyNet / prices.soap,
+      
+      // Kültür & Eğlence
+      book: hourlyNet / prices.book,
       cinema: hourlyNet / prices.cinema,
-      taxi: hourlyNet / prices.taxi,
-      gasoline: hourlyNet / prices.gasoline
+      
+      // Lüks & Büyük Harcama
+      luxuryCar: hourlyNet / prices.luxuryCar,
+      apartment: hourlyNet / prices.apartment,
+      summerHouse: hourlyNet / prices.summerHouse,
+      smartphone: hourlyNet / prices.smartphone,
+      vacation: hourlyNet / prices.vacation,
+      
+      // Diğer
+      shoes: hourlyNet / prices.shoes,
+      hairDryer: hourlyNet / prices.hairDryer,
+      
+      // Prices for display
+      prices
     };
   };
 
@@ -742,11 +1054,47 @@ function App() {
     };
   };
 
-  const calculateSalary = () => {
-    const numericGrossSalary = parseFloat(grossSalary.replace(/\./g, ''));
+  // Generate comprehensive report combining all analyses
+  const generateComprehensiveReport = (reportData: any) => {
+    const {salary, gdp, tax, purchasing, international} = reportData;
     
-    // Validation
-    if (!numericGrossSalary || numericGrossSalary <= 0) {
+    if (!gdp || !tax || !purchasing || !international) return null;
+    
+    const numericSalary = parseFloat(salary.replace(/\./g, ''));
+    const monthlySalary = numericSalary;
+    const annualSalary = monthlySalary * 12;
+    
+    return {
+      summary: {
+        monthlySalary: formatCurrency(monthlySalary),
+        annualSalary: formatCurrency(annualSalary),
+        hourlyGdp: `$${gdp.hourlyGdpContribution.toFixed(2)}`,
+        hourlyTax: formatCurrency(tax.hourlyTax),
+        gdpRatio: ((gdp.gdpRatio - 1) * 100).toFixed(1),
+        taxRatio: ((tax.taxRatio - 1) * 100).toFixed(1),
+        internationalRank: international.comparisons.findIndex((c: any) => c.country === 'Turkey') + 1,
+        totalCountries: international.comparisons.length
+      },
+      insights: [
+        `GDP katkınız Türkiye ortalamasından %${Math.abs((gdp.gdpRatio - 1) * 100).toFixed(1)} ${gdp.gdpRatio > 1 ? 'fazla' : 'az'}`,
+        `Vergi katkınız ortalamanın %${Math.abs((tax.taxRatio - 1) * 100).toFixed(1)} ${tax.taxRatio > 1 ? 'üstünde' : 'altında'}`,
+        `OECD ülkeleri arasında ${international.comparisons.findIndex((c: any) => c.country === 'Turkey') + 1}. sıradasınız`,
+        `Saatlik GDP katkınız: ${gdp.hourlyGdpContribution.toFixed(2)} USD`
+      ]
+    };
+  };
+
+  const calculateSalary = () => {
+    // Check if we have monthly salaries or use main gross salary
+    const salariesToUse = monthlySalaries.some(salary => salary !== '') ? monthlySalaries : Array(12).fill(grossSalary);
+    
+    // Validate that we have at least one salary
+    const hasValidSalary = salariesToUse.some(salary => {
+      const numeric = parseFloat(salary.replace(/\./g, ''));
+      return numeric && numeric > 0;
+    });
+    
+    if (!hasValidSalary) {
       setError(t.errorInvalidSalary);
       return;
     }
@@ -763,6 +1111,14 @@ function App() {
     let cumulativeGrossIncome = 0;
 
     for (let month = 1; month <= 12; month++) {
+      // Use individual monthly salary or default to zero if empty
+      const monthlySalaryStr = salariesToUse[month - 1] || '0';
+      let numericGrossSalary = parseFloat(monthlySalaryStr.replace(/\./g, '')) || 0;
+      
+      // If net salary mode is enabled, treat input as net salary
+      // For calculations, we still need to show the gross equivalent
+      const displayGrossSalary = numericGrossSalary;
+      
       cumulativeGrossIncome += numericGrossSalary;
       
       // Calculate employee deductions
@@ -791,10 +1147,21 @@ function App() {
       const netStampTax = Math.max(0, stampTax - stampExemption);
       
       // Calculate net salary and final amounts
-      const totalEmployeeDeductions = sgkEmployee + unemploymentEmployee + netIncomeTax + netStampTax;
-      const netSalary = numericGrossSalary - totalEmployeeDeductions;
+      let totalEmployeeDeductions, netSalary, netPayableAmount;
+      
+      if (isNetSalary) {
+        // If user receives net salary, treat input as net amount
+        netPayableAmount = numericGrossSalary;
+        netSalary = numericGrossSalary;
+        totalEmployeeDeductions = 0; // No deductions since it's already net
+      } else {
+        // Normal gross salary calculation
+        totalEmployeeDeductions = sgkEmployee + unemploymentEmployee + netIncomeTax + netStampTax;
+        netSalary = numericGrossSalary - totalEmployeeDeductions;
+        netPayableAmount = netSalary;
+      }
+      
       const minimumLivingAllowance = 0; // Not applied in this case
-      const netPayableAmount = netSalary + minimumLivingAllowance;
       const totalCost = numericGrossSalary + sgkEmployer + unemploymentEmployer;
       
       // Calculate inflation impact
@@ -939,7 +1306,21 @@ function App() {
                 type="text"
                 value={grossSalary}
                 onChange={handleGrossSalaryChange}
-                placeholder="120.000"
+                placeholder="45.000"
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">
+                Haftada Kaç Saat Çalışıyorsunuz?
+              </label>
+              <input
+                type="number"
+                value={weeklyWorkingHours}
+                onChange={(e) => setWeeklyWorkingHours(e.target.value)}
+                placeholder="45"
+                min="1"
+                max="80"
                 className="form-input"
               />
             </div>
@@ -1072,7 +1453,21 @@ function App() {
                 type="text"
                 value={grossSalary}
                 onChange={handleGrossSalaryChange}
-                placeholder="120.000"
+                placeholder="45.000"
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">
+                Haftada Kaç Saat Çalışıyorsunuz?
+              </label>
+              <input
+                type="number"
+                value={weeklyWorkingHours}
+                onChange={(e) => setWeeklyWorkingHours(e.target.value)}
+                placeholder="45"
+                min="1"
+                max="80"
                 className="form-input"
               />
             </div>
@@ -1113,7 +1508,7 @@ function App() {
                         border: '1px solid #f56565'
                       }}>
                         <div style={{ fontSize: '0.875rem', color: '#9b2c2c', marginBottom: '0.5rem' }}>
-                          Aylık Toplam Vergi
+                          {t.monthlyTotalTax}
                         </div>
                         <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#9b2c2c' }}>
                           {formatCurrency(taxData.totalMonthlyTax)}
@@ -1171,7 +1566,21 @@ function App() {
                 type="text"
                 value={grossSalary}
                 onChange={handleGrossSalaryChange}
-                placeholder="120.000"
+                placeholder="45.000"
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">
+                Haftada Kaç Saat Çalışıyorsunuz?
+              </label>
+              <input
+                type="number"
+                value={weeklyWorkingHours}
+                onChange={(e) => setWeeklyWorkingHours(e.target.value)}
+                placeholder="45"
+                min="1"
+                max="80"
                 className="form-input"
               />
             </div>
@@ -1185,6 +1594,23 @@ function App() {
                 
                 return (
                   <div className="purchasing-analysis">
+                    <div style={{ 
+                      backgroundColor: '#f8fafc', 
+                      padding: '1rem', 
+                      borderRadius: '0.5rem', 
+                      marginBottom: '1.5rem',
+                      border: '1px solid #e2e8f0'
+                    }}>
+                      <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>
+                        Çalışma Saatleriniz
+                      </div>
+                      <div style={{ fontSize: '1rem', fontWeight: 'bold', color: '#1f2937' }}>
+                        Haftada {weeklyWorkingHours} saat = Ayda {((parseFloat(weeklyWorkingHours) || 45) * 52 / 12).toFixed(0)} saat
+                      </div>
+                      <div style={{ fontSize: '0.875rem', color: '#64748b', marginTop: '0.25rem' }}>
+                        Saatlik net kazancınız: {formatCurrency(purchasingData.hourlyNet)}
+                      </div>
+                    </div>
                     <h3 style={{ color: '#06b6d4', marginBottom: '1rem' }}>Bir Saatlik Çalışmayla Neler Alabilirsiniz?</h3>
                     <div style={{ 
                       display: 'grid', 
@@ -1193,12 +1619,26 @@ function App() {
                       marginBottom: '2rem'
                     }}>
                       {[
-                        { icon: '🍔', label: 'Big Mac', value: purchasingData.bigMac.toFixed(2), unit: 'adet' },
-                        { icon: '☕', label: 'Kahve', value: purchasingData.coffee.toFixed(2), unit: 'adet' },
-                        { icon: '🍞', label: 'Ekmek', value: purchasingData.bread.toFixed(2), unit: 'adet' },
-                        { icon: '🎬', label: 'Sinema', value: purchasingData.cinema.toFixed(2), unit: 'bilet' },
-                        { icon: '🚖', label: 'Taksi', value: purchasingData.taxi.toFixed(2), unit: 'km' },
-                        { icon: '⛽', label: 'Benzin', value: purchasingData.gasoline.toFixed(2), unit: 'litre' }
+                        // Temel Gıda
+                        { icon: '🍞', label: 'Somun Ekmek (250g)', value: purchasingData.bread.toFixed(2), unit: 'adet', price: purchasingData.prices.bread },
+                        { icon: '🥚', label: 'Yumurta (15li)', value: purchasingData.eggs.toFixed(2), unit: 'paket', price: purchasingData.prices.eggs },
+                        { icon: '🥛', label: 'Süt (1L)', value: purchasingData.milk.toFixed(2), unit: 'şişe', price: purchasingData.prices.milk },
+                        
+                        // Günlük İhtiyaçlar
+                        { icon: '☕', label: 'Filtre Kahve', value: purchasingData.coffee.toFixed(2), unit: 'adet', price: purchasingData.prices.coffee },
+                        { icon: '⛽', label: 'Benzin', value: purchasingData.gasoline.toFixed(2), unit: 'litre', price: purchasingData.prices.gasoline },
+                        { icon: '💧', label: 'Su (0.5L)', value: purchasingData.water.toFixed(2), unit: 'şişe', price: purchasingData.prices.water },
+                        { icon: '🚌', label: 'Toplu Taşıma', value: purchasingData.transport.toFixed(2), unit: 'biniş', price: purchasingData.prices.transport },
+                        { icon: '🍿', label: 'Cips (Büyük)', value: purchasingData.chips.toFixed(2), unit: 'paket', price: purchasingData.prices.chips },
+                        { icon: '🍫', label: 'Çikolata (80g)', value: purchasingData.chocolate.toFixed(2), unit: 'adet', price: purchasingData.prices.chocolate },
+                        
+                        // Kültür & Eğlence
+                        { icon: '📚', label: 'Roman Kitap', value: purchasingData.book.toFixed(2), unit: 'adet', price: purchasingData.prices.book },
+                        { icon: '🎬', label: 'Sinema Bileti', value: purchasingData.cinema.toFixed(2), unit: 'bilet', price: purchasingData.prices.cinema },
+                        
+                        // Diğer
+                        { icon: '👟', label: 'Spor Ayakkabı', value: purchasingData.shoes.toFixed(3), unit: 'çift', price: purchasingData.prices.shoes },
+                        { icon: '💨', label: 'Saç Kurutma Makinesi', value: purchasingData.hairDryer.toFixed(3), unit: 'adet', price: purchasingData.prices.hairDryer }
                       ].map((item, index) => (
                         <div key={index} style={{ 
                           backgroundColor: '#f8fafc', 
@@ -1214,6 +1654,9 @@ function App() {
                           <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#059669' }}>
                             {item.value} {item.unit}
                           </div>
+                          <div style={{ fontSize: '0.75rem', color: '#9ca3af', marginTop: '0.25rem' }}>
+                            ({formatCurrency(item.price)} / {item.unit})
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -1222,11 +1665,31 @@ function App() {
                       color: 'white', 
                       padding: '1.5rem', 
                       borderRadius: '0.5rem',
-                      marginTop: '1rem'
+                      marginTop: '1rem',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center'
                     }}>
-                      <h4 style={{ margin: '0 0 1rem 0', color: '#06b6d4' }}>Saatlik Net Kazancınız</h4>
-                      <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#10b981' }}>
-                        {formatCurrency(purchasingData.hourlyNet)}
+                      <div>
+                        <h4 style={{ margin: '0 0 1rem 0', color: '#06b6d4' }}>{t.hourlyNetEarnings}</h4>
+                        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#10b981' }}>
+                          {formatCurrency(purchasingData.hourlyNet)}
+                        </div>
+                      </div>
+                      <div style={{ 
+                        textAlign: 'right',
+                        borderLeft: '2px solid #06b6d4',
+                        paddingLeft: '1.5rem'
+                      }}>
+                        <div style={{ fontSize: '1rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
+                          Saatlik Net Kazancınız
+                        </div>
+                        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#06b6d4' }}>
+                          {formatCurrency(purchasingData.hourlyNet)}
+                        </div>
+                        <div style={{ fontSize: '0.875rem', color: '#94a3b8', marginTop: '0.25rem' }}>
+                          /saat
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1313,7 +1776,7 @@ function App() {
                 type="text"
                 value={grossSalary}
                 onChange={handleGrossSalaryChange}
-                placeholder="120.000"
+                placeholder="45.000"
                 className="form-input"
               />
             </div>
@@ -1327,7 +1790,38 @@ function App() {
                 
                 return (
                   <div className="international-analysis">
-                    <h3 style={{ color: '#06b6d4', marginBottom: '1rem' }}>OECD Ülkeleri Maaş Karşılaştırması</h3>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                      <h3 style={{ color: '#06b6d4', margin: '0' }}>OECD Ülkeleri Maaş Karşılaştırması</h3>
+                      <button
+                        onClick={() => {
+                          // Generate comprehensive report
+                          const reportData = {
+                            salary: grossSalary,
+                            gdp: calculateGdpContribution(),
+                            tax: calculateTaxContribution(),
+                            purchasing: calculatePurchasingPower(),
+                            international: calculateInternationalComparison()
+                          };
+                          
+                          // Create comprehensive report display
+                          const reportContent = generateComprehensiveReport(reportData);
+                          setComprehensiveReport(reportContent);
+                          setShowComprehensiveReport(true);
+                        }}
+                        style={{
+                          backgroundColor: '#10b981',
+                          color: 'white',
+                          border: 'none',
+                          padding: '0.5rem 1rem',
+                          borderRadius: '0.375rem',
+                          fontSize: '0.875rem',
+                          cursor: 'pointer',
+                          fontWeight: '500'
+                        }}
+                      >
+                        📊 Genel Rapor
+                      </button>
+                    </div>
                     
                     {/* Summary Cards */}
                     <div style={{ 
@@ -1343,7 +1837,7 @@ function App() {
                         borderRadius: '0.5rem'
                       }}>
                         <div style={{ fontSize: '0.875rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
-                          Türkiye'deki Net Maaşınız
+                          {t.turkeyNetSalary}
                         </div>
                         <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#10b981' }}>
                           {formatCurrency(internationalData.userMonthlyNet)}/ay
@@ -1569,13 +2063,13 @@ function App() {
           {/* Gross Salary Input */}
           <div className="form-group">
             <label className="form-label">
-              {t.grossSalary}
+              {isNetSalary ? (language === 'tr' ? 'Net Aylık Maaş (₺)' : 'Net Monthly Salary (₺)') : t.grossSalary}
             </label>
             <input
               type="text"
               value={grossSalary}
               onChange={handleGrossSalaryChange}
-              placeholder="120.000"
+              placeholder="45.000"
               className="form-input"
             />
           </div>
@@ -1584,13 +2078,28 @@ function App() {
           <div className="form-group">
             <label className="form-label">
               {t.inflationScenario}
+              {searchTerm && (
+                <span style={{ 
+                  marginLeft: '0.5rem', 
+                  fontSize: '0.75rem', 
+                  color: '#06b6d4',
+                  backgroundColor: '#1e293b',
+                  padding: '0.25rem 0.5rem',
+                  borderRadius: '0.25rem',
+                  border: '1px solid #475569'
+                }}>
+                  {language === 'tr' ? `Arıyor: ${searchTerm}` : `Searching: ${searchTerm}`}
+                </span>
+              )}
             </label>
             <select
-              value={selectedInflation}
+              value={customInflation ? 0 : selectedInflation}
               onChange={handleInflationScenarioChange}
+              onKeyDown={handleDropdownKeyDown}
               className="form-select"
+              title={language === 'tr' ? 'Klavyeden ülke adını yazarak arayabilirsiniz' : 'Type country name to search'}
             >
-              {inflationScenarios.map((scenario, index) => (
+              {allInflationScenarios.map((scenario, index) => (
                 <option key={index} value={scenario.value}>
                   {scenario.label} {scenario.value > 0 ? `(${scenario.value}%)` : ''}
                 </option>
@@ -1610,6 +2119,260 @@ function App() {
               placeholder={t.customInflationPlaceholder}
               className="form-input"
             />
+          </div>
+        </div>
+
+        {/* Salary Raise Input Section */}
+        <div style={{ marginBottom: '1rem' }}>
+          <div style={{ 
+            backgroundColor: '#1e293b', 
+            borderRadius: '0.5rem', 
+            padding: '1rem',
+            border: '1px solid #475569'
+          }}>
+            <div style={{ marginBottom: '0.75rem' }}>
+              <h3 style={{ 
+                color: '#06b6d4', 
+                fontSize: '1rem', 
+                fontWeight: '600', 
+                marginBottom: '0.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between'
+              }}>
+                {t.simpleRaiseInput}
+                <button
+                onClick={() => setShowDetailedRaises(!showDetailedRaises)}
+                style={{
+                  background: 'none',
+                  border: '1px solid #475569',
+                  color: '#94a3b8',
+                  padding: '0.2rem 0.6rem',
+                  borderRadius: '0.375rem',
+                  fontSize: '0.7rem',
+                  cursor: 'pointer'
+                }}
+              >
+                {showDetailedRaises ? t.hideDetailedRaises : t.showDetailedRaises}
+              </button>
+              </h3>
+              <p style={{ 
+                color: '#94a3b8', 
+                fontSize: '0.8rem', 
+                margin: '0' 
+              }}>
+                {t.raiseInfoNote}
+              </p>
+            </div>
+            
+            {!showDetailedRaises ? (
+              // Simple raise input
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <span style={{ color: '#cbd5e1', fontSize: '1rem' }}>
+                  {language === 'tr' ? '' : 'I got '}
+                </span>
+                <input
+                  type="number"
+                  value={simpleRaisePercent}
+                  onChange={(e) => setSimpleRaisePercent(e.target.value)}
+                  placeholder={t.percentPlaceholder}
+                  style={{
+                    width: '80px',
+                    padding: '0.5rem',
+                    backgroundColor: '#374151',
+                    border: '1px solid #4b5563',
+                    borderRadius: '0.375rem',
+                    color: 'white',
+                    fontSize: '1rem',
+                    textAlign: 'center'
+                  }}
+                />
+                <span style={{ color: '#cbd5e1', fontSize: '1rem' }}>
+                  % {language === 'tr' ? 'zam' : 'raise in month'}
+                </span>
+                <input
+                  type="number"
+                  value={simpleRaiseMonth}
+                  onChange={(e) => setSimpleRaiseMonth(e.target.value)}
+                  placeholder={t.monthPlaceholder}
+                  min="1"
+                  max="12"
+                  style={{
+                    width: '60px',
+                    padding: '0.5rem',
+                    backgroundColor: '#374151',
+                    border: '1px solid #4b5563',
+                    borderRadius: '0.375rem',
+                    color: 'white',
+                    fontSize: '1rem',
+                    textAlign: 'center'
+                  }}
+                />
+                <span style={{ color: '#cbd5e1', fontSize: '1rem' }}>
+                  {language === 'tr' ? '. ayda aldım' : ''}
+                </span>
+                <button
+                  onClick={handleSimpleRaiseApply}
+                  style={{
+                    backgroundColor: '#0891b2',
+                    color: 'white',
+                    border: 'none',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '0.375rem',
+                    fontSize: '0.875rem',
+                    cursor: 'pointer',
+                    marginLeft: '0.5rem'
+                  }}
+                >
+                  {language === 'tr' ? 'Uygula' : 'Apply'}
+                </button>
+
+                {/* Net Salary Mode Selection - Moved inside zam section */}
+                <div style={{ 
+                  marginTop: '0.75rem', 
+                  paddingTop: '0.75rem', 
+                  borderTop: '1px solid #475569',
+                  display: 'flex',
+                  justifyContent: 'flex-end'
+                }}>
+                  <label 
+                  style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '0.5rem',
+                    fontSize: '0.9rem',
+                    fontWeight: '500',
+                    color: '#cbd5e1',
+                    cursor: 'pointer',
+                    padding: '0.5rem 0.75rem',
+                    backgroundColor: '#374151',
+                    borderRadius: '0.375rem',
+                    border: isNetSalary ? '2px solid #06b6d4' : '2px solid transparent',
+                    maxWidth: 'fit-content'
+                  }}
+                  title={t.netSalaryTooltip}
+                >
+                  <input
+                    type="checkbox"
+                    checked={isNetSalary}
+                    onChange={(e) => setIsNetSalary(e.target.checked)}
+                    style={{
+                      width: '16px',
+                      height: '16px',
+                      accentColor: '#06b6d4'
+                    }}
+                  />
+                  <div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: '500' }}>
+                      {t.netSalaryMode}
+                    </div>
+                    <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.1rem' }}>
+                      {t.netSalaryNote}
+                    </div>
+                  </div>
+                  </label>
+                </div>
+              </div>
+            ) : (
+              // Detailed monthly input
+              <div>
+                <p style={{ 
+                  color: '#94a3b8', 
+                  fontSize: '0.875rem', 
+                  marginBottom: '1rem' 
+                }}>
+                  {t.salaryIncreaseDescription}
+                </p>
+                
+                <div style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+                  gap: '1rem' 
+                }}>
+                  {Array.from({ length: 12 }, (_, index) => (
+                    <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ 
+                        color: '#cbd5e1', 
+                        fontSize: '0.875rem', 
+                        minWidth: '60px',
+                        fontWeight: '500'
+                      }}>
+                        {index + 1}. Ay:
+                      </span>
+                      <input
+                        type="number"
+                        value={salaryIncreases[index]}
+                        onChange={(e) => handleSalaryIncreaseChange(index, e.target.value)}
+                        placeholder="0"
+                        title={t.salaryIncreaseTooltip}
+                        style={{
+                          flex: 1,
+                          padding: '0.5rem',
+                          backgroundColor: '#374151',
+                          border: '1px solid #4b5563',
+                          borderRadius: '0.375rem',
+                          color: 'white',
+                          fontSize: '0.875rem'
+                        }}
+                      />
+                      <span style={{ 
+                        color: '#94a3b8', 
+                        fontSize: '0.875rem',
+                        minWidth: '20px'
+                      }}>
+                        %
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Net Salary Mode Selection - Also in detailed section */}
+                <div style={{ 
+                  marginTop: '0.75rem', 
+                  paddingTop: '0.75rem', 
+                  borderTop: '1px solid #475569',
+                  display: 'flex',
+                  justifyContent: 'flex-end'
+                }}>
+                  <label 
+                    style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: '0.5rem',
+                      fontSize: '0.9rem',
+                      fontWeight: '500',
+                      color: '#cbd5e1',
+                      cursor: 'pointer',
+                      padding: '0.5rem 0.75rem',
+                      backgroundColor: '#374151',
+                      borderRadius: '0.375rem',
+                      border: isNetSalary ? '2px solid #06b6d4' : '2px solid transparent',
+                      maxWidth: 'fit-content'
+                    }}
+                    title={t.netSalaryTooltip}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={isNetSalary}
+                      onChange={(e) => setIsNetSalary(e.target.checked)}
+                      style={{
+                        width: '16px',
+                        height: '16px',
+                        accentColor: '#06b6d4'
+                      }}
+                    />
+                    <div>
+                      <div style={{ fontSize: '0.9rem', fontWeight: '500' }}>
+                        {t.netSalaryMode}
+                      </div>
+                      <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.1rem' }}>
+                        {t.netSalaryNote}
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -1686,7 +2449,7 @@ function App() {
                 <thead className="table-header">
                   <tr>
                     <th>{t.month}</th>
-                    <th className="text-right">{t.brut}</th>
+                    <th className="text-right">{isNetSalary ? t.net : t.brut}</th>
                     <th className="text-right">{t.netSalarySimple}</th>
                     <th className="text-right red">{t.currentTaxBracket}</th>
                     <th className="text-right orange">{t.purchasingPowerLoss}</th>
@@ -1698,7 +2461,25 @@ function App() {
                   {results.map((result) => (
                     <tr key={result.month} className="table-row">
                       <td className="table-cell">{result.month}</td>
-                      <td className="table-cell text-right">{formatCurrency(result.grossSalary)}</td>
+                      <td className="table-cell text-right">
+                        <input
+                          type="text"
+                          value={monthlySalaries[result.month - 1] || formatCurrency(result.grossSalary).replace('₺', '').trim()}
+                          onChange={(e) => handleMonthlySalaryChange(result.month - 1, e.target.value)}
+                          style={{
+                            width: '100%',
+                            backgroundColor: 'transparent',
+                            border: '1px solid #475569',
+                            borderRadius: '4px',
+                            padding: '6px 10px',
+                            color: 'inherit',
+                            textAlign: 'right',
+                            fontSize: '1rem',
+                            fontWeight: '600'
+                          }}
+                          placeholder="Brüt maaş"
+                        />
+                      </td>
                       <td className="table-cell text-right">{formatCurrency(result.netPayableAmount)}</td>
                       <td className="table-cell text-right red">{getCurrentTaxBracket(result.cumulativeTaxBase)}</td>
                       <td className="table-cell text-right orange">
@@ -1720,7 +2501,7 @@ function App() {
                 <thead className="table-header">
                   <tr>
                     <th>{t.month}</th>
-                    <th className="text-right">{t.brut}</th>
+                    <th className="text-right">{isNetSalary ? t.net : t.brut}</th>
                     <th className="text-right">{t.sskIsci}</th>
                     <th className="text-right">{t.issizlikIsci}</th>
                     <th className="text-right red">{t.aylikGelirVergisi}</th>
@@ -1742,7 +2523,25 @@ function App() {
                   {results.map((result) => (
                     <tr key={result.month} className="table-row">
                       <td className="table-cell">{result.month}</td>
-                      <td className="table-cell text-right">{formatCurrency(result.grossSalary)}</td>
+                      <td className="table-cell text-right">
+                        <input
+                          type="text"
+                          value={monthlySalaries[result.month - 1] || formatCurrency(result.grossSalary).replace('₺', '').trim()}
+                          onChange={(e) => handleMonthlySalaryChange(result.month - 1, e.target.value)}
+                          style={{
+                            width: '100%',
+                            backgroundColor: 'transparent',
+                            border: '1px solid #475569',
+                            borderRadius: '4px',
+                            padding: '6px 10px',
+                            color: 'inherit',
+                            textAlign: 'right',
+                            fontSize: '1rem',
+                            fontWeight: '600'
+                          }}
+                          placeholder="Brüt maaş"
+                        />
+                      </td>
                       <td className="table-cell text-right">{formatCurrency(result.sgkEmployee)}</td>
                       <td className="table-cell text-right">{formatCurrency(result.unemploymentEmployee)}</td>
                       <td className="table-cell text-right red">{formatCurrency(result.monthlyIncomeTax)}</td>
@@ -1871,6 +2670,8 @@ function App() {
               }}
               options={{
                 responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: isMobile ? 1.5 : 2,
                 plugins: {
                   datalabels: {
                     display: false
@@ -1879,24 +2680,24 @@ function App() {
                     position: 'top' as const,
                     labels: {
                       usePointStyle: true,
-                      padding: 20,
+                      padding: isMobile ? 10 : 20,
                       font: {
-                        size: 14,
+                        size: isMobile ? 12 : 14,
                         weight: 'bold'
                       },
                       color: '#cbd5e1',
-                      boxWidth: 15,
-                      boxHeight: 3
+                      boxWidth: isMobile ? 12 : 15,
+                      boxHeight: isMobile ? 2 : 3
                     }
                   },
                   title: {
                     display: true,
                     text: t.monthlyProjection,
                     font: {
-                      size: 18,
+                      size: isMobile ? 14 : 18,
                       weight: 'bold'
                     },
-                    padding: 20,
+                    padding: isMobile ? 10 : 20,
                     color: '#06b6d4'
                   },
                   tooltip: {
@@ -1906,6 +2707,12 @@ function App() {
                     borderColor: 'rgba(255, 255, 255, 0.1)',
                     borderWidth: 1,
                     cornerRadius: 8,
+                    titleFont: {
+                      size: isMobile ? 12 : 14
+                    },
+                    bodyFont: {
+                      size: isMobile ? 11 : 13
+                    },
                     callbacks: {
                       label: function(context) {
                         return `${context.dataset.label}: ${formatCurrency(context.parsed.y)}`;
@@ -1921,9 +2728,10 @@ function App() {
                     ticks: {
                       color: '#cbd5e1',
                       font: {
-                        size: 11,
+                        size: isMobile ? 9 : 11,
                         weight: 'bold'
-                      }
+                      },
+                      maxRotation: isMobile ? 0 : 0
                     }
                   },
                   y: {
@@ -1934,11 +2742,11 @@ function App() {
                     ticks: {
                       color: '#cbd5e1',
                       font: {
-                        size: 11,
+                        size: isMobile ? 9 : 11,
                         weight: 'bold'
                       },
                       callback: function(value) {
-                        return formatCurrency(Number(value));
+                        return isMobile ? formatCurrency(Number(value)).replace('₺', '') : formatCurrency(Number(value));
                       }
                     }
                   }
@@ -2047,6 +2855,8 @@ function App() {
                 }}
                 options={{
                   responsive: true,
+                  maintainAspectRatio: true,
+                  aspectRatio: isMobile ? 1.2 : 1.8,
                   interaction: {
                     mode: 'index' as const,
                     intersect: false,
@@ -2060,24 +2870,24 @@ function App() {
                       display: true,
                       labels: {
                         usePointStyle: false,
-                        padding: 25,
+                        padding: isMobile ? 12 : 25,
                         font: {
-                          size: 18,
+                          size: isMobile ? 12 : 18,
                           weight: 'bold'
                         },
                         color: '#000000',
-                        boxWidth: 30,
-                        boxHeight: 20
+                        boxWidth: isMobile ? 18 : 30,
+                        boxHeight: isMobile ? 12 : 20
                       }
                     },
                     title: {
                       display: true,
                       text: t.yearlyInflationRates,
                       font: {
-                        size: 16,
+                        size: isMobile ? 12 : 16,
                         weight: 'bold'
                       },
-                      padding: 20,
+                      padding: isMobile ? 10 : 20,
                       color: '#06b6d4'
                     },
                     tooltip: {
@@ -2087,6 +2897,12 @@ function App() {
                       borderColor: 'rgba(255, 255, 255, 0.1)',
                       borderWidth: 1,
                       cornerRadius: 8,
+                      titleFont: {
+                        size: isMobile ? 12 : 14
+                      },
+                      bodyFont: {
+                        size: isMobile ? 11 : 13
+                      },
                       callbacks: {
                         label: function(context) {
                           return `${context.dataset.label}: %${context.parsed.y}`;
@@ -2103,7 +2919,7 @@ function App() {
                       ticks: {
                         color: '#374151',
                         font: {
-                          size: 12,
+                          size: isMobile ? 9 : 12,
                           weight: 'bold'
                         }
                       }
@@ -2118,24 +2934,24 @@ function App() {
                       ticks: {
                         color: '#000000',
                         font: {
-                          size: 14,
+                          size: isMobile ? 10 : 14,
                           weight: 'bold'
                         },
                         stepSize: 10,
-                        padding: 8,
+                        padding: isMobile ? 4 : 8,
                         callback: function(value) {
                           return `%${value}`;
                         }
                       },
                       title: {
                         display: true,
-                        text: 'Enflasyon Oranı (%)',
+                        text: language === 'tr' ? 'Enflasyon Oranı (%)' : 'Inflation Rate (%)',
                         color: '#000000',
                         font: {
-                          size: 16,
+                          size: isMobile ? 12 : 16,
                           weight: 'bold'
                         },
-                        padding: 15
+                        padding: isMobile ? 8 : 15
                       }
                     }
                   }
@@ -2156,7 +2972,7 @@ function App() {
                   fontSize: '16px',
                   fontWeight: 'bold'
                 }}>
-                  Analiz Edilen Yıllar
+                  {t.analysisYears}
                 </h4>
                 <div style={{
                   display: 'flex',
@@ -2195,7 +3011,7 @@ function App() {
                   fontWeight: 'bold',
                   textAlign: 'center'
                 }}>
-                  Renk Açıklaması
+                  {t.colorLegend}
                 </h4>
                 <div style={{
                   display: 'flex',
@@ -2245,6 +3061,177 @@ function App() {
               </div>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Comprehensive Report Modal */}
+      {showComprehensiveReport && comprehensiveReport && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000
+        }}>
+          <div style={{
+            backgroundColor: '#1e293b',
+            borderRadius: '1rem',
+            padding: '2rem',
+            maxWidth: '800px',
+            maxHeight: '80vh',
+            overflow: 'auto',
+            margin: '1rem',
+            border: '1px solid #475569'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h2 style={{ color: '#06b6d4', fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>
+                📊 Kapsamlı Maaş Analiz Raporu
+              </h2>
+              <button
+                onClick={() => setShowComprehensiveReport(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: '#94a3b8',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  padding: '0.5rem'
+                }}
+              >
+                ×
+              </button>
+            </div>
+
+            {/* Summary Cards */}
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
+              gap: '1rem',
+              marginBottom: '2rem'
+            }}>
+              <div style={{ 
+                backgroundColor: '#374151', 
+                padding: '1rem', 
+                borderRadius: '0.5rem',
+                borderLeft: '4px solid #10b981'
+              }}>
+                <div style={{ fontSize: '0.875rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
+                  Aylık Maaşınız
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#10b981' }}>
+                  {comprehensiveReport.summary.monthlySalary}
+                </div>
+              </div>
+              
+              <div style={{ 
+                backgroundColor: '#374151', 
+                padding: '1rem', 
+                borderRadius: '0.5rem',
+                borderLeft: '4px solid #3b82f6'
+              }}>
+                <div style={{ fontSize: '0.875rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
+                  Saatlik GDP Katkısı
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#3b82f6' }}>
+                  {comprehensiveReport.summary.hourlyGdp}
+                </div>
+              </div>
+              
+              <div style={{ 
+                backgroundColor: '#374151', 
+                padding: '1rem', 
+                borderRadius: '0.5rem',
+                borderLeft: '4px solid #f59e0b'
+              }}>
+                <div style={{ fontSize: '0.875rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
+                  Saatlik Vergi Katkısı
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#f59e0b' }}>
+                  {comprehensiveReport.summary.hourlyTax}
+                </div>
+              </div>
+              
+              <div style={{ 
+                backgroundColor: '#374151', 
+                padding: '1rem', 
+                borderRadius: '0.5rem',
+                borderLeft: '4px solid #ef4444'
+              }}>
+                <div style={{ fontSize: '0.875rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
+                  OECD Sıralaması
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#ef4444' }}>
+                  {comprehensiveReport.summary.internationalRank}/{comprehensiveReport.summary.totalCountries}
+                </div>
+              </div>
+            </div>
+
+            {/* Key Insights */}
+            <div style={{ 
+              backgroundColor: '#0f172a', 
+              padding: '1.5rem', 
+              borderRadius: '0.5rem',
+              marginBottom: '1.5rem'
+            }}>
+              <h3 style={{ color: '#06b6d4', marginBottom: '1rem', fontSize: '1.125rem' }}>
+                🔍 Temel Bulgular
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                {comprehensiveReport.insights.map((insight: string, index: number) => (
+                  <div key={index} style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '0.5rem',
+                    color: '#cbd5e1',
+                    fontSize: '0.95rem'
+                  }}>
+                    <span style={{ color: '#10b981', fontWeight: 'bold' }}>•</span>
+                    {insight}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Visual Chart Placeholder */}
+            <div style={{ 
+              backgroundColor: '#374151', 
+              padding: '2rem', 
+              borderRadius: '0.5rem',
+              textAlign: 'center',
+              border: '2px dashed #475569'
+            }}>
+              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📊</div>
+              <div style={{ color: '#94a3b8', fontSize: '1rem' }}>
+                Tüm verilerinizin görsel analizi burada görüntülenecek
+              </div>
+              <div style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '0.5rem' }}>
+                GDP katkısı • Vergi analizi • Satın alma gücü • Uluslararası karşılaştırma
+              </div>
+            </div>
+
+            <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+              <button
+                onClick={() => setShowComprehensiveReport(false)}
+                style={{
+                  backgroundColor: '#06b6d4',
+                  color: 'white',
+                  border: 'none',
+                  padding: '0.75rem 2rem',
+                  borderRadius: '0.5rem',
+                  fontSize: '1rem',
+                  cursor: 'pointer',
+                  fontWeight: '500'
+                }}
+              >
+                Raporu Kapat
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

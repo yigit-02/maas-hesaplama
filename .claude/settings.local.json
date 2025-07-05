@@ -11,7 +11,9 @@
       "Bash(python3:*)",
       "Bash(npm run build:*)",
       "Bash(sed:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(rg:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }
