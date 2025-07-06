@@ -138,7 +138,66 @@ const translations = {
     showDetailedRaises: 'Detaylı ay ay zam girişi',
     hideDetailedRaises: 'Basit zam girişi',
     raiseInfoNote: 'Eğer zam aldıysanız ekleyebilirsiniz',
-    netSalaryNote: 'Şirketinizden kesintisiz maaş alıyorsanız işaretleyin'
+    netSalaryNote: 'Şirketinizden kesintisiz maaş alıyorsanız işaretleyin',
+    // Comments section
+    commentsSection: 'Kullanıcı Yorumları',
+    shareExperience: 'Deneyiminizi Paylaşın',
+    commentPlaceholder: 'Maaşınız hakkında düşüncelerinizi, tecrübelerinizi ve tavsiyelerinizi yazın...',
+    shareComment: 'Yorum Paylaş',
+    anonymousComment: 'Anonim yorum',
+    salaryRange: 'Maaş aralığı',
+    customSalaryRange: 'Özel maaş aralığı',
+    company: 'Şirket',
+    position: 'Pozisyon',
+    experience: 'Tecrübe',
+    companyPlaceholder: 'Şirket adı (isteğe bağlı)',
+    positionPlaceholder: 'Pozisyonunuz (isteğe bağlı)',
+    experiencePlaceholder: 'Kaç yıllık tecrübe',
+    customSalaryPlaceholder: 'Örn: ₺85.000 - ₺95.000',
+    noComments: 'Henüz yorum yok. İlk yorumu siz bırakın!',
+    commentAdded: 'Yorumunuz başarıyla eklendi!',
+    commentError: 'Yorum eklenirken bir hata oluştu.',
+    writeComment: 'Yorum Yaz',
+    scrollToComments: 'Yorumlara Git',
+    cancel: 'İptal',
+    viewAllComments: 'Bütün Yorumları Oku',
+    backToCalculator: 'Hesaplayıcıya Dön',
+    totalComments: 'Toplam Yorum',
+    // Auth
+    login: 'Giriş Yap',
+    register: 'Kayıt Ol',
+    logout: 'Çıkış Yap',
+    username: 'Kullanıcı Adı',
+    email: 'E-posta',
+    password: 'Şifre',
+    loginToReply: 'Yanıtlamak için giriş yapın',
+    reply: 'Yanıtla',
+    replies: 'Yanıtlar',
+    showReplies: 'Yanıtları Göster',
+    hideReplies: 'Yanıtları Gizle',
+    addReply: 'Yanıt Ekle',
+    switchToRegister: 'Hesabınız yok mu? Kayıt olun',
+    switchToLogin: 'Hesabınız var mı? Giriş yapın',
+    // Premium features
+    premium: 'Premium',
+    upgradeToPremium: 'Premium\'a Yükselt',
+    socialMediaPromotion: 'Sosyal Medya Tanıtımı',
+    shareOnSocial: 'Sosyal Medyada Paylaş',
+    premiumFeature: 'Premium Özellik',
+    premiumRequired: 'Bu özellik için Premium üyelik gereklidir',
+    shareYourStory: 'Hikayenizi Paylaşın',
+    socialMediaDescription: 'Yorumunuz Twitter ve Instagram\'da hikaye olarak paylaşılacak',
+    schedulePost: 'Paylaşım Zamanla',
+    postNow: 'Şimdi Paylaş',
+    postScheduled: 'Paylaşım Zamanlandı',
+    viewSocialPosts: 'Sosyal Medya Paylaşımları',
+    timeAgo: 'önce',
+    justNow: 'şimdi',
+    minutesAgo: 'dakika',
+    hoursAgo: 'saat',
+    daysAgo: 'gün',
+    weeksAgo: 'hafta',
+    monthsAgo: 'ay'
   },
   en: {
     title: 'Gross-Net Salary Calculator',
@@ -251,7 +310,66 @@ const translations = {
     showDetailedRaises: 'Detailed monthly raise input',
     hideDetailedRaises: 'Simple raise input',
     raiseInfoNote: 'Add if you received any salary raise',
-    netSalaryNote: 'Check if you receive salary without deductions'
+    netSalaryNote: 'Check if you receive salary without deductions',
+    // Comments section
+    commentsSection: 'User Comments',
+    shareExperience: 'Share Your Experience',
+    commentPlaceholder: 'Share your thoughts, experiences and tips about your salary...',
+    shareComment: 'Share Comment',
+    anonymousComment: 'Anonymous comment',
+    salaryRange: 'Salary range',
+    customSalaryRange: 'Custom salary range',
+    company: 'Company',
+    position: 'Position',
+    experience: 'Experience',
+    companyPlaceholder: 'Company name (optional)',
+    positionPlaceholder: 'Your position (optional)',
+    experiencePlaceholder: 'Years of experience',
+    customSalaryPlaceholder: 'e.g: ₺85.000 - ₺95.000',
+    noComments: 'No comments yet. Be the first to comment!',
+    commentAdded: 'Your comment has been added successfully!',
+    commentError: 'An error occurred while adding your comment.',
+    writeComment: 'Write Comment',
+    scrollToComments: 'Go to Comments',
+    cancel: 'Cancel',
+    viewAllComments: 'Read All Comments',
+    backToCalculator: 'Back to Calculator',
+    totalComments: 'Total Comments',
+    // Auth
+    login: 'Login',
+    register: 'Register',
+    logout: 'Logout',
+    username: 'Username',
+    email: 'Email',
+    password: 'Password',
+    loginToReply: 'Login to reply',
+    reply: 'Reply',
+    replies: 'Replies',
+    showReplies: 'Show Replies',
+    hideReplies: 'Hide Replies',
+    addReply: 'Add Reply',
+    switchToRegister: 'Don\'t have an account? Register',
+    switchToLogin: 'Have an account? Login',
+    // Premium features
+    premium: 'Premium',
+    upgradeToPremium: 'Upgrade to Premium',
+    socialMediaPromotion: 'Social Media Promotion',
+    shareOnSocial: 'Share on Social Media',
+    premiumFeature: 'Premium Feature',
+    premiumRequired: 'Premium membership required for this feature',
+    shareYourStory: 'Share Your Story',
+    socialMediaDescription: 'Your comment will be shared as a story on Twitter and Instagram',
+    schedulePost: 'Schedule Post',
+    postNow: 'Post Now',
+    postScheduled: 'Post Scheduled',
+    viewSocialPosts: 'View Social Media Posts',
+    timeAgo: 'ago',
+    justNow: 'now',
+    minutesAgo: 'minutes',
+    hoursAgo: 'hours',
+    daysAgo: 'days',
+    weeksAgo: 'weeks',
+    monthsAgo: 'months'
   }
 };
 
@@ -406,8 +524,8 @@ const turkeyInflationData = {
   ito: [15.09, 34.18, 92.97, 74.88, 78.54, 41.12]
 };
 
-// OECD countries comparison data (2024 estimates)
-const oecdCountriesData = [
+// Global countries comparison data (2024 estimates) - Expanded for comprehensive analysis
+const globalCountriesData = [
   {
     country: 'Turkey',
     flag: '🇹🇷',
@@ -416,7 +534,10 @@ const oecdCountriesData = [
     pppFactor: 1.0, // Base for Turkey
     currencyCode: 'TL',
     costOfLivingIndex: 100, // Base index
-    gdpPerCapita: 13000 // USD
+    gdpPerCapita: 13000, // USD
+    minimumWage: 17002, // TL monthly
+    region: 'Middle East',
+    lifeQuality: 'Moderate'
   },
   {
     country: 'Germany',
@@ -426,7 +547,10 @@ const oecdCountriesData = [
     pppFactor: 0.77, // EUR to TL PPP
     currencyCode: 'EUR',
     costOfLivingIndex: 180,
-    gdpPerCapita: 48000
+    gdpPerCapita: 48000,
+    minimumWage: 2080, // EUR monthly
+    region: 'Europe',
+    lifeQuality: 'Very High'
   },
   {
     country: 'United States',
@@ -436,47 +560,62 @@ const oecdCountriesData = [
     pppFactor: 0.36, // USD to TL PPP
     currencyCode: 'USD',
     costOfLivingIndex: 200,
-    gdpPerCapita: 80000
+    gdpPerCapita: 80000,
+    minimumWage: 1256, // USD monthly (federal minimum)
+    region: 'North America',
+    lifeQuality: 'Very High'
   },
   {
-    country: 'United Kingdom',
-    flag: '🇬🇧',
-    averageGrossSalary: 45000, // GBP annually
-    averageNetSalary: 34000, // GBP annually
-    pppFactor: 0.43, // GBP to TL PPP
-    currencyCode: 'GBP',
-    costOfLivingIndex: 190,
-    gdpPerCapita: 46000
+    country: 'India',
+    flag: '🇮🇳',
+    averageGrossSalary: 480000, // INR annually
+    averageNetSalary: 420000, // INR annually
+    pppFactor: 22.5, // INR to TL PPP
+    currencyCode: 'INR',
+    costOfLivingIndex: 25,
+    gdpPerCapita: 2500,
+    minimumWage: 5340, // INR monthly
+    region: 'Asia',
+    lifeQuality: 'Moderate'
   },
   {
-    country: 'France',
-    flag: '🇫🇷',
-    averageGrossSalary: 45000, // EUR annually
-    averageNetSalary: 32000, // EUR annually
-    pppFactor: 0.77, // EUR to TL PPP
-    currencyCode: 'EUR',
-    costOfLivingIndex: 175,
-    gdpPerCapita: 42000
+    country: 'Egypt',
+    flag: '🇪🇬',
+    averageGrossSalary: 72000, // EGP annually
+    averageNetSalary: 60000, // EGP annually
+    pppFactor: 15.8, // EGP to TL PPP
+    currencyCode: 'EGP',
+    costOfLivingIndex: 30,
+    gdpPerCapita: 4200,
+    minimumWage: 3500, // EGP monthly
+    region: 'Africa',
+    lifeQuality: 'Moderate'
   },
   {
-    country: 'Italy',
-    flag: '🇮🇹',
-    averageGrossSalary: 35000, // EUR annually
-    averageNetSalary: 26000, // EUR annually
-    pppFactor: 0.77, // EUR to TL PPP
-    currencyCode: 'EUR',
-    costOfLivingIndex: 160,
-    gdpPerCapita: 32000
+    country: 'Bulgaria',
+    flag: '🇧🇬',
+    averageGrossSalary: 18000, // BGN annually
+    averageNetSalary: 14400, // BGN annually
+    pppFactor: 1.95, // BGN to TL PPP
+    currencyCode: 'BGN',
+    costOfLivingIndex: 65,
+    gdpPerCapita: 12500,
+    minimumWage: 933, // BGN monthly
+    region: 'Europe',
+    lifeQuality: 'High'
   },
   {
-    country: 'Spain',
-    flag: '🇪🇸',
-    averageGrossSalary: 28000, // EUR annually
-    averageNetSalary: 22000, // EUR annually
-    pppFactor: 0.77, // EUR to TL PPP
-    currencyCode: 'EUR',
-    costOfLivingIndex: 150,
-    gdpPerCapita: 28000
+    country: 'Mexico',
+    flag: '🇲🇽',
+    averageGrossSalary: 180000, // MXN annually
+    averageNetSalary: 150000, // MXN annually
+    pppFactor: 10.2, // MXN to TL PPP
+    currencyCode: 'MXN',
+    costOfLivingIndex: 55,
+    gdpPerCapita: 11500,
+    minimumWage: 5400, // MXN monthly
+    region: 'North America',
+    lifeQuality: 'High'
   },
   {
     country: 'Poland',
@@ -486,17 +625,49 @@ const oecdCountriesData = [
     pppFactor: 1.8, // PLN to TL PPP
     currencyCode: 'PLN',
     costOfLivingIndex: 130,
-    gdpPerCapita: 17500
+    gdpPerCapita: 17500,
+    minimumWage: 4300, // PLN monthly
+    region: 'Europe',
+    lifeQuality: 'High'
   },
   {
-    country: 'Czech Republic',
-    flag: '🇨🇿',
-    averageGrossSalary: 500000, // CZK annually
-    averageNetSalary: 380000, // CZK annually
-    pppFactor: 12.5, // CZK to TL PPP
-    currencyCode: 'CZK',
-    costOfLivingIndex: 140,
-    gdpPerCapita: 26500
+    country: 'Romania',
+    flag: '🇷🇴',
+    averageGrossSalary: 48000, // RON annually
+    averageNetSalary: 32000, // RON annually
+    pppFactor: 2.1, // RON to TL PPP
+    currencyCode: 'RON',
+    costOfLivingIndex: 90,
+    gdpPerCapita: 14500,
+    minimumWage: 3700, // RON monthly
+    region: 'Europe',
+    lifeQuality: 'High'
+  },
+  {
+    country: 'Thailand',
+    flag: '🇹🇭',
+    averageGrossSalary: 360000, // THB annually
+    averageNetSalary: 330000, // THB annually
+    pppFactor: 15.5, // THB to TL PPP
+    currencyCode: 'THB',
+    costOfLivingIndex: 45,
+    gdpPerCapita: 7800,
+    minimumWage: 11000, // THB monthly
+    region: 'Asia',
+    lifeQuality: 'High'
+  },
+  {
+    country: 'United Kingdom',
+    flag: '🇬🇧',
+    averageGrossSalary: 45000, // GBP annually
+    averageNetSalary: 34000, // GBP annually
+    pppFactor: 0.43, // GBP to TL PPP
+    currencyCode: 'GBP',
+    costOfLivingIndex: 190,
+    gdpPerCapita: 46000,
+    minimumWage: 2200, // GBP monthly
+    region: 'Europe',
+    lifeQuality: 'Very High'
   },
   {
     country: 'Greece',
@@ -506,9 +677,25 @@ const oecdCountriesData = [
     pppFactor: 0.77, // EUR to TL PPP
     currencyCode: 'EUR',
     costOfLivingIndex: 140,
-    gdpPerCapita: 17000
+    gdpPerCapita: 17000,
+    minimumWage: 760, // EUR monthly
+    region: 'Europe',
+    lifeQuality: 'High'
   }
 ];
+
+// World and Turkey statistics for global comparison
+const globalStats = {
+  worldAverageGDP: 12500, // USD per capita
+  turkeyRankInWorld: 68, // Out of ~200 countries by GDP per capita
+  turkeyGDPRank: 19, // Largest economy by nominal GDP
+  istanbulAverageSalary: 180000, // TL annually
+  turkeyAverageSalary: 108000, // TL annually
+  turkeyMinimumWage: 17002 * 12, // TL annually
+  worldPopulation: 8000000000,
+  turkeyPopulation: 85000000,
+  worldAverageSalaryUSD: 18000 // USD annually
+};
 
 interface CalculationResult {
   month: number;
@@ -529,6 +716,42 @@ interface CalculationResult {
   purchasingPowerLoss: number;
   realSalary: number;
   inflationMultiplier: number;
+}
+
+interface Comment {
+  id: string;
+  text: string;
+  isAnonymous: boolean;
+  salaryRange: string;
+  company: string;
+  position: string;
+  experience: string;
+  timestamp: number;
+  author?: string;
+  replies?: Reply[];
+}
+
+interface Reply {
+  id: string;
+  text: string;
+  author: string;
+  timestamp: number;
+}
+
+interface User {
+  id: string;
+  username: string;
+  email: string;
+  isPremium?: boolean;
+}
+
+interface SocialPost {
+  id: string;
+  commentId: string;
+  platform: 'twitter' | 'instagram';
+  isScheduled: boolean;
+  scheduledDate?: number;
+  status: 'pending' | 'posted' | 'failed';
 }
 
 function App() {
@@ -555,12 +778,103 @@ function App() {
   const [comprehensiveReport, setComprehensiveReport] = useState<any>(null);
   const [weeklyWorkingHours, setWeeklyWorkingHours] = useState<string>('45'); // Default 45 hours per week
 
+  // Sample comments data
+  const sampleComments: Comment[] = [
+    {
+      id: '1',
+      text: 'Yazılım geliştiricisi olarak bu hesaplayıcı gerçekten çok faydalı. Özellikle enflasyon etkisini görmek şok edici. 12 ay sonunda maaşımın alım gücü %25 azalıyor.',
+      isAnonymous: true,
+      salaryRange: '₺50.000 - ₺75.000',
+      company: 'Tech Startup',
+      position: 'Senior Developer',
+      experience: '5-8 yıl',
+      timestamp: Date.now() - 2 * 24 * 60 * 60 * 1000
+    },
+    {
+      id: '2', 
+      text: 'Bankacı arkadaşlar bu hesaplayıcıyı mutlaka kullanın. Ben SGK primlerimin ne kadar olduğunu tam olarak bilmiyordum. Şimdi her ay ne kadar kesinti yapıldığını net görüyorum.',
+      isAnonymous: false,
+      salaryRange: '₺30.000 - ₺40.000',
+      company: 'Özel Banka',
+      position: 'Müşteri Temsilcisi',
+      experience: '2-3 yıl',
+      timestamp: Date.now() - 5 * 24 * 60 * 60 * 1000
+    },
+    {
+      id: '3',
+      text: 'Muhasebeci olarak müşterilerime bu siteyi öneriyorum. Vergi hesaplamaları çok doğru ve güncel. Özellikle asgari geçim indirimi hesabı mükemmel.',
+      isAnonymous: true,
+      salaryRange: '₺40.000 - ₺50.000',
+      company: 'Mali Müşavirlik',
+      position: 'Muhasebeci',
+      experience: '8-10 yıl',
+      timestamp: Date.now() - 1 * 24 * 60 * 60 * 1000
+    },
+    {
+      id: '4',
+      text: 'İnsan kaynakları uzmanı olarak çalışanlara maaş projeksiyonu göstermek için kullanıyorum. Çok profesyonel bir araç olmuş.',
+      isAnonymous: false,
+      salaryRange: '₺75.000 - ₺100.000',
+      company: 'Holding',
+      position: 'İK Uzmanı',
+      experience: '10+ yıl',
+      timestamp: Date.now() - 3 * 24 * 60 * 60 * 1000
+    },
+    {
+      id: '5',
+      text: 'Öğretmen maaşı ile bu kadar detaylı analiz görmek üzücü ama gerçekçi. En azından geleceği planlayabiliyorum artık.',
+      isAnonymous: true,
+      salaryRange: '₺20.000 - ₺30.000',
+      company: 'MEB',
+      position: 'Öğretmen',
+      experience: '3-5 yıl',
+      timestamp: Date.now() - 7 * 24 * 60 * 60 * 1000
+    },
+    {
+      id: '6',
+      text: 'Satış temsilcisi olarak komisyon + maaş alıyorum. Bu hesaplayıcı sabit maaş kısmını çok iyi hesaplıyor. Teşekkürler!',
+      isAnonymous: true,
+      salaryRange: '₺30.000 - ₺40.000',
+      company: 'İlaç Firması',
+      position: 'Satış Temsilcisi',
+      experience: '1-2 yıl',
+      timestamp: Date.now() - 4 * 24 * 60 * 60 * 1000
+    }
+  ];
+
+  // Comment section states
+  const [comments, setComments] = useState<Comment[]>(sampleComments);
+  const [newComment, setNewComment] = useState<string>('');
+  const [commentSalaryRange, setCommentSalaryRange] = useState<string>('');
+  const [customSalaryRange, setCustomSalaryRange] = useState<string>('');
+  const [commentCompany, setCommentCompany] = useState<string>('');
+  const [commentPosition, setCommentPosition] = useState<string>('');
+  const [commentExperience, setCommentExperience] = useState<string>('');
+  const [isCommentAnonymous, setIsCommentAnonymous] = useState<boolean>(true);
+  const [showCommentForm, setShowCommentForm] = useState<boolean>(false);
+  const [showAllComments, setShowAllComments] = useState<boolean>(false);
+
+  // User authentication states
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
+  const [isLoginMode, setIsLoginMode] = useState<boolean>(true);
+  const [loginForm, setLoginForm] = useState({ username: '', email: '', password: '' });
+  const [replyingToComment, setReplyingToComment] = useState<string | null>(null);
+  const [replyText, setReplyText] = useState<string>('');
+
+  // Premium features states
+  const [showSocialModal, setShowSocialModal] = useState<boolean>(false);
+  const [selectedCommentForShare, setSelectedCommentForShare] = useState<string | null>(null);
+  const [socialPosts, setSocialPosts] = useState<SocialPost[]>([]);
+  const [showPremiumModal, setShowPremiumModal] = useState<boolean>(false);
+  const [forceUpdate, setForceUpdate] = useState<number>(0);
+
   const t = translations[language];
   const allInflationScenarios = getInflationScenarios(t, language);
   
   // Extract country name from scenario label (removing flag emojis)
   const getCountryName = (label: string) => {
-    return label.replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '').trim();
+    return label.replace(/[\u1F1E6-\u1F1FF]{2}/g, '').trim();
   };
 
   // Filter scenarios based on search term
@@ -840,14 +1154,53 @@ function App() {
   };
 
   // Perform salary calculations
+  // Helper function to convert net salary to gross salary
+  const calculateGrossFromNet = (targetNet: number): number => {
+    let grossEstimate = targetNet * 1.5; // Starting estimate (net is usually ~65-70% of gross)
+    let iteration = 0;
+    const maxIterations = 20;
+    
+    while (iteration < maxIterations) {
+      // Calculate deductions using the same logic as main calculator
+      const sgkEmployee = grossEstimate * 0.14;
+      const unemploymentEmployee = grossEstimate * 0.01;
+      const totalIncomeTax = calculateIncomeTax(grossEstimate);
+      const stampTax = grossEstimate * 0.00759;
+      
+      const calculatedNet = grossEstimate - sgkEmployee - unemploymentEmployee - totalIncomeTax - stampTax;
+      const difference = Math.abs(calculatedNet - targetNet);
+      
+      if (difference < 1) { // 1 TL tolerance
+        break;
+      }
+      
+      // Update estimate using ratio
+      const ratio = targetNet / calculatedNet;
+      grossEstimate = grossEstimate * ratio;
+      iteration++;
+    }
+    
+    return grossEstimate;
+  };
+
   // GDP calculation functions
   const calculateGdpContribution = () => {
-    const numericGrossSalary = parseFloat(grossSalary.replace(/\./g, ''));
-    if (!numericGrossSalary || numericGrossSalary <= 0) return null;
+    const numericInputSalary = parseFloat(grossSalary.replace(/\./g, ''));
+    if (!numericInputSalary || numericInputSalary <= 0) return null;
+    
+    // Handle net vs gross salary
+    let effectiveGrossSalary = numericInputSalary;
+    if (isNetSalary) {
+      effectiveGrossSalary = calculateGrossFromNet(numericInputSalary);
+    }
     
     const TURKEY_GDP_PER_CAPITA_USD = 13000; // 2024 estimate
     const WORKING_HOURS_PER_YEAR = 1750; // Standard working hours
-    const WORKING_HOURS_PER_MONTH = 225; // 1750 / 12 * 1.5 adjustment
+    
+    // Use dynamic weeklyWorkingHours instead of fixed value
+    const weeklyHours = parseFloat(weeklyWorkingHours) || 45;
+    const WORKING_HOURS_PER_MONTH = (weeklyHours * 52) / 12; // Dynamic calculation
+    
     const USD_TO_TL_RATE = 30; // Approximate exchange rate
     
     // Turkey's average hourly GDP contribution (reference)
@@ -855,7 +1208,7 @@ function App() {
     const turkeyAvgHourlyGdpTL = turkeyAvgHourlyGdpUSD * USD_TO_TL_RATE;
     
     // User's hourly salary
-    const monthlySalary = numericGrossSalary;
+    const monthlySalary = effectiveGrossSalary;
     const hourlySalary = monthlySalary / WORKING_HOURS_PER_MONTH;
     
     // User's estimated hourly GDP contribution (proportional to their salary vs average salary)
@@ -876,16 +1229,24 @@ function App() {
   };
 
   const calculateTaxContribution = () => {
-    const numericGrossSalary = parseFloat(grossSalary.replace(/\./g, ''));
-    if (!numericGrossSalary || numericGrossSalary <= 0) return null;
+    const numericInputSalary = parseFloat(grossSalary.replace(/\./g, ''));
+    if (!numericInputSalary || numericInputSalary <= 0) return null;
     
-    const WORKING_HOURS_PER_MONTH = 225;
+    // Handle net vs gross salary
+    let effectiveGrossSalary = numericInputSalary;
+    if (isNetSalary) {
+      effectiveGrossSalary = calculateGrossFromNet(numericInputSalary);
+    }
+    
+    // Use dynamic weeklyWorkingHours instead of fixed value
+    const weeklyHours = parseFloat(weeklyWorkingHours) || 45;
+    const WORKING_HOURS_PER_MONTH = (weeklyHours * 52) / 12;
     
     // Calculate monthly taxes
-    const sgkEmployee = numericGrossSalary * 0.14;
-    const unemploymentEmployee = numericGrossSalary * 0.01;
-    const totalIncomeTax = calculateIncomeTax(numericGrossSalary);
-    const stampTax = numericGrossSalary * 0.00759;
+    const sgkEmployee = effectiveGrossSalary * 0.14;
+    const unemploymentEmployee = effectiveGrossSalary * 0.01;
+    const totalIncomeTax = calculateIncomeTax(effectiveGrossSalary);
+    const stampTax = effectiveGrossSalary * 0.00759;
     
     const totalMonthlyTax = sgkEmployee + unemploymentEmployee + totalIncomeTax + stampTax;
     const hourlyTax = totalMonthlyTax / WORKING_HOURS_PER_MONTH;
@@ -901,20 +1262,26 @@ function App() {
   };
 
   const calculatePurchasingPower = () => {
-    const numericGrossSalary = parseFloat(grossSalary.replace(/\./g, ''));
-    if (!numericGrossSalary || numericGrossSalary <= 0) return null;
+    const numericInputSalary = parseFloat(grossSalary.replace(/\./g, ''));
+    if (!numericInputSalary || numericInputSalary <= 0) return null;
+    
+    // Handle net vs gross salary
+    let effectiveGrossSalary = numericInputSalary;
+    if (isNetSalary) {
+      effectiveGrossSalary = calculateGrossFromNet(numericInputSalary);
+    }
     
     // Calculate working hours per month based on user input
     const weeklyHours = parseFloat(weeklyWorkingHours) || 45;
     const WORKING_HOURS_PER_MONTH = (weeklyHours * 52) / 12; // weeks per year / months per year
     
     // Calculate net salary (simplified)
-    const sgkEmployee = numericGrossSalary * 0.14;
-    const unemploymentEmployee = numericGrossSalary * 0.01;
-    const totalIncomeTax = calculateIncomeTax(numericGrossSalary);
-    const stampTax = numericGrossSalary * 0.00759;
+    const sgkEmployee = effectiveGrossSalary * 0.14;
+    const unemploymentEmployee = effectiveGrossSalary * 0.01;
+    const totalIncomeTax = calculateIncomeTax(effectiveGrossSalary);
+    const stampTax = effectiveGrossSalary * 0.00759;
     
-    const netSalary = numericGrossSalary - sgkEmployee - unemploymentEmployee - totalIncomeTax - stampTax;
+    const netSalary = effectiveGrossSalary - sgkEmployee - unemploymentEmployee - totalIncomeTax - stampTax;
     const hourlyNet = netSalary / WORKING_HOURS_PER_MONTH;
     
     // Real market prices (2024 Turkey)
@@ -1000,17 +1367,27 @@ function App() {
     const monthlyNetSalary = numericGrossSalary - sgkEmployee - unemploymentEmployee - totalIncomeTax - stampTax;
     const annualNetSalary = monthlyNetSalary * 12;
     
+    // Calculate working hours and hourly wage
+    const weeklyHours = parseFloat(weeklyWorkingHours) || 45;
+    const monthlyHours = (weeklyHours * 52) / 12;
+    const hourlyWage = monthlyNetSalary / monthlyHours;
+    
+    // World ranking calculation
+    const annualNetUSD = annualNetSalary / 30; // Approximate USD conversion
+    const worldRankPercentile = Math.min(95, Math.max(5, (annualNetUSD / globalStats.worldAverageSalaryUSD) * 50));
+    
     // Calculate comparisons for each country
-    const comparisons = oecdCountriesData.map(country => {
+    const comparisons = globalCountriesData.map(country => {
       if (country.country === 'Turkey') {
         return {
           ...country,
           userSalaryInLocalCurrency: annualNetSalary,
-          salaryDifferencePercentage: 0,
+          salaryDifferencePercentage: ((annualNetSalary - country.averageNetSalary) / country.averageNetSalary) * 100,
           pppAdjustedSalary: annualNetSalary,
-          costAdjustedSalary: annualNetSalary,
+          costAdjustedSalary: 100,
           salaryRank: 'reference',
-          monthlyEquivalent: monthlyNetSalary
+          monthlyEquivalent: monthlyNetSalary,
+          lifeStyle: '🇹🇷 Türkiye standardında yaşam'
         };
       }
       
@@ -1026,12 +1403,26 @@ function App() {
       // Cost of living adjusted salary
       const costAdjustedSalary = (annualNetSalary / country.costOfLivingIndex) * 100;
       
-      // Determine salary rank
+      // Determine salary rank and lifestyle description
       let salaryRank = 'average';
-      if (salaryDifferencePercentage > 20) salaryRank = 'above_average';
-      else if (salaryDifferencePercentage > 50) salaryRank = 'high';
-      else if (salaryDifferencePercentage < -20) salaryRank = 'below_average';
-      else if (salaryDifferencePercentage < -50) salaryRank = 'low';
+      let lifeStyle = '';
+      
+      if (salaryDifferencePercentage > 50) {
+        salaryRank = 'high';
+        lifeStyle = `🏆 ${country.flag} Üst gelir grubu - Lüks yaşam`;
+      } else if (salaryDifferencePercentage > 20) {
+        salaryRank = 'above_average';
+        lifeStyle = `✨ ${country.flag} Ortalama üstü - Konforlu yaşam`;
+      } else if (salaryDifferencePercentage > -20) {
+        salaryRank = 'average';
+        lifeStyle = `⚖️ ${country.flag} Ortalama vatandaş seviyesi`;
+      } else if (salaryDifferencePercentage > -50) {
+        salaryRank = 'below_average';
+        lifeStyle = `⚠️ ${country.flag} Ortalama altı - Kısıtlı bütçe`;
+      } else {
+        salaryRank = 'low';
+        lifeStyle = `📉 ${country.flag} Düşük gelir - Zorlu yaşam`;
+      }
       
       return {
         ...country,
@@ -1040,16 +1431,29 @@ function App() {
         pppAdjustedSalary,
         costAdjustedSalary,
         salaryRank,
-        monthlyEquivalent: salaryInLocalCurrency / 12
+        monthlyEquivalent: salaryInLocalCurrency / 12,
+        lifeStyle
       };
     });
     
     // Sort by GDP per capita for better visualization
     comparisons.sort((a, b) => b.gdpPerCapita - a.gdpPerCapita);
     
+    // Calculate additional metrics
+    const minimumWageComparison = (monthlyNetSalary / (globalStats.turkeyMinimumWage / 12));
+    const istanbulComparison = (annualNetSalary / globalStats.istanbulAverageSalary) * 100;
+    const bestPurchasingPowerCountry = comparisons
+      .filter(c => c.country !== 'Turkey')
+      .sort((a, b) => b.costAdjustedSalary - a.costAdjustedSalary)[0];
+    
     return {
       userAnnualNet: annualNetSalary,
       userMonthlyNet: monthlyNetSalary,
+      hourlyWage,
+      worldRankPercentile,
+      minimumWageComparison,
+      istanbulComparison,
+      bestPurchasingPowerCountry,
       comparisons
     };
   };
@@ -1198,46 +1602,545 @@ function App() {
     setError('');
   };
 
+  // Authentication functions
+  const handleLogin = () => {
+    // Simple mock authentication
+    if (loginForm.username && loginForm.password) {
+      const user: User = {
+        id: Date.now().toString(),
+        username: loginForm.username,
+        email: loginForm.email || `${loginForm.username}@example.com`
+      };
+      setCurrentUser(user);
+      setShowLoginModal(false);
+      setLoginForm({ username: '', email: '', password: '' });
+    }
+  };
+
+  const handleRegister = () => {
+    // Simple mock registration
+    if (loginForm.username && loginForm.email && loginForm.password) {
+      const user: User = {
+        id: Date.now().toString(),
+        username: loginForm.username,
+        email: loginForm.email
+      };
+      setCurrentUser(user);
+      setShowLoginModal(false);
+      setLoginForm({ username: '', email: '', password: '' });
+    }
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+  };
+
+  const addReply = (commentId: string) => {
+    if (!replyText.trim() || !currentUser) return;
+
+    const reply: Reply = {
+      id: Date.now().toString(),
+      text: replyText.trim(),
+      author: currentUser.username,
+      timestamp: Date.now()
+    };
+
+    setComments(comments.map(comment => {
+      if (comment.id === commentId) {
+        return {
+          ...comment,
+          replies: [...(comment.replies || []), reply]
+        };
+      }
+      return comment;
+    }));
+
+    setReplyText('');
+    setReplyingToComment(null);
+  };
+
+  // Comment functions
+  const addComment = () => {
+    if (!newComment.trim()) return;
+    
+    // Use custom salary range if provided, otherwise use selected range
+    const finalSalaryRange = customSalaryRange.trim() || commentSalaryRange || 'Belirtilmemiş';
+    
+    const comment: Comment = {
+      id: Date.now().toString(),
+      text: newComment.trim(),
+      isAnonymous: isCommentAnonymous,
+      salaryRange: finalSalaryRange,
+      company: commentCompany.trim(),
+      position: commentPosition.trim(),
+      experience: commentExperience.trim(),
+      timestamp: Date.now(),
+      author: currentUser && !isCommentAnonymous ? currentUser.username : undefined,
+      replies: []
+    };
+    
+    setComments([comment, ...comments]);
+    setNewComment('');
+    setCommentSalaryRange('');
+    setCustomSalaryRange('');
+    setCommentCompany('');
+    setCommentPosition('');
+    setCommentExperience('');
+    setShowCommentForm(false);
+  };
+
+  const scrollToComments = () => {
+    const commentsSection = document.getElementById('comments-section');
+    if (commentsSection) {
+      commentsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const formatTimeAgo = (timestamp: number): string => {
+    const now = Date.now();
+    const diffInSeconds = Math.floor((now - timestamp) / 1000);
+    
+    if (diffInSeconds < 60) return t.justNow;
+    if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} ${t.minutesAgo} ${t.timeAgo}`;
+    if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} ${t.hoursAgo} ${t.timeAgo}`;
+    if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)} ${t.daysAgo} ${t.timeAgo}`;
+    if (diffInSeconds < 2592000) return `${Math.floor(diffInSeconds / 604800)} ${t.weeksAgo} ${t.timeAgo}`;
+    return `${Math.floor(diffInSeconds / 2592000)} ${t.monthsAgo} ${t.timeAgo}`;
+  };
+
+
+  // All Comments Page
+  if (showAllComments) {
+    return (
+      <div className="container">
+        {/* Header for All Comments Page */}
+        <div style={{
+          background: 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)',
+          padding: '2rem',
+          borderRadius: '1rem',
+          marginBottom: '2rem',
+          color: 'white',
+          textAlign: 'center'
+        }}>
+          <button
+            onClick={() => setShowAllComments(false)}
+            style={{
+              position: 'absolute',
+              top: '1rem',
+              left: '1rem',
+              padding: '0.5rem 1rem',
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '0.5rem',
+              color: 'white',
+              cursor: 'pointer',
+              fontSize: '0.875rem',
+              fontWeight: '500'
+            }}
+          >
+            ← {t.backToCalculator}
+          </button>
+          
+          <h1 style={{ margin: 0, fontSize: '2rem', fontWeight: 'bold' }}>
+            💬 {t.commentsSection}
+          </h1>
+          <p style={{ margin: '0.5rem 0 0 0', opacity: 0.9 }}>
+            {t.totalComments}: {comments.length}
+          </p>
+        </div>
+
+        {/* All Comments List */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.5rem',
+          maxWidth: '800px',
+          margin: '0 auto'
+        }}>
+          {comments.map((comment) => (
+            <div
+              key={comment.id}
+              style={{
+                padding: '1.5rem',
+                backgroundColor: 'white',
+                borderRadius: '1rem',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                border: '1px solid #e5e7eb'
+              }}
+            >
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+                marginBottom: '1rem',
+                flexWrap: 'wrap',
+                gap: '0.5rem'
+              }}>
+                <div style={{
+                  display: 'flex',
+                  gap: '0.5rem',
+                  alignItems: 'center',
+                  flexWrap: 'wrap'
+                }}>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    color: 'white',
+                    backgroundColor: '#3b82f6',
+                    padding: '0.375rem 0.75rem',
+                    borderRadius: '1rem',
+                    fontWeight: '500'
+                  }}>
+                    {comment.isAnonymous ? t.anonymousComment : 'Kullanıcı'}
+                  </span>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    color: '#1e40af',
+                    backgroundColor: '#dbeafe',
+                    padding: '0.375rem 0.75rem',
+                    borderRadius: '1rem',
+                    fontWeight: '500'
+                  }}>
+                    💰 {comment.salaryRange}
+                  </span>
+                  {comment.company && (
+                    <span style={{
+                      fontSize: '0.75rem',
+                      color: '#059669',
+                      backgroundColor: '#d1fae5',
+                      padding: '0.375rem 0.75rem',
+                      borderRadius: '1rem',
+                      fontWeight: '500'
+                    }}>
+                      🏢 {comment.company}
+                    </span>
+                  )}
+                  {comment.position && (
+                    <span style={{
+                      fontSize: '0.75rem',
+                      color: '#7c3aed',
+                      backgroundColor: '#ede9fe',
+                      padding: '0.375rem 0.75rem',
+                      borderRadius: '1rem',
+                      fontWeight: '500'
+                    }}>
+                      👔 {comment.position}
+                    </span>
+                  )}
+                  {comment.experience && (
+                    <span style={{
+                      fontSize: '0.75rem',
+                      color: '#dc2626',
+                      backgroundColor: '#fee2e2',
+                      padding: '0.375rem 0.75rem',
+                      borderRadius: '1rem',
+                      fontWeight: '500'
+                    }}>
+                      ⏱️ {comment.experience}
+                    </span>
+                  )}
+                </div>
+                <span style={{
+                  fontSize: '0.75rem',
+                  color: '#6b7280',
+                  backgroundColor: '#f3f4f6',
+                  padding: '0.25rem 0.5rem',
+                  borderRadius: '0.5rem'
+                }}>
+                  {formatTimeAgo(comment.timestamp)}
+                </span>
+              </div>
+              <p style={{
+                fontSize: '1rem',
+                color: '#374151',
+                lineHeight: '1.6',
+                margin: 0,
+                backgroundColor: '#f8fafc',
+                padding: '1rem',
+                borderRadius: '0.5rem',
+                borderLeft: '4px solid #3b82f6'
+              }}>
+                {comment.text}
+              </p>
+
+              {/* Reply Section for All Comments Page */}
+              <div style={{ marginTop: '1rem' }}>
+                {currentUser ? (
+                  <button
+                    onClick={() => setReplyingToComment(replyingToComment === comment.id ? null : comment.id)}
+                    style={{
+                      padding: '0.5rem 1rem',
+                      backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                      color: '#3b82f6',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      borderRadius: '0.5rem',
+                      fontSize: '0.875rem',
+                      cursor: 'pointer',
+                      fontWeight: '500'
+                    }}
+                  >
+                    💬 {t.reply}
+                  </button>
+                ) : (
+                  <span style={{
+                    fontSize: '0.875rem',
+                    color: '#6b7280',
+                    fontStyle: 'italic'
+                  }}>
+                    {t.loginToReply}
+                  </span>
+                )}
+
+                {/* Reply Form for All Comments Page */}
+                {replyingToComment === comment.id && (
+                  <div style={{
+                    marginTop: '1rem',
+                    padding: '1rem',
+                    backgroundColor: '#f8fafc',
+                    borderRadius: '0.5rem',
+                    border: '1px solid #e5e7eb'
+                  }}>
+                    <textarea
+                      value={replyText}
+                      onChange={(e) => setReplyText(e.target.value)}
+                      placeholder={`${currentUser?.username} olarak yanıtla...`}
+                      style={{
+                        width: '100%',
+                        height: '80px',
+                        padding: '0.75rem',
+                        border: '2px solid #e5e7eb',
+                        borderRadius: '0.5rem',
+                        fontSize: '0.875rem',
+                        resize: 'vertical',
+                        outline: 'none'
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+                      onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                    />
+                    <div style={{
+                      display: 'flex',
+                      gap: '0.5rem',
+                      marginTop: '0.5rem'
+                    }}>
+                      <button
+                        onClick={() => addReply(comment.id)}
+                        disabled={!replyText.trim()}
+                        style={{
+                          padding: '0.5rem 1rem',
+                          backgroundColor: replyText.trim() ? '#3b82f6' : '#9ca3af',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '0.375rem',
+                          fontSize: '0.875rem',
+                          cursor: replyText.trim() ? 'pointer' : 'not-allowed',
+                          fontWeight: '500'
+                        }}
+                      >
+                        {t.addReply}
+                      </button>
+                      <button
+                        onClick={() => {
+                          setReplyingToComment(null);
+                          setReplyText('');
+                        }}
+                        style={{
+                          padding: '0.5rem 1rem',
+                          backgroundColor: 'transparent',
+                          color: '#6b7280',
+                          border: '1px solid #d1d5db',
+                          borderRadius: '0.375rem',
+                          fontSize: '0.875rem',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        {t.cancel}
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Replies List for All Comments Page */}
+                {comment.replies && comment.replies.length > 0 && (
+                  <div style={{ marginTop: '1rem', marginLeft: '1rem' }}>
+                    {comment.replies.map((reply) => (
+                      <div
+                        key={reply.id}
+                        style={{
+                          padding: '0.75rem',
+                          backgroundColor: '#f0f8ff',
+                          borderRadius: '0.5rem',
+                          border: '1px solid rgba(59, 130, 246, 0.2)',
+                          marginBottom: '0.5rem'
+                        }}
+                      >
+                        <div style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          marginBottom: '0.5rem'
+                        }}>
+                          <span style={{
+                            fontSize: '0.75rem',
+                            fontWeight: '600',
+                            color: '#3b82f6'
+                          }}>
+                            @{reply.author}
+                          </span>
+                          <span style={{
+                            fontSize: '0.75rem',
+                            color: '#9ca3af'
+                          }}>
+                            {formatTimeAgo(reply.timestamp)}
+                          </span>
+                        </div>
+                        <p style={{
+                          fontSize: '0.875rem',
+                          color: '#374151',
+                          margin: 0,
+                          lineHeight: '1.4'
+                        }}>
+                          {reply.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Add Comment Button */}
+        <div style={{ 
+          textAlign: 'center', 
+          marginTop: '3rem',
+          paddingTop: '2rem'
+        }}>
+          <button
+            onClick={() => {
+              setShowAllComments(false);
+              setTimeout(() => {
+                const commentsSection = document.getElementById('comments-section');
+                if (commentsSection) {
+                  commentsSection.scrollIntoView({ behavior: 'smooth' });
+                  setShowCommentForm(true);
+                }
+              }, 100);
+            }}
+            style={{
+              padding: '1rem 2rem',
+              backgroundColor: '#3b82f6',
+              color: 'white',
+              border: 'none',
+              borderRadius: '1rem',
+              fontSize: '1rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              boxShadow: '0 8px 16px -4px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.3s ease',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.75rem'
+            }}
+          >
+            <span style={{ fontSize: '1.25rem' }}>💬</span>
+            {t.writeComment}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container">
-      {/* Language Toggle */}
+      {/* Top Navigation */}
       <div style={{ 
         position: 'absolute', 
         top: '1rem', 
         right: '1rem', 
         display: 'flex', 
-        gap: '0.5rem'
-      }} className="language-toggle">
-        <button
-          onClick={() => handleLanguageChange('tr')}
-          style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: language === 'tr' ? '#06b6d4' : '#374151',
-            color: 'white',
-            border: 'none',
-            borderRadius: '0.25rem',
-            cursor: 'pointer',
-            fontSize: '0.875rem',
-            fontWeight: language === 'tr' ? '600' : '400'
-          }}
-        >
-          🇹🇷 TR
-        </button>
-        <button
-          onClick={() => handleLanguageChange('en')}
-          style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: language === 'en' ? '#06b6d4' : '#374151',
-            color: 'white',
-            border: 'none',
-            borderRadius: '0.25rem',
-            cursor: 'pointer',
-            fontSize: '0.875rem',
-            fontWeight: language === 'en' ? '600' : '400'
-          }}
-        >
-          🇺🇸 EN
-        </button>
+        gap: '0.5rem',
+        alignItems: 'center'
+      }}>
+        {/* User Info */}
+        {currentUser ? (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <span style={{ 
+              fontSize: '0.875rem', 
+              color: '#374151',
+              backgroundColor: 'white',
+              padding: '0.25rem 0.5rem',
+              borderRadius: '0.25rem',
+              border: '1px solid #d1d5db'
+            }}>
+              👤 {currentUser.username}
+            </span>
+            <button
+              onClick={handleLogout}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: '#dc2626',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0.25rem',
+                cursor: 'pointer',
+                fontSize: '0.875rem',
+                fontWeight: '500'
+              }}
+            >
+              {t.logout}
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => setShowLoginModal(true)}
+            style={{
+              padding: '0.5rem 1rem',
+              backgroundColor: '#3b82f6',
+              color: 'white',
+              border: 'none',
+              borderRadius: '0.25rem',
+              cursor: 'pointer',
+              fontSize: '0.875rem',
+              fontWeight: '500'
+            }}
+          >
+            {t.login}
+          </button>
+        )}
+
+        {/* Language Toggle */}
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <button
+            onClick={() => handleLanguageChange('tr')}
+            style={{
+              padding: '0.5rem 1rem',
+              backgroundColor: language === 'tr' ? '#06b6d4' : '#374151',
+              color: 'white',
+              border: 'none',
+              borderRadius: '0.25rem',
+              cursor: 'pointer',
+              fontSize: '0.875rem',
+              fontWeight: language === 'tr' ? '600' : '400'
+            }}
+          >
+            🇹🇷 TR
+          </button>
+          <button
+            onClick={() => handleLanguageChange('en')}
+            style={{
+              padding: '0.5rem 1rem',
+              backgroundColor: language === 'en' ? '#06b6d4' : '#374151',
+              color: 'white',
+              border: 'none',
+              borderRadius: '0.25rem',
+              cursor: 'pointer',
+              fontSize: '0.875rem',
+              fontWeight: language === 'en' ? '600' : '400'
+            }}
+          >
+            🇺🇸 EN
+          </button>
+        </div>
       </div>
 
       {/* Header */}
@@ -1256,6 +2159,28 @@ function App() {
            activeTab === 'purchasing' ? t.purchasingPowerSubtitle :
            t.internationalComparisonSubtitle}
         </p>
+        
+        {/* Comments Info */}
+        <div style={{ 
+          marginTop: '1rem', 
+          textAlign: 'center',
+          padding: '0.75rem',
+          backgroundColor: 'rgba(59, 130, 246, 0.1)',
+          borderRadius: '0.5rem',
+          border: '1px solid rgba(59, 130, 246, 0.2)'
+        }}>
+          <p style={{
+            margin: 0,
+            fontSize: '0.875rem',
+            color: '#3b82f6',
+            fontWeight: '500'
+          }}>
+            💡 {language === 'tr' 
+              ? 'Hesaplama sonuçlarınızı gördükten sonra aşağıda deneyimlerinizi paylaşabilirsiniz'
+              : 'You can share your experiences in the comments section below after viewing your calculation results'
+            }
+          </p>
+        </div>
       </div>
 
       {/* Tab Navigation */}
@@ -1325,6 +2250,97 @@ function App() {
               />
             </div>
           </div>
+          
+          {/* Net Maaş Checkbox - GDP */}
+          <div style={{ 
+            marginTop: '1rem',
+            padding: '1rem',
+            backgroundColor: '#2d3748',
+            borderRadius: '0.5rem',
+            border: '1px solid #4a5568'
+          }}>
+            <label 
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.75rem',
+                fontSize: '1rem',
+                fontWeight: '500',
+                color: '#e2e8f0',
+                cursor: 'pointer',
+                padding: '0.75rem 1rem',
+                backgroundColor: isNetSalary ? '#1e40af' : '#4a5568',
+                borderRadius: '0.5rem',
+                border: isNetSalary ? '2px solid #3b82f6' : '2px solid transparent',
+                transition: 'all 0.2s ease',
+                boxShadow: isNetSalary ? '0 4px 8px rgba(59, 130, 246, 0.3)' : '0 2px 4px rgba(0,0,0,0.1)'
+              }}
+              title={t.netSalaryTooltip}
+            >
+              <input
+                type="checkbox"
+                checked={isNetSalary}
+                onChange={(e) => setIsNetSalary(e.target.checked)}
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  accentColor: '#3b82f6',
+                  cursor: 'pointer'
+                }}
+              />
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.25rem' }}>
+                  {t.netSalaryMode}
+                </div>
+                <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.4' }}>
+                  {t.netSalaryNote}
+                </div>
+              </div>
+            </label>
+          </div>
+          
+          {/* Yeniden Hesaplama Butonu - GDP */}
+          {grossSalary && (
+            <div style={{ 
+              textAlign: 'center', 
+              marginTop: '1.5rem',
+              marginBottom: '1rem'
+            }}>
+              <button
+                onClick={() => {
+                  // Force re-calculation by triggering a re-render
+                  setForceUpdate(prev => prev + 1);
+                }}
+                style={{
+                  padding: '0.75rem 2rem',
+                  backgroundColor: '#0891b2',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '0.75rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  transition: 'all 0.3s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = '#0e7490';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = '0 6px 12px -2px rgba(0, 0, 0, 0.15)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = '#0891b2';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                }}
+              >
+                🔄 {language === 'tr' ? 'Yeniden Hesapla' : 'Recalculate'}
+              </button>
+            </div>
+          )}
           
           {grossSalary && (
             <div className="gdp-results" style={{ marginTop: '2rem' }}>
@@ -1473,6 +2489,97 @@ function App() {
             </div>
           </div>
           
+          {/* Net Maaş Checkbox - Taxes */}
+          <div style={{ 
+            marginTop: '1rem',
+            padding: '1rem',
+            backgroundColor: '#2d3748',
+            borderRadius: '0.5rem',
+            border: '1px solid #4a5568'
+          }}>
+            <label 
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.75rem',
+                fontSize: '1rem',
+                fontWeight: '500',
+                color: '#e2e8f0',
+                cursor: 'pointer',
+                padding: '0.75rem 1rem',
+                backgroundColor: isNetSalary ? '#1e40af' : '#4a5568',
+                borderRadius: '0.5rem',
+                border: isNetSalary ? '2px solid #3b82f6' : '2px solid transparent',
+                transition: 'all 0.2s ease',
+                boxShadow: isNetSalary ? '0 4px 8px rgba(59, 130, 246, 0.3)' : '0 2px 4px rgba(0,0,0,0.1)'
+              }}
+              title={t.netSalaryTooltip}
+            >
+              <input
+                type="checkbox"
+                checked={isNetSalary}
+                onChange={(e) => setIsNetSalary(e.target.checked)}
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  accentColor: '#3b82f6',
+                  cursor: 'pointer'
+                }}
+              />
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.25rem' }}>
+                  {t.netSalaryMode}
+                </div>
+                <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.4' }}>
+                  {t.netSalaryNote}
+                </div>
+              </div>
+            </label>
+          </div>
+          
+          {/* Yeniden Hesaplama Butonu - Taxes */}
+          {grossSalary && (
+            <div style={{ 
+              textAlign: 'center', 
+              marginTop: '1.5rem',
+              marginBottom: '1rem'
+            }}>
+              <button
+                onClick={() => {
+                  // Force re-calculation by triggering a re-render
+                  setForceUpdate(prev => prev + 1);
+                }}
+                style={{
+                  padding: '0.75rem 2rem',
+                  backgroundColor: '#0891b2',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '0.75rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  transition: 'all 0.3s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = '#0e7490';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = '0 6px 12px -2px rgba(0, 0, 0, 0.15)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = '#0891b2';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                }}
+              >
+                🔄 {language === 'tr' ? 'Yeniden Hesapla' : 'Recalculate'}
+              </button>
+            </div>
+          )}
+          
           {grossSalary && (
             <div className="tax-results" style={{ marginTop: '2rem' }}>
               {(() => {
@@ -1585,6 +2692,97 @@ function App() {
               />
             </div>
           </div>
+          
+          {/* Net Maaş Checkbox - Purchasing */}
+          <div style={{ 
+            marginTop: '1rem',
+            padding: '1rem',
+            backgroundColor: '#2d3748',
+            borderRadius: '0.5rem',
+            border: '1px solid #4a5568'
+          }}>
+            <label 
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.75rem',
+                fontSize: '1rem',
+                fontWeight: '500',
+                color: '#e2e8f0',
+                cursor: 'pointer',
+                padding: '0.75rem 1rem',
+                backgroundColor: isNetSalary ? '#1e40af' : '#4a5568',
+                borderRadius: '0.5rem',
+                border: isNetSalary ? '2px solid #3b82f6' : '2px solid transparent',
+                transition: 'all 0.2s ease',
+                boxShadow: isNetSalary ? '0 4px 8px rgba(59, 130, 246, 0.3)' : '0 2px 4px rgba(0,0,0,0.1)'
+              }}
+              title={t.netSalaryTooltip}
+            >
+              <input
+                type="checkbox"
+                checked={isNetSalary}
+                onChange={(e) => setIsNetSalary(e.target.checked)}
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  accentColor: '#3b82f6',
+                  cursor: 'pointer'
+                }}
+              />
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.25rem' }}>
+                  {t.netSalaryMode}
+                </div>
+                <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.4' }}>
+                  {t.netSalaryNote}
+                </div>
+              </div>
+            </label>
+          </div>
+          
+          {/* Yeniden Hesaplama Butonu - Purchasing Power */}
+          {grossSalary && (
+            <div style={{ 
+              textAlign: 'center', 
+              marginTop: '1.5rem',
+              marginBottom: '1rem'
+            }}>
+              <button
+                onClick={() => {
+                  // Force re-calculation by triggering a re-render
+                  setForceUpdate(prev => prev + 1);
+                }}
+                style={{
+                  padding: '0.75rem 2rem',
+                  backgroundColor: '#0891b2',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '0.75rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  transition: 'all 0.3s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = '#0e7490';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = '0 6px 12px -2px rgba(0, 0, 0, 0.15)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = '#0891b2';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                }}
+              >
+                🔄 {language === 'tr' ? 'Yeniden Hesapla' : 'Recalculate'}
+              </button>
+            </div>
+          )}
           
           {grossSalary && (
             <div className="purchasing-results" style={{ marginTop: '2rem' }}>
@@ -1711,8 +2909,8 @@ function App() {
             padding: '1.5rem',
             marginBottom: '2rem'
           }}>
-            <h4 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.1rem' }}>
-              🌍 Bu Sayfa Ne Yapıyor?
+            <h4 style={{ color: '#1f2937', marginBottom: '1rem', fontSize: '1.3rem', fontWeight: 'bold' }}>
+              🌍 ULUSLARARASI MAAŞ KIYASLAMA
             </h4>
             <div style={{ color: '#4b5563', lineHeight: '1.6', fontSize: '0.95rem' }}>
               <p style={{ margin: '0 0 1rem 0' }}>
@@ -1782,6 +2980,54 @@ function App() {
             </div>
           </div>
           
+          {/* Net Maaş Checkbox - International */}
+          <div style={{ 
+            marginTop: '1rem',
+            padding: '1rem',
+            backgroundColor: '#2d3748',
+            borderRadius: '0.5rem',
+            border: '1px solid #4a5568'
+          }}>
+            <label 
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.75rem',
+                fontSize: '1rem',
+                fontWeight: '500',
+                color: '#e2e8f0',
+                cursor: 'pointer',
+                padding: '0.75rem 1rem',
+                backgroundColor: isNetSalary ? '#1e40af' : '#4a5568',
+                borderRadius: '0.5rem',
+                border: isNetSalary ? '2px solid #3b82f6' : '2px solid transparent',
+                transition: 'all 0.2s ease',
+                boxShadow: isNetSalary ? '0 4px 8px rgba(59, 130, 246, 0.3)' : '0 2px 4px rgba(0,0,0,0.1)'
+              }}
+              title={t.netSalaryTooltip}
+            >
+              <input
+                type="checkbox"
+                checked={isNetSalary}
+                onChange={(e) => setIsNetSalary(e.target.checked)}
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  accentColor: '#3b82f6',
+                  cursor: 'pointer'
+                }}
+              />
+              <div>
+                <div style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.25rem' }}>
+                  {t.netSalaryMode}
+                </div>
+                <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.4' }}>
+                  {t.netSalaryNote}
+                </div>
+              </div>
+            </label>
+          </div>
+          
           {grossSalary && (
             <div className="international-results" style={{ marginTop: '2rem' }}>
               {(() => {
@@ -1789,94 +3035,147 @@ function App() {
                 if (!internationalData) return null;
                 
                 return (
-                  <div className="international-analysis">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                      <h3 style={{ color: '#06b6d4', margin: '0' }}>OECD Ülkeleri Maaş Karşılaştırması</h3>
-                      <button
-                        onClick={() => {
-                          // Generate comprehensive report
-                          const reportData = {
-                            salary: grossSalary,
-                            gdp: calculateGdpContribution(),
-                            tax: calculateTaxContribution(),
-                            purchasing: calculatePurchasingPower(),
-                            international: calculateInternationalComparison()
-                          };
-                          
-                          // Create comprehensive report display
-                          const reportContent = generateComprehensiveReport(reportData);
-                          setComprehensiveReport(reportContent);
-                          setShowComprehensiveReport(true);
-                        }}
-                        style={{
-                          backgroundColor: '#10b981',
-                          color: 'white',
-                          border: 'none',
-                          padding: '0.5rem 1rem',
-                          borderRadius: '0.375rem',
-                          fontSize: '0.875rem',
-                          cursor: 'pointer',
-                          fontWeight: '500'
-                        }}
-                      >
-                        📊 Genel Rapor
-                      </button>
+                  <div className="international-analysis" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                    <div style={{ marginBottom: '2rem' }}>
+                      <h3 style={{ 
+                        color: '#1f2937', 
+                        fontSize: '1.8rem', 
+                        fontWeight: 'bold', 
+                        textAlign: 'center',
+                        marginBottom: '1rem',
+                        background: 'linear-gradient(45deg, #06b6d4, #3b82f6)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent'
+                      }}>
+                        🏆 {formatCurrency(internationalData.userMonthlyNet)} Maaşınızla Dünyada Neredesiniz?
+                      </h3>
                     </div>
                     
-                    {/* Summary Cards */}
-                    <div style={{ 
-                      display: 'grid', 
-                      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
-                      gap: '1rem',
+                    {/* 1. Dünya Ortalaması Karşılaştırması */}
+                    <div style={{
+                      backgroundColor: '#f0f9ff',
+                      border: '2px solid #0ea5e9',
+                      borderRadius: '1rem',
+                      padding: '2rem',
                       marginBottom: '2rem'
                     }}>
-                      <div style={{ 
-                        backgroundColor: '#0f172a', 
-                        color: 'white', 
-                        padding: '1.5rem', 
-                        borderRadius: '0.5rem'
+                      <h4 style={{ 
+                        fontSize: '1.5rem', 
+                        fontWeight: 'bold', 
+                        color: '#0c4a6e',
+                        marginBottom: '1rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
                       }}>
-                        <div style={{ fontSize: '0.875rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
-                          {t.turkeyNetSalary}
+                        🌍 Dünya Ortalaması Karşılaştırması
+                      </h4>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+                        <div style={{ textAlign: 'center', padding: '1.5rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+                          <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🏆</div>
+                          <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#059669', marginBottom: '0.5rem' }}>
+                            Dünya Sıralaması
+                          </div>
+                          <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '0.5rem' }}>
+                            %{internationalData.worldRankPercentile.toFixed(0)}
+                          </div>
+                          <div style={{ fontSize: '0.9rem', color: '#6b7280' }}>
+                            En yüksek {internationalData.worldRankPercentile.toFixed(0)}%'lik dilimdesiniz!
+                          </div>
                         </div>
-                        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#10b981' }}>
-                          {formatCurrency(internationalData.userMonthlyNet)}/ay
-                        </div>
-                        <div style={{ fontSize: '0.875rem', color: '#94a3b8' }}>
-                          ({formatCurrency(internationalData.userAnnualNet)}/yıl)
-                        </div>
-                      </div>
-                      
-                      <div style={{ 
-                        backgroundColor: '#1e40af', 
-                        color: 'white', 
-                        padding: '1.5rem', 
-                        borderRadius: '0.5rem'
-                      }}>
-                        <div style={{ fontSize: '0.875rem', color: '#dbeafe', marginBottom: '0.5rem' }}>
-                          En Yüksek Satın Alma Gücü
-                        </div>
-                        <div style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
-                          {internationalData.comparisons
-                            .filter(c => c.country !== 'Turkey')
-                            .sort((a, b) => b.costAdjustedSalary - a.costAdjustedSalary)[0]?.flag} {
-                            internationalData.comparisons
-                              .filter(c => c.country !== 'Turkey')
-                              .sort((a, b) => b.costAdjustedSalary - a.costAdjustedSalary)[0]?.country
-                          }
-                        </div>
-                        <div style={{ fontSize: '0.875rem', color: '#dbeafe' }}>
-                          %{internationalData.comparisons
-                            .filter(c => c.country !== 'Turkey')
-                            .sort((a, b) => b.costAdjustedSalary - a.costAdjustedSalary)[0]?.costAdjustedSalary.toFixed(0)} 
-                          satın alma gücü
+                        <div style={{ textAlign: 'center', padding: '1.5rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+                          <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>💰</div>
+                          <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#7c3aed', marginBottom: '0.5rem' }}>
+                            Dünya Ortalamasına Göre
+                          </div>
+                          <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '0.5rem' }}>
+                            {(internationalData.userAnnualNet / 30 / globalStats.worldAverageSalaryUSD * 100).toFixed(0)}%
+                          </div>
+                          <div style={{ fontSize: '0.9rem', color: '#6b7280' }}>
+                            Dünya ortalamasının {(internationalData.userAnnualNet / 30 / globalStats.worldAverageSalaryUSD).toFixed(1)} katı!
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Countries Comparison Table */}
-                    <div style={{ marginBottom: '2rem' }}>
-                      <h4 style={{ color: '#1f2937', marginBottom: '1rem' }}>Ülke Bazında Detaylı Karşılaştırma</h4>
+                    {/* 2. Türkiye İçindeki Konum */}
+                    <div style={{
+                      backgroundColor: '#fef2f2',
+                      border: '2px solid #ef4444',
+                      borderRadius: '1rem',
+                      padding: '2rem',
+                      marginBottom: '2rem'
+                    }}>
+                      <h4 style={{ 
+                        fontSize: '1.5rem', 
+                        fontWeight: 'bold', 
+                        color: '#dc2626',
+                        marginBottom: '1rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
+                      }}>
+                        🇹🇷 Türkiye İçindeki Konum
+                      </h4>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+                        <div style={{ textAlign: 'center', padding: '1.5rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+                          <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🏢</div>
+                          <div style={{ fontSize: '1rem', fontWeight: 'bold', color: '#374151', marginBottom: '0.5rem' }}>
+                            İstanbul Ortalamasına Göre
+                          </div>
+                          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: internationalData.istanbulComparison > 100 ? '#059669' : '#dc2626' }}>
+                            %{internationalData.istanbulComparison.toFixed(0)}
+                          </div>
+                          <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>
+                            {internationalData.istanbulComparison > 100 ? 'İstanbul ortalamasının üzerinde' : 'İstanbul ortalamasının altında'}
+                          </div>
+                        </div>
+                        <div style={{ textAlign: 'center', padding: '1.5rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+                          <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🇺🇸</div>
+                          <div style={{ fontSize: '1rem', fontWeight: 'bold', color: '#374151', marginBottom: '0.5rem' }}>
+                            Türkiye Genel Ortalamasına Göre
+                          </div>
+                          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#059669' }}>
+                            %{((internationalData.userAnnualNet / globalStats.turkeyAverageSalary) * 100).toFixed(0)}
+                          </div>
+                          <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>
+                            Türkiye ortalamasının {(internationalData.userAnnualNet / globalStats.turkeyAverageSalary).toFixed(1)} katı
+                          </div>
+                        </div>
+                        <div style={{ textAlign: 'center', padding: '1.5rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+                          <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>💵</div>
+                          <div style={{ fontSize: '1rem', fontWeight: 'bold', color: '#374151', marginBottom: '0.5rem' }}>
+                            Asgari Ücrete Göre
+                          </div>
+                          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#7c3aed' }}>
+                            {internationalData.minimumWageComparison.toFixed(1)}x
+                          </div>
+                          <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>
+                            Asgari ücretin {internationalData.minimumWageComparison.toFixed(1)} katı
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 3. Uluslararası Ülke Kıyaslaması */}
+                    <div style={{
+                      backgroundColor: '#f0fdf4',
+                      border: '2px solid #22c55e',
+                      borderRadius: '1rem',
+                      padding: '2rem',
+                      marginBottom: '2rem'
+                    }}>
+                      <h4 style={{ 
+                        fontSize: '1.5rem', 
+                        fontWeight: 'bold', 
+                        color: '#15803d',
+                        marginBottom: '1rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
+                      }}>
+                        🌍 Uluslararası Ülke Kıyaslaması (Tablo Formatında)
+                      </h4>
                       <div style={{ 
                         display: 'grid', 
                         gap: '1rem'
@@ -2167,109 +3466,139 @@ function App() {
             
             {!showDetailedRaises ? (
               // Simple raise input
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <span style={{ color: '#cbd5e1', fontSize: '1rem' }}>
-                  {language === 'tr' ? '' : 'I got '}
-                </span>
-                <input
-                  type="number"
-                  value={simpleRaisePercent}
-                  onChange={(e) => setSimpleRaisePercent(e.target.value)}
-                  placeholder={t.percentPlaceholder}
-                  style={{
-                    width: '80px',
-                    padding: '0.5rem',
-                    backgroundColor: '#374151',
-                    border: '1px solid #4b5563',
-                    borderRadius: '0.375rem',
-                    color: 'white',
-                    fontSize: '1rem',
-                    textAlign: 'center'
-                  }}
-                />
-                <span style={{ color: '#cbd5e1', fontSize: '1rem' }}>
-                  % {language === 'tr' ? 'zam' : 'raise in month'}
-                </span>
-                <input
-                  type="number"
-                  value={simpleRaiseMonth}
-                  onChange={(e) => setSimpleRaiseMonth(e.target.value)}
-                  placeholder={t.monthPlaceholder}
-                  min="1"
-                  max="12"
-                  style={{
-                    width: '60px',
-                    padding: '0.5rem',
-                    backgroundColor: '#374151',
-                    border: '1px solid #4b5563',
-                    borderRadius: '0.375rem',
-                    color: 'white',
-                    fontSize: '1rem',
-                    textAlign: 'center'
-                  }}
-                />
-                <span style={{ color: '#cbd5e1', fontSize: '1rem' }}>
-                  {language === 'tr' ? '. ayda aldım' : ''}
-                </span>
-                <button
-                  onClick={handleSimpleRaiseApply}
-                  style={{
-                    backgroundColor: '#0891b2',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '0.375rem',
-                    fontSize: '0.875rem',
-                    cursor: 'pointer',
-                    marginLeft: '0.5rem'
-                  }}
-                >
-                  {language === 'tr' ? 'Uygula' : 'Apply'}
-                </button>
-
-                {/* Net Salary Mode Selection - Moved inside zam section */}
+              <div style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                gap: '1rem' 
+              }}>
                 <div style={{ 
-                  marginTop: '0.75rem', 
-                  paddingTop: '0.75rem', 
-                  borderTop: '1px solid #475569',
-                  display: 'flex',
-                  justifyContent: 'flex-end'
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '0.75rem', 
+                  flexWrap: 'wrap',
+                  padding: '1rem',
+                  backgroundColor: '#2d3748',
+                  borderRadius: '0.5rem',
+                  border: '1px solid #4a5568'
                 }}>
-                  <label 
-                  style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '0.5rem',
-                    fontSize: '0.9rem',
-                    fontWeight: '500',
-                    color: '#cbd5e1',
-                    cursor: 'pointer',
-                    padding: '0.5rem 0.75rem',
-                    backgroundColor: '#374151',
-                    borderRadius: '0.375rem',
-                    border: isNetSalary ? '2px solid #06b6d4' : '2px solid transparent',
-                    maxWidth: 'fit-content'
-                  }}
-                  title={t.netSalaryTooltip}
-                >
+                  <span style={{ color: '#e2e8f0', fontSize: '1rem', fontWeight: '500' }}>
+                    {language === 'tr' ? '' : 'I got '}
+                  </span>
                   <input
-                    type="checkbox"
-                    checked={isNetSalary}
-                    onChange={(e) => setIsNetSalary(e.target.checked)}
+                    type="number"
+                    value={simpleRaisePercent}
+                    onChange={(e) => setSimpleRaisePercent(e.target.value)}
+                    placeholder={t.percentPlaceholder}
                     style={{
-                      width: '16px',
-                      height: '16px',
-                      accentColor: '#06b6d4'
+                      width: '100px',
+                      padding: '0.75rem',
+                      backgroundColor: '#4a5568',
+                      border: '2px solid #718096',
+                      borderRadius: '0.5rem',
+                      color: 'white',
+                      fontSize: '1rem',
+                      textAlign: 'center',
+                      fontWeight: '600'
                     }}
                   />
-                  <div>
-                    <div style={{ fontSize: '0.9rem', fontWeight: '500' }}>
-                      {t.netSalaryMode}
+                  <span style={{ color: '#e2e8f0', fontSize: '1rem', fontWeight: '500' }}>
+                    % {language === 'tr' ? 'zam' : 'raise in month'}
+                  </span>
+                  <input
+                    type="number"
+                    value={simpleRaiseMonth}
+                    onChange={(e) => setSimpleRaiseMonth(e.target.value)}
+                    placeholder={t.monthPlaceholder}
+                    min="1"
+                    max="12"
+                    style={{
+                      width: '80px',
+                      padding: '0.75rem',
+                      backgroundColor: '#4a5568',
+                      border: '2px solid #718096',
+                      borderRadius: '0.5rem',
+                      color: 'white',
+                      fontSize: '1rem',
+                      textAlign: 'center',
+                      fontWeight: '600'
+                    }}
+                  />
+                  <span style={{ color: '#e2e8f0', fontSize: '1rem', fontWeight: '500' }}>
+                    {language === 'tr' ? '. ayda aldım' : ''}
+                  </span>
+                  <button
+                    onClick={handleSimpleRaiseApply}
+                    style={{
+                      backgroundColor: '#0891b2',
+                      color: 'white',
+                      border: 'none',
+                      padding: '0.75rem 1.5rem',
+                      borderRadius: '0.5rem',
+                      fontSize: '0.95rem',
+                      cursor: 'pointer',
+                      fontWeight: '600',
+                      transition: 'all 0.2s ease',
+                      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                    }}
+                    onMouseEnter={(e) => {
+                      const target = e.target as HTMLButtonElement;
+                      target.style.backgroundColor = '#0e7490';
+                      target.style.transform = 'translateY(-1px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      const target = e.target as HTMLButtonElement;
+                      target.style.backgroundColor = '#0891b2';
+                      target.style.transform = 'translateY(0)';
+                    }}
+                  >
+                    {language === 'tr' ? '✓ Uygula' : '✓ Apply'}
+                  </button>
+                </div>
+
+                {/* Net Salary Mode Selection - Redesigned */}
+                <div style={{ 
+                  padding: '1rem',
+                  backgroundColor: '#2d3748',
+                  borderRadius: '0.5rem',
+                  border: '1px solid #4a5568'
+                }}>
+                  <label 
+                    style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: '0.75rem',
+                      fontSize: '1rem',
+                      fontWeight: '500',
+                      color: '#e2e8f0',
+                      cursor: 'pointer',
+                      padding: '0.75rem 1rem',
+                      backgroundColor: isNetSalary ? '#1e40af' : '#4a5568',
+                      borderRadius: '0.5rem',
+                      border: isNetSalary ? '2px solid #3b82f6' : '2px solid transparent',
+                      transition: 'all 0.2s ease',
+                      boxShadow: isNetSalary ? '0 4px 8px rgba(59, 130, 246, 0.3)' : '0 2px 4px rgba(0,0,0,0.1)'
+                    }}
+                    title={t.netSalaryTooltip}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={isNetSalary}
+                      onChange={(e) => setIsNetSalary(e.target.checked)}
+                      style={{
+                        width: '20px',
+                        height: '20px',
+                        accentColor: '#3b82f6',
+                        cursor: 'pointer'
+                      }}
+                    />
+                    <div>
+                      <div style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.25rem' }}>
+                        {t.netSalaryMode}
+                      </div>
+                      <div style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.4' }}>
+                        {t.netSalaryNote}
+                      </div>
                     </div>
-                    <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.1rem' }}>
-                      {t.netSalaryNote}
-                    </div>
-                  </div>
                   </label>
                 </div>
               </div>
@@ -2437,9 +3766,54 @@ function App() {
       {/* Results Section */}
       {showResults && results.length > 0 && (
         <div className="results-section">
-          <h2 className="results-title">
-            {t.resultsTitle}
-          </h2>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '1rem',
+            padding: '0.5rem 0'
+          }}>
+            <h2 className="results-title" style={{ margin: 0 }}>
+              {t.resultsTitle}
+            </h2>
+            <button
+              onClick={() => {
+                // Yenileme işlemi - hesaplamaları yeniden çalıştır
+                if (parseFloat(grossSalary) > 0) {
+                  calculateSalary();
+                }
+              }}
+              style={{
+                backgroundColor: '#0ea5e9',
+                color: 'white',
+                border: 'none',
+                padding: '0.5rem 1rem',
+                borderRadius: '0.375rem',
+                fontSize: '0.875rem',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontWeight: '500',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+              }}
+              onMouseEnter={(e) => {
+                const target = e.target as HTMLButtonElement;
+                target.style.backgroundColor = '#0284c7';
+                target.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={(e) => {
+                const target = e.target as HTMLButtonElement;
+                target.style.backgroundColor = '#0ea5e9';
+                target.style.transform = 'translateY(0)';
+              }}
+              title={language === 'tr' ? 'Hesaplamaları yeniden çalıştır' : 'Refresh calculations'}
+            >
+              <span style={{ fontSize: '1rem' }}>🔄</span>
+              {language === 'tr' ? 'Yenile' : 'Refresh'}
+            </button>
+          </div>
           
           {/* Results Table */}
           <div className="table-container">
@@ -3234,6 +4608,1113 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Comments Section */}
+      <div id="comments-section" style={{
+        marginTop: '3rem',
+        padding: '2rem',
+        backgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)',
+        borderRadius: '1rem',
+        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)'
+      }}>
+        <h2 style={{
+          fontSize: '1.5rem',
+          fontWeight: 'bold',
+          marginBottom: '1.5rem',
+          color: 'white',
+          textAlign: 'center'
+        }}>
+          💬 {t.commentsSection}
+        </h2>
+
+        {/* Add Comment Form */}
+        {showCommentForm && (
+          <div style={{
+            padding: '2rem',
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            borderRadius: '1rem',
+            marginBottom: '2rem',
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+          }}>
+            <h3 style={{
+              fontSize: '1.125rem',
+              fontWeight: '600',
+              marginBottom: '1.5rem',
+              color: '#1e40af',
+              textAlign: 'center'
+            }}>
+              {t.shareExperience}
+            </h3>
+            
+            <textarea
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder={t.commentPlaceholder}
+              style={{
+                width: '100%',
+                height: '120px',
+                padding: '1rem',
+                border: '2px solid #e5e7eb',
+                borderRadius: '0.75rem',
+                fontSize: '0.875rem',
+                resize: 'vertical',
+                fontFamily: 'inherit',
+                outline: 'none',
+                transition: 'border-color 0.2s'
+              }}
+              onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+              onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+            />
+
+            {/* Custom Salary Range Input - Primary */}
+            <div style={{ marginTop: '1.5rem' }}>
+              <input
+                type="text"
+                value={customSalaryRange}
+                onChange={(e) => {
+                  setCustomSalaryRange(e.target.value);
+                  if (e.target.value.trim()) {
+                    setCommentSalaryRange(''); // Clear predefined selection if user types custom
+                  }
+                }}
+                placeholder={t.customSalaryPlaceholder}
+                style={{
+                  width: '100%',
+                  padding: '0.75rem',
+                  border: '2px solid #3b82f6',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  outline: 'none',
+                  backgroundColor: '#f0f8ff'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#2563eb'}
+                onBlur={(e) => e.target.style.borderColor = '#3b82f6'}
+              />
+              <p style={{
+                fontSize: '0.75rem',
+                color: '#6b7280',
+                margin: '0.5rem 0 0 0',
+                textAlign: 'center'
+              }}>
+                {language === 'tr' 
+                  ? 'Maaş aralığınızı yazmak istemiyorsanız aşağıdan seçin'
+                  : 'If you don\'t want to write your salary range, select from below'
+                }
+              </p>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '1rem',
+              marginTop: '1rem'
+            }}>
+              <select
+                value={commentSalaryRange}
+                onChange={(e) => {
+                  setCommentSalaryRange(e.target.value);
+                  if (e.target.value) {
+                    setCustomSalaryRange(''); // Clear custom input if predefined option is selected
+                  }
+                }}
+                style={{
+                  padding: '0.75rem',
+                  border: customSalaryRange ? '2px solid #d1d5db' : '2px solid #e5e7eb',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  outline: 'none',
+                  opacity: customSalaryRange ? 0.6 : 1
+                }}
+                disabled={!!customSalaryRange}
+              >
+                <option value="">{t.salaryRange}</option>
+                <option value="₺0 - ₺20.000">₺0 - ₺20.000</option>
+                <option value="₺20.000 - ₺30.000">₺20.000 - ₺30.000</option>
+                <option value="₺30.000 - ₺40.000">₺30.000 - ₺40.000</option>
+                <option value="₺40.000 - ₺50.000">₺40.000 - ₺50.000</option>
+                <option value="₺50.000 - ₺75.000">₺50.000 - ₺75.000</option>
+                <option value="₺75.000 - ₺100.000">₺75.000 - ₺100.000</option>
+                <option value="₺100.000+">₺100.000+</option>
+              </select>
+
+              <input
+                type="text"
+                value={commentCompany}
+                onChange={(e) => setCommentCompany(e.target.value)}
+                placeholder={t.companyPlaceholder}
+                style={{
+                  padding: '0.75rem',
+                  border: '2px solid #e5e7eb',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  outline: 'none'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+                onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+              />
+
+              <input
+                type="text"
+                value={commentPosition}
+                onChange={(e) => setCommentPosition(e.target.value)}
+                placeholder={t.positionPlaceholder}
+                style={{
+                  padding: '0.75rem',
+                  border: '2px solid #e5e7eb',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  outline: 'none'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+                onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+              />
+
+              <select
+                value={commentExperience}
+                onChange={(e) => setCommentExperience(e.target.value)}
+                style={{
+                  padding: '0.75rem',
+                  border: '2px solid #e5e7eb',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  outline: 'none'
+                }}
+              >
+                <option value="">{t.experiencePlaceholder}</option>
+                <option value="0-1 yıl">0-1 yıl</option>
+                <option value="1-2 yıl">1-2 yıl</option>
+                <option value="2-3 yıl">2-3 yıl</option>
+                <option value="3-5 yıl">3-5 yıl</option>
+                <option value="5-8 yıl">5-8 yıl</option>
+                <option value="8-10 yıl">8-10 yıl</option>
+                <option value="10+ yıl">10+ yıl</option>
+              </select>
+            </div>
+
+
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginTop: '1.5rem',
+              gap: '1rem',
+              flexWrap: 'wrap'
+            }}>
+              <label style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '0.875rem',
+                color: '#374151',
+                cursor: 'pointer'
+              }}>
+                <input
+                  type="checkbox"
+                  checked={isCommentAnonymous}
+                  onChange={(e) => setIsCommentAnonymous(e.target.checked)}
+                  style={{ cursor: 'pointer' }}
+                />
+                {t.anonymousComment}
+              </label>
+
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <button
+                  onClick={() => setShowCommentForm(false)}
+                  style={{
+                    padding: '0.75rem 1.5rem',
+                    backgroundColor: '#6b7280',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontSize: '0.875rem',
+                    cursor: 'pointer',
+                    fontWeight: '500'
+                  }}
+                >
+                  {t.cancel}
+                </button>
+                <button
+                  onClick={addComment}
+                  disabled={!newComment.trim()}
+                  style={{
+                    padding: '0.75rem 1.5rem',
+                    backgroundColor: newComment.trim() ? '#3b82f6' : '#9ca3af',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontSize: '0.875rem',
+                    cursor: newComment.trim() ? 'pointer' : 'not-allowed',
+                    fontWeight: '500'
+                  }}
+                >
+                  {t.shareComment}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* View All Comments Button */}
+        {comments.length > 3 && (
+          <div style={{ 
+            textAlign: 'center', 
+            marginBottom: '2rem'
+          }}>
+            <button
+              onClick={() => setShowAllComments(true)}
+              style={{
+                padding: '0.75rem 1.5rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(10px)',
+                color: 'white',
+                border: '2px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '0.75rem',
+                fontSize: '0.875rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              📖 {t.viewAllComments} ({comments.length})
+            </button>
+          </div>
+        )}
+
+        {/* Comments List */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.5rem'
+        }}>
+          {comments.length === 0 ? (
+            <div style={{
+              textAlign: 'center',
+              padding: '3rem',
+              color: 'rgba(255, 255, 255, 0.8)',
+              fontSize: '1rem'
+            }}>
+              {t.noComments}
+            </div>
+          ) : (
+            comments.slice(0, 3).map((comment) => (
+              <div
+                key={comment.id}
+                style={{
+                  padding: '1.5rem',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                  borderRadius: '1rem',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  position: 'relative',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}
+              >
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  marginBottom: '1rem',
+                  flexWrap: 'wrap',
+                  gap: '0.5rem'
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    gap: '0.5rem',
+                    alignItems: 'center',
+                    flexWrap: 'wrap'
+                  }}>
+                    <span style={{
+                      fontSize: '0.75rem',
+                      color: 'white',
+                      backgroundColor: '#3b82f6',
+                      padding: '0.375rem 0.75rem',
+                      borderRadius: '1rem',
+                      fontWeight: '500'
+                    }}>
+                      {comment.isAnonymous ? t.anonymousComment : 'Kullanıcı'}
+                    </span>
+                    <span style={{
+                      fontSize: '0.75rem',
+                      color: '#1e40af',
+                      backgroundColor: '#dbeafe',
+                      padding: '0.375rem 0.75rem',
+                      borderRadius: '1rem',
+                      fontWeight: '500'
+                    }}>
+                      💰 {comment.salaryRange}
+                    </span>
+                    {comment.company && (
+                      <span style={{
+                        fontSize: '0.75rem',
+                        color: '#059669',
+                        backgroundColor: '#d1fae5',
+                        padding: '0.375rem 0.75rem',
+                        borderRadius: '1rem',
+                        fontWeight: '500'
+                      }}>
+                        🏢 {comment.company}
+                      </span>
+                    )}
+                    {comment.position && (
+                      <span style={{
+                        fontSize: '0.75rem',
+                        color: '#7c3aed',
+                        backgroundColor: '#ede9fe',
+                        padding: '0.375rem 0.75rem',
+                        borderRadius: '1rem',
+                        fontWeight: '500'
+                      }}>
+                        👔 {comment.position}
+                      </span>
+                    )}
+                    {comment.experience && (
+                      <span style={{
+                        fontSize: '0.75rem',
+                        color: '#dc2626',
+                        backgroundColor: '#fee2e2',
+                        padding: '0.375rem 0.75rem',
+                        borderRadius: '1rem',
+                        fontWeight: '500'
+                      }}>
+                        ⏱️ {comment.experience}
+                      </span>
+                    )}
+                  </div>
+                  <span style={{
+                    fontSize: '0.75rem',
+                    color: '#6b7280',
+                    backgroundColor: '#f3f4f6',
+                    padding: '0.25rem 0.5rem',
+                    borderRadius: '0.5rem'
+                  }}>
+                    {formatTimeAgo(comment.timestamp)}
+                  </span>
+                </div>
+                <p style={{
+                  fontSize: '0.875rem',
+                  color: '#374151',
+                  lineHeight: '1.6',
+                  margin: 0,
+                  backgroundColor: '#f8fafc',
+                  padding: '1rem',
+                  borderRadius: '0.5rem',
+                  borderLeft: '4px solid #3b82f6'
+                }}>
+                  {comment.text}
+                </p>
+
+                {/* Reply and Social Media Section */}
+                <div style={{ marginTop: '1rem' }}>
+                  <div style={{
+                    display: 'flex',
+                    gap: '0.5rem',
+                    flexWrap: 'wrap',
+                    alignItems: 'center'
+                  }}>
+                    {currentUser ? (
+                      <button
+                        onClick={() => setReplyingToComment(replyingToComment === comment.id ? null : comment.id)}
+                        style={{
+                          padding: '0.5rem 1rem',
+                          backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                          color: '#3b82f6',
+                          border: '1px solid rgba(59, 130, 246, 0.3)',
+                          borderRadius: '0.5rem',
+                          fontSize: '0.875rem',
+                          cursor: 'pointer',
+                          fontWeight: '500'
+                        }}
+                      >
+                        💬 {t.reply}
+                      </button>
+                    ) : (
+                      <span style={{
+                        fontSize: '0.875rem',
+                        color: '#6b7280',
+                        fontStyle: 'italic'
+                      }}>
+                        {t.loginToReply}
+                      </span>
+                    )}
+                    
+                    {/* Social Media Share Button for Premium Users */}
+                    {currentUser && currentUser.isPremium && (
+                      <button
+                        onClick={() => {
+                          setSelectedCommentForShare(comment.id);
+                          setShowSocialModal(true);
+                        }}
+                        style={{
+                          padding: '0.5rem 1rem',
+                          backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                          color: '#059669',
+                          border: '1px solid rgba(34, 197, 94, 0.3)',
+                          borderRadius: '0.5rem',
+                          fontSize: '0.875rem',
+                          cursor: 'pointer',
+                          fontWeight: '500',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.25rem'
+                        }}
+                      >
+                        📱 {t.shareOnSocial}
+                      </button>
+                    )}
+                    
+                    {/* Premium Upgrade Button for Non-Premium Users */}
+                    {currentUser && !currentUser.isPremium && (
+                      <button
+                        onClick={() => setShowPremiumModal(true)}
+                        style={{
+                          padding: '0.5rem 1rem',
+                          backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                          color: '#d97706',
+                          border: '1px solid rgba(245, 158, 11, 0.3)',
+                          borderRadius: '0.5rem',
+                          fontSize: '0.875rem',
+                          cursor: 'pointer',
+                          fontWeight: '500',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.25rem'
+                        }}
+                      >
+                        ⭐ {t.upgradeToPremium}
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Reply Form */}
+                  {replyingToComment === comment.id && (
+                    <div style={{
+                      marginTop: '1rem',
+                      padding: '1rem',
+                      backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                      borderRadius: '0.5rem',
+                      border: '1px solid #e5e7eb'
+                    }}>
+                      <textarea
+                        value={replyText}
+                        onChange={(e) => setReplyText(e.target.value)}
+                        placeholder={`${currentUser?.username} olarak yanıtla...`}
+                        style={{
+                          width: '100%',
+                          height: '80px',
+                          padding: '0.75rem',
+                          border: '2px solid #e5e7eb',
+                          borderRadius: '0.5rem',
+                          fontSize: '0.875rem',
+                          resize: 'vertical',
+                          outline: 'none'
+                        }}
+                        onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+                        onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                      />
+                      <div style={{
+                        display: 'flex',
+                        gap: '0.5rem',
+                        marginTop: '0.5rem'
+                      }}>
+                        <button
+                          onClick={() => addReply(comment.id)}
+                          disabled={!replyText.trim()}
+                          style={{
+                            padding: '0.5rem 1rem',
+                            backgroundColor: replyText.trim() ? '#3b82f6' : '#9ca3af',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '0.375rem',
+                            fontSize: '0.875rem',
+                            cursor: replyText.trim() ? 'pointer' : 'not-allowed',
+                            fontWeight: '500'
+                          }}
+                        >
+                          {t.addReply}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setReplyingToComment(null);
+                            setReplyText('');
+                          }}
+                          style={{
+                            padding: '0.5rem 1rem',
+                            backgroundColor: 'transparent',
+                            color: '#6b7280',
+                            border: '1px solid #d1d5db',
+                            borderRadius: '0.375rem',
+                            fontSize: '0.875rem',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          {t.cancel}
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Replies List */}
+                  {comment.replies && comment.replies.length > 0 && (
+                    <div style={{ marginTop: '1rem', marginLeft: '1rem' }}>
+                      {comment.replies.map((reply) => (
+                        <div
+                          key={reply.id}
+                          style={{
+                            padding: '0.75rem',
+                            backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                            borderRadius: '0.5rem',
+                            border: '1px solid rgba(59, 130, 246, 0.2)',
+                            marginBottom: '0.5rem'
+                          }}
+                        >
+                          <div style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            marginBottom: '0.5rem'
+                          }}>
+                            <span style={{
+                              fontSize: '0.75rem',
+                              fontWeight: '600',
+                              color: '#3b82f6'
+                            }}>
+                              @{reply.author}
+                            </span>
+                            <span style={{
+                              fontSize: '0.75rem',
+                              color: '#9ca3af'
+                            }}>
+                              {formatTimeAgo(reply.timestamp)}
+                            </span>
+                          </div>
+                          <p style={{
+                            fontSize: '0.875rem',
+                            color: '#374151',
+                            margin: 0,
+                            lineHeight: '1.4'
+                          }}>
+                            {reply.text}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Add Comment Button */}
+        {!showCommentForm && (
+          <div style={{ 
+            textAlign: 'center', 
+            marginTop: '2rem',
+            paddingTop: '2rem',
+            borderTop: '1px solid rgba(255, 255, 255, 0.2)'
+          }}>
+            <button
+              onClick={() => setShowCommentForm(true)}
+              style={{
+                padding: '1rem 2rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(10px)',
+                color: 'white',
+                border: '2px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '1rem',
+                fontSize: '1rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                boxShadow: '0 8px 16px -4px rgba(0, 0, 0, 0.1)',
+                transition: 'all 0.3s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.75rem'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+                e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 12px 24px -4px rgba(0, 0, 0, 0.15)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = '0 8px 16px -4px rgba(0, 0, 0, 0.1)';
+              }}
+            >
+              <span style={{ fontSize: '1.25rem' }}>💬</span>
+              {t.writeComment}
+            </button>
+          </div>
+        )}
+
+        {/* Login Modal */}
+        {showLoginModal && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000
+          }} onClick={() => setShowLoginModal(false)}>
+            <div style={{
+              backgroundColor: 'white',
+              padding: '2rem',
+              borderRadius: '1rem',
+              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+              maxWidth: '400px',
+              width: '90%'
+            }} onClick={(e) => e.stopPropagation()}>
+              <h2 style={{
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                marginBottom: '1.5rem',
+                textAlign: 'center',
+                color: '#1e293b'
+              }}>
+                {isLoginMode ? t.login : t.register}
+              </h2>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <input
+                  type="text"
+                  placeholder={t.username}
+                  value={loginForm.username}
+                  onChange={(e) => setLoginForm({...loginForm, username: e.target.value})}
+                  style={{
+                    padding: '0.75rem',
+                    border: '2px solid #e5e7eb',
+                    borderRadius: '0.5rem',
+                    fontSize: '1rem',
+                    outline: 'none'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+                  onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                />
+
+                {!isLoginMode && (
+                  <input
+                    type="email"
+                    placeholder={t.email}
+                    value={loginForm.email}
+                    onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}
+                    style={{
+                      padding: '0.75rem',
+                      border: '2px solid #e5e7eb',
+                      borderRadius: '0.5rem',
+                      fontSize: '1rem',
+                      outline: 'none'
+                    }}
+                    onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+                    onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                  />
+                )}
+
+                <input
+                  type="password"
+                  placeholder={t.password}
+                  value={loginForm.password}
+                  onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}
+                  style={{
+                    padding: '0.75rem',
+                    border: '2px solid #e5e7eb',
+                    borderRadius: '0.5rem',
+                    fontSize: '1rem',
+                    outline: 'none'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+                  onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                />
+
+                <button
+                  onClick={isLoginMode ? handleLogin : handleRegister}
+                  style={{
+                    padding: '0.75rem',
+                    backgroundColor: '#3b82f6',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    marginTop: '0.5rem'
+                  }}
+                >
+                  {isLoginMode ? t.login : t.register}
+                </button>
+
+                <button
+                  onClick={() => setIsLoginMode(!isLoginMode)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#3b82f6',
+                    cursor: 'pointer',
+                    fontSize: '0.875rem',
+                    textDecoration: 'underline'
+                  }}
+                >
+                  {isLoginMode ? t.switchToRegister : t.switchToLogin}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Social Media Modal */}
+        {showSocialModal && selectedCommentForShare && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000
+          }} onClick={() => setShowSocialModal(false)}>
+            <div style={{
+              backgroundColor: 'white',
+              padding: '2rem',
+              borderRadius: '1rem',
+              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+              maxWidth: '500px',
+              width: '90%'
+            }} onClick={(e) => e.stopPropagation()}>
+              <h2 style={{
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                marginBottom: '1.5rem',
+                textAlign: 'center',
+                color: '#1e293b'
+              }}>
+                🌟 {t.socialMediaPromotion}
+              </h2>
+
+              <div style={{
+                backgroundColor: '#f8fafc',
+                padding: '1.5rem',
+                borderRadius: '0.5rem',
+                marginBottom: '1.5rem',
+                border: '1px solid #e2e8f0'
+              }}>
+                <h3 style={{
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  marginBottom: '1rem',
+                  color: '#374151'
+                }}>
+                  {t.shareYourStory}
+                </h3>
+                <p style={{
+                  fontSize: '0.875rem',
+                  color: '#6b7280',
+                  marginBottom: '1rem',
+                  lineHeight: '1.6'
+                }}>
+                  {t.socialMediaDescription}
+                </p>
+
+                {/* Comment Preview */}
+                {(() => {
+                  const comment = comments.find(c => c.id === selectedCommentForShare);
+                  if (!comment) return null;
+                  
+                  return (
+                    <div style={{
+                      backgroundColor: 'white',
+                      padding: '1rem',
+                      borderRadius: '0.5rem',
+                      border: '1px solid #e5e7eb',
+                      fontSize: '0.875rem'
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        gap: '0.5rem',
+                        marginBottom: '0.5rem',
+                        flexWrap: 'wrap'
+                      }}>
+                        <span style={{
+                          backgroundColor: '#3b82f6',
+                          color: 'white',
+                          padding: '0.25rem 0.5rem',
+                          borderRadius: '0.25rem',
+                          fontSize: '0.75rem'
+                        }}>
+                          💰 {comment.salaryRange}
+                        </span>
+                        {comment.company && (
+                          <span style={{
+                            backgroundColor: '#059669',
+                            color: 'white',
+                            padding: '0.25rem 0.5rem',
+                            borderRadius: '0.25rem',
+                            fontSize: '0.75rem'
+                          }}>
+                            🏢 {comment.company}
+                          </span>
+                        )}
+                        {comment.position && (
+                          <span style={{
+                            backgroundColor: '#7c3aed',
+                            color: 'white',
+                            padding: '0.25rem 0.5rem',
+                            borderRadius: '0.25rem',
+                            fontSize: '0.75rem'
+                          }}>
+                            👔 {comment.position}
+                          </span>
+                        )}
+                      </div>
+                      <p style={{
+                        margin: 0,
+                        color: '#374151',
+                        fontSize: '0.875rem',
+                        lineHeight: '1.4'
+                      }}>
+                        {comment.text}
+                      </p>
+                    </div>
+                  );
+                })()}
+              </div>
+
+              {/* Social Media Platform Selection */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '1rem',
+                marginBottom: '1.5rem'
+              }}>
+                <button
+                  onClick={() => {
+                    const comment = comments.find(c => c.id === selectedCommentForShare);
+                    if (comment) {
+                      const newPost: SocialPost = {
+                        id: Date.now().toString(),
+                        commentId: comment.id,
+                        platform: 'twitter',
+                        isScheduled: false,
+                        status: 'posted'
+                      };
+                      setSocialPosts(prev => [...prev, newPost]);
+                      setShowSocialModal(false);
+                      alert(language === 'tr' ? 
+                        'Yorumunuz Twitter\'da paylaşılmak üzere hazırlandı!' : 
+                        'Your comment has been prepared for sharing on Twitter!');
+                    }
+                  }}
+                  style={{
+                    padding: '1rem',
+                    backgroundColor: '#1da1f2',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem'
+                  }}
+                >
+                  📱 Twitter
+                </button>
+                <button
+                  onClick={() => {
+                    const comment = comments.find(c => c.id === selectedCommentForShare);
+                    if (comment) {
+                      const newPost: SocialPost = {
+                        id: Date.now().toString(),
+                        commentId: comment.id,
+                        platform: 'instagram',
+                        isScheduled: false,
+                        status: 'posted'
+                      };
+                      setSocialPosts(prev => [...prev, newPost]);
+                      setShowSocialModal(false);
+                      alert(language === 'tr' ? 
+                        'Yorumunuz Instagram\'da paylaşılmak üzere hazırlandı!' : 
+                        'Your comment has been prepared for sharing on Instagram!');
+                    }
+                  }}
+                  style={{
+                    padding: '1rem',
+                    backgroundColor: '#E4405F',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem'
+                  }}
+                >
+                  📷 Instagram
+                </button>
+              </div>
+
+              {/* Cancel Button */}
+              <button
+                onClick={() => setShowSocialModal(false)}
+                style={{
+                  width: '100%',
+                  padding: '0.75rem',
+                  backgroundColor: '#6b7280',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '600',
+                  cursor: 'pointer'
+                }}
+              >
+                {t.cancel}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Premium Upgrade Modal */}
+        {showPremiumModal && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000
+          }} onClick={() => setShowPremiumModal(false)}>
+            <div style={{
+              backgroundColor: 'white',
+              padding: '2rem',
+              borderRadius: '1rem',
+              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+              maxWidth: '400px',
+              width: '90%'
+            }} onClick={(e) => e.stopPropagation()}>
+              <h2 style={{
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                marginBottom: '1.5rem',
+                textAlign: 'center',
+                color: '#1e293b'
+              }}>
+                ⭐ {t.upgradeToPremium}
+              </h2>
+
+              <div style={{
+                backgroundColor: '#fef3c7',
+                padding: '1.5rem',
+                borderRadius: '0.5rem',
+                marginBottom: '1.5rem',
+                border: '1px solid #fbbf24'
+              }}>
+                <h3 style={{
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  marginBottom: '1rem',
+                  color: '#d97706'
+                }}>
+                  {t.premiumFeature}
+                </h3>
+                <p style={{
+                  fontSize: '0.875rem',
+                  color: '#92400e',
+                  marginBottom: '1rem',
+                  lineHeight: '1.6'
+                }}>
+                  {t.premiumRequired}
+                </p>
+                <ul style={{
+                  margin: 0,
+                  paddingLeft: '1.5rem',
+                  color: '#92400e',
+                  fontSize: '0.875rem',
+                  lineHeight: '1.6'
+                }}>
+                  <li>{t.socialMediaPromotion}</li>
+                  <li>{language === 'tr' ? 'Özel premium destek' : 'Premium support'}</li>
+                  <li>{language === 'tr' ? 'Gelişmiş analiz araçları' : 'Advanced analytics tools'}</li>
+                </ul>
+              </div>
+
+              <div style={{
+                display: 'flex',
+                gap: '0.5rem'
+              }}>
+                <button
+                  onClick={() => {
+                    // Mock premium upgrade
+                    if (currentUser) {
+                      setCurrentUser({...currentUser, isPremium: true});
+                      setShowPremiumModal(false);
+                      alert(language === 'tr' ? 
+                        'Tebrikler! Premium üyeliğiniz aktif edildi.' : 
+                        'Congratulations! Your premium membership has been activated.');
+                    }
+                  }}
+                  style={{
+                    flex: 1,
+                    padding: '0.75rem',
+                    backgroundColor: '#d97706',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {t.upgradeToPremium}
+                </button>
+                <button
+                  onClick={() => setShowPremiumModal(false)}
+                  style={{
+                    flex: 1,
+                    padding: '0.75rem',
+                    backgroundColor: '#6b7280',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {t.cancel}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
